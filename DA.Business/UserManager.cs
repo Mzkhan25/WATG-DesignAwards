@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using DA.Data;
 
 namespace DA.Business
 {
-    public class Class1
+    public class UserManager
     {
+        // create DB context here 
     }
 }
