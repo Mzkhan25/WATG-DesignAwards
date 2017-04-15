@@ -1,12 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using DA.Common;
 using DA.Common.Response;
 using DA.Common.Request;
+using DA.Contract;
+
 
 namespace DA.WebApi.Controllers
 {
@@ -15,11 +15,18 @@ namespace DA.WebApi.Controllers
     {
         [Route("Login")]
         [HttpPost]
-        public LoginResponse Login(LoginRequest request)
+        public HttpResponseMessage Login(LoginRequest request)
         {
-            LoginResponse loginResponse = new LoginResponse();
-
-            return loginResponse;
+            try
+            {
+                UserManager userManager = new UserManager();
+                
+                return Request.CreateResponse(HttpStatusCode.OK, userManager.LoginUser(request));
+            }
+            catch(Exception ex)
+            {
+                return Request.CreateResponse("Some went wrong");
+            }
         }
     }
 }

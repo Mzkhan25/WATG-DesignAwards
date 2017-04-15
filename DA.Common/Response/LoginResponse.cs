@@ -13,5 +13,6 @@ namespace DA.Common.Response
         public string LastName { get; set; }
         public string Email { get; set; }
         public int Role { get; set; }
+        public bool IsAuthenticated { get; set; }
     }
 }

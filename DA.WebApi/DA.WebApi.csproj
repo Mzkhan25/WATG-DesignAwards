@@ -242,6 +242,10 @@
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\DA.Business\DA.Contracts.csproj">
+      <Project>{f7c82994-26ff-4a6f-a802-75b6d081fd76}</Project>
+      <Name>DA.Contracts</Name>
+    </ProjectReference>
     <ProjectReference Include="..\DA.Common\DA.Common.csproj">
       <Project>{2024c190-75a7-4445-b680-b78c32f67007}</Project>
       <Name>DA.Common</Name>
