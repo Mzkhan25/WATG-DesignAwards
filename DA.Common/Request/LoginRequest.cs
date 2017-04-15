@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DA.Common
+namespace DA.Common.Request
 {
-    public class Class1
+    public class LoginRequest
     {
+        public string Pin { get; set; }
     }
 }
