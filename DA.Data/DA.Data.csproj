@@ -51,11 +51,31 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Category.cs">
+      <DependentUpon>WATGDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Project.cs">
+      <DependentUpon>WATGDB.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Result.cs">
+      <DependentUpon>WATGDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="User.cs">
+      <DependentUpon>WATGDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UserRole.cs">
+      <DependentUpon>WATGDB.tt</DependentUpon>
+    </Compile>
     <Compile Include="WATGDB.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>WATGDB.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WATGDB.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>WATGDB.tt</DependentUpon>
     </Compile>
     <Compile Include="WATGDB.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -80,6 +100,12 @@
     <Content Include="WATGDB.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>WATGDB.Context.cs</LastGenOutput>
+      <DependentUpon>WATGDB.edmx</DependentUpon>
+    </Content>
+    <Content Include="WATGDB.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>WATGDB.edmx</DependentUpon>
+      <LastGenOutput>WATGDB.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <ItemGroup>
