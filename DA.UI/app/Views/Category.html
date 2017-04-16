@@ -2,8 +2,8 @@
 
 <ul>
     <li ng-repeat="cat in category.categoryList" ng-click='category.loadProjects(cat.CategoryId)'> 
+        <img ng-src="data:image/JPEG;base64,{{cat.Image}}" height="100" width="100">
        {{cat.Category1}}
     </li>
 </ul>
 
-<button ng-click='category.loadProjects(category.CategoryId)'>ll</button>

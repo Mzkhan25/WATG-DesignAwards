@@ -46,5 +46,22 @@ namespace DA.WebApi.Controllers
                 return Request.CreateResponse("Some went wrong");
             }
         }
+
+        [Route("GetProjectById")]
+        [HttpGet]
+        [EnableCors(origins: "*", headers: "*", methods: "*")]
+        public HttpResponseMessage GetProjectById(int projectId)
+        {
+            try
+            {
+                OperationManager operationManager = new OperationManager();
+
+                return operationManager.GetProjectById(projectId);
+            }
+            catch (Exception ex)
+            {
+                return Request.CreateResponse("Some went wrong");
+            }
+        }
     }
 }
