@@ -19,21 +19,28 @@
 
     <script src="Scripts/angular-ui-router.js"></script>
     <script src="app/app.js"></script>
+    <link href="css/StyleSheet.css" rel="stylesheet" />
+
 </head>
 <body ng-app="DesignAwardApp">
-    <h1>Home Page</h1>
-    
-
-    <div ui-view></div>
+    <div class="login-page">
+        <div class="form">
+            <form class="login-form">
+                <h3>WATG Awards</h3>
+                <input type="password" placeholder="PIN" />
+                <button>login</button>
+                <p class="message">Forget PIN? <a href="#">Click Here</a></p>
+            </form>
+        </div>
+    </div>
 </body>
 
 
 </html>
 
 <script>
-    function loadOut() {
-
-        //localStorage.clear();
-    }
+    $('.message a').click(function () {
+        $('form').animate({ height: "toggle", opacity: "toggle" }, "slow");
+    });
 
 </script>
