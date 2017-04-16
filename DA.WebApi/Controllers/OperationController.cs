@@ -30,6 +30,9 @@ namespace DA.WebApi.Controllers
             }
         }
 
+        [Route("GetProjectByCategory")]
+        [HttpGet]
+        [EnableCors(origins: "*", headers: "*", methods: "*")]
         public HttpResponseMessage GetProjectsByCategory(int categoryId)
         {
             try

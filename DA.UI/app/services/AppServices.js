@@ -20,3 +20,14 @@ app.factory('CategoryService', ['$http', '$rootScope', function ($http, $rootSco
     };
     return CategoryService;
 }]);
+
+app.factory('ProjectService', ['$http', '$rootScope', function ($http, $rootScope) {
+    var ProjectService = {};
+
+    ProjectService.getProjectById = function (categoryId) {
+        debugger;
+        var urlBase = $rootScope.baseUrl.concat('/api/v1/operation/GetProjectByCategory?categoryId='+categoryId);
+        return $http.get(urlBase);
+    };
+    return ProjectService;
+}]);

@@ -1,5 +1,9 @@
 ﻿<h1>Category page</h1>
 
 <ul>
-<li  ng-repeat="category in category.categoryList">{{category.Category1}}</li>
+    <li ng-repeat="cat in category.categoryList" ng-click='category.loadProjects(cat.CategoryId)'> 
+       {{cat.Category1}}
+    </li>
 </ul>
+
+<button ng-click='category.loadProjects(category.CategoryId)'>ll</button>

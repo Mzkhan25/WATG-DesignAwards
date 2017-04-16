@@ -14,5 +14,6 @@ namespace DA.Common.Response
         public string ProjectOffice { get; set; }
         public string PDFPath { get; set; }
         public int Year { get; set; }
+        public byte[] DisplayImage { get; set; }
     }
 }

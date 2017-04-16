@@ -17,6 +17,12 @@
                 controller: "CategoryController",
                 controllerAs: "category"
             })
+        .state('Project', {
+            url: "/Project/:categoryId",
+            templateUrl: "app/Views/Projects.html",
+            controller: "ProjectController",
+            controllerAs: "project"
+        })
     });
     app.run(['$rootScope', '$state', '$stateParams', function ($rootScope, $state, $stateParams) {
         $rootScope.baseUrl = 'http://localhost:49674';

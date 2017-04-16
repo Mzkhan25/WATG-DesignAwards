@@ -37,7 +37,7 @@ namespace DA.Contract
                 List<Project> projectList = context.Projects.Where(x => x.CategoryId == categoryId).ToList();
                 Mapper.Initialize(c =>
                 {
-                    c.CreateMap<List<Project>, List<ProjectResponse>>();
+                    c.CreateMap<Project, ProjectResponse>();
                 });
                 projectResponse = Mapper.Map<List<Project>, List<ProjectResponse>>
                     (projectList);
