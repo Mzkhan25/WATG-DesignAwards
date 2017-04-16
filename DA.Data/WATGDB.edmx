@@ -15,6 +15,7 @@
           <Property Name="CreatedOn" Type="datetime" />
           <Property Name="UpdatedBy" Type="int" />
           <Property Name="UpdatedOn" Type="datetime" />
+          <Property Name="Image" Type="varbinary(max)" />
         </EntityType>
         <EntityType Name="Projects">
           <Key>
@@ -166,19 +167,10 @@
     <edmx:ConceptualModels>
       <Schema Namespace="WATG_DA_DBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityContainer Name="WATG_DA_DBEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Categories" EntityType="WATG_DA_DBModel.Category" />
           <EntitySet Name="Projects" EntityType="WATG_DA_DBModel.Project" />
           <EntitySet Name="Results" EntityType="WATG_DA_DBModel.Result" />
           <EntitySet Name="UserRoles" EntityType="WATG_DA_DBModel.UserRole" />
           <EntitySet Name="Users" EntityType="WATG_DA_DBModel.User" />
-          <AssociationSet Name="FK__Projects__Catego__182C9B23" Association="WATG_DA_DBModel.FK__Projects__Catego__182C9B23">
-            <End Role="Category" EntitySet="Categories" />
-            <End Role="Project" EntitySet="Projects" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Results__Categor__1B0907CE" Association="WATG_DA_DBModel.FK__Results__Categor__1B0907CE">
-            <End Role="Category" EntitySet="Categories" />
-            <End Role="Result" EntitySet="Results" />
-          </AssociationSet>
           <AssociationSet Name="FK__Results__Project__1CF15040" Association="WATG_DA_DBModel.FK__Results__Project__1CF15040">
             <End Role="Project" EntitySet="Projects" />
             <End Role="Result" EntitySet="Results" />
@@ -191,20 +183,16 @@
             <End Role="UserRole" EntitySet="UserRoles" />
             <End Role="User" EntitySet="Users" />
           </AssociationSet>
+          <EntitySet Name="Categories" EntityType="WATG_DA_DBModel.Category" />
+          <AssociationSet Name="FK__Projects__Catego__182C9B23" Association="WATG_DA_DBModel.FK__Projects__Catego__182C9B23">
+            <End Role="Category" EntitySet="Categories" />
+            <End Role="Project" EntitySet="Projects" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Results__Categor__1B0907CE" Association="WATG_DA_DBModel.FK__Results__Categor__1B0907CE">
+            <End Role="Category" EntitySet="Categories" />
+            <End Role="Result" EntitySet="Results" />
+          </AssociationSet>
         </EntityContainer>
-        <EntityType Name="Category">
-          <Key>
-            <PropertyRef Name="CategoryId" />
-          </Key>
-          <Property Name="CategoryId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Category1" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
-          <Property Name="CreatedBy" Type="Int32" />
-          <Property Name="CreatedOn" Type="DateTime" Precision="3" />
-          <Property Name="UpdatedBy" Type="Int32" />
-          <Property Name="UpdatedOn" Type="DateTime" Precision="3" />
-          <NavigationProperty Name="Projects" Relationship="WATG_DA_DBModel.FK__Projects__Catego__182C9B23" FromRole="Category" ToRole="Project" />
-          <NavigationProperty Name="Results" Relationship="WATG_DA_DBModel.FK__Results__Categor__1B0907CE" FromRole="Category" ToRole="Result" />
-        </EntityType>
         <EntityType Name="Project">
           <Key>
             <PropertyRef Name="ProjectId" />
@@ -220,8 +208,8 @@
           <Property Name="CreatedOn" Type="DateTime" Precision="3" />
           <Property Name="UpdatedBy" Type="Int32" />
           <Property Name="UpdatedOn" Type="DateTime" Precision="3" />
-          <NavigationProperty Name="Category" Relationship="WATG_DA_DBModel.FK__Projects__Catego__182C9B23" FromRole="Project" ToRole="Category" />
           <NavigationProperty Name="Results" Relationship="WATG_DA_DBModel.FK__Results__Project__1CF15040" FromRole="Project" ToRole="Result" />
+          <NavigationProperty Name="Category" Relationship="WATG_DA_DBModel.FK__Projects__Catego__182C9B23" FromRole="Project" ToRole="Category" />
         </EntityType>
         <EntityType Name="Result">
           <Key>
@@ -238,9 +226,9 @@
           <Property Name="CreatedOn" Type="DateTime" Precision="3" />
           <Property Name="UpdatedBy" Type="Int32" />
           <Property Name="UpdatedOn" Type="DateTime" Precision="3" />
-          <NavigationProperty Name="Category1" Relationship="WATG_DA_DBModel.FK__Results__Categor__1B0907CE" FromRole="Result" ToRole="Category" />
           <NavigationProperty Name="Project" Relationship="WATG_DA_DBModel.FK__Results__Project__1CF15040" FromRole="Result" ToRole="Project" />
           <NavigationProperty Name="User" Relationship="WATG_DA_DBModel.FK__Results__UserId__1BFD2C07" FromRole="Result" ToRole="User" />
+          <NavigationProperty Name="Category1" Relationship="WATG_DA_DBModel.FK__Results__Categor__1B0907CE" FromRole="Result" ToRole="Category" />
         </EntityType>
         <EntityType Name="UserRole">
           <Key>
@@ -271,30 +259,6 @@
           <NavigationProperty Name="Results" Relationship="WATG_DA_DBModel.FK__Results__UserId__1BFD2C07" FromRole="User" ToRole="Result" />
           <NavigationProperty Name="UserRole" Relationship="WATG_DA_DBModel.FK__Users__UserRoleL__1367E606" FromRole="User" ToRole="UserRole" />
         </EntityType>
-        <Association Name="FK__Projects__Catego__182C9B23">
-          <End Type="WATG_DA_DBModel.Category" Role="Category" Multiplicity="0..1" />
-          <End Type="WATG_DA_DBModel.Project" Role="Project" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Category">
-              <PropertyRef Name="CategoryId" />
-            </Principal>
-            <Dependent Role="Project">
-              <PropertyRef Name="CategoryId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__Results__Categor__1B0907CE">
-          <End Type="WATG_DA_DBModel.Category" Role="Category" Multiplicity="1" />
-          <End Type="WATG_DA_DBModel.Result" Role="Result" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Category">
-              <PropertyRef Name="CategoryId" />
-            </Principal>
-            <Dependent Role="Result">
-              <PropertyRef Name="Category" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK__Results__Project__1CF15040">
           <End Type="WATG_DA_DBModel.Project" Role="Project" Multiplicity="1" />
           <End Type="WATG_DA_DBModel.Result" Role="Result" Multiplicity="*" />
@@ -331,24 +295,50 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="Category">
+          <Key>
+            <PropertyRef Name="CategoryId" />
+          </Key>
+          <Property Name="CategoryId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Category1" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedBy" Type="Int32" />
+          <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="Int32" />
+          <Property Name="UpdatedOn" Type="DateTime" Precision="3" />
+          <Property Name="Image" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <NavigationProperty Name="Projects" Relationship="WATG_DA_DBModel.FK__Projects__Catego__182C9B23" FromRole="Category" ToRole="Project" />
+          <NavigationProperty Name="Results" Relationship="WATG_DA_DBModel.FK__Results__Categor__1B0907CE" FromRole="Category" ToRole="Result" />
+        </EntityType>
+        <Association Name="FK__Projects__Catego__182C9B23">
+          <End Type="WATG_DA_DBModel.Category" Role="Category" Multiplicity="0..1" />
+          <End Type="WATG_DA_DBModel.Project" Role="Project" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="CategoryId" />
+            </Principal>
+            <Dependent Role="Project">
+              <PropertyRef Name="CategoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Results__Categor__1B0907CE">
+          <End Type="WATG_DA_DBModel.Category" Role="Category" Multiplicity="1" />
+          <End Type="WATG_DA_DBModel.Result" Role="Result" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="CategoryId" />
+            </Principal>
+            <Dependent Role="Result">
+              <PropertyRef Name="Category" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="WATG_DA_DBModelStoreContainer" CdmEntityContainer="WATG_DA_DBEntities">
-          <EntitySetMapping Name="Categories">
-            <EntityTypeMapping TypeName="WATG_DA_DBModel.Category">
-              <MappingFragment StoreEntitySet="Categories">
-                <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
-                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
-                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
-                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
-                <ScalarProperty Name="Category1" ColumnName="Category" />
-                <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Projects">
             <EntityTypeMapping TypeName="WATG_DA_DBModel.Project">
               <MappingFragment StoreEntitySet="Projects">
@@ -405,6 +395,19 @@
                 <ScalarProperty Name="LastName" ColumnName="LastName" />
                 <ScalarProperty Name="FirstName" ColumnName="FirstName" />
                 <ScalarProperty Name="UserId" ColumnName="UserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Categories">
+            <EntityTypeMapping TypeName="WATG_DA_DBModel.Category">
+              <MappingFragment StoreEntitySet="Categories">
+                <ScalarProperty Name="Image" ColumnName="Image" />
+                <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="Category1" ColumnName="Category" />
+                <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

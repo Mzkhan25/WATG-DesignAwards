@@ -5,16 +5,16 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="6087ccca966240eaaa1f4a11b48faad4" Name="Diagram1">
-        <EntityTypeShape EntityType="WATG_DA_DBModel.Category" Width="1.5" PointX="0.75" PointY="1.5" />
         <EntityTypeShape EntityType="WATG_DA_DBModel.Project" Width="1.5" PointX="3" PointY="1" />
         <EntityTypeShape EntityType="WATG_DA_DBModel.Result" Width="1.5" PointX="5.25" PointY="1.25" />
         <EntityTypeShape EntityType="WATG_DA_DBModel.UserRole" Width="1.5" PointX="0.75" PointY="6.625" />
         <EntityTypeShape EntityType="WATG_DA_DBModel.User" Width="1.5" PointX="3" PointY="6.125" />
-        <AssociationConnector Association="WATG_DA_DBModel.FK__Projects__Catego__182C9B23" />
-        <AssociationConnector Association="WATG_DA_DBModel.FK__Results__Categor__1B0907CE" />
         <AssociationConnector Association="WATG_DA_DBModel.FK__Results__Project__1CF15040" />
         <AssociationConnector Association="WATG_DA_DBModel.FK__Results__UserId__1BFD2C07" />
         <AssociationConnector Association="WATG_DA_DBModel.FK__Users__UserRoleL__1367E606" />
+        <EntityTypeShape EntityType="WATG_DA_DBModel.Category" Width="1.5" PointX="0.75" PointY="1.375" />
+        <AssociationConnector Association="WATG_DA_DBModel.FK__Projects__Catego__182C9B23" />
+        <AssociationConnector Association="WATG_DA_DBModel.FK__Results__Categor__1B0907CE" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
