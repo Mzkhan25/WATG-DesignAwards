@@ -9,6 +9,6 @@ namespace DA.Common.Response
     public class CategoryResponse
     {
         public int  CategoryId { get; set; }
-        public string Category { get; set; }
+        public string Category1 { get; set; }
     }
 }

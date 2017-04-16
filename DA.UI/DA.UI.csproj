@@ -95,9 +95,11 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="app\app.js" />
+    <Content Include="app\Controllers\CategoryController.js" />
     <Content Include="app\Controllers\LoginController.js" />
-    <Content Include="app\services\LoginService.js" />
+    <Content Include="app\services\AppServices.js" />
     <Content Include="app\unauthorizedView.html" />
+    <Content Include="app\Views\Category.html" />
     <Content Include="app\Views\Login.html" />
     <Content Include="css\StyleSheet.css" />
     <Content Include="Index.html" />

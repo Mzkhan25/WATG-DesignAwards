@@ -19,20 +19,15 @@
 
     <script src="Scripts/angular-ui-router.js"></script>
     <script src="app/app.js"></script>
+    <script src="app/Controllers/LoginController.js"></script>
+    <script src="app/Controllers/CategoryController.js"></script>
+
+    <script src="app/services/AppServices.js"></script>
     <link href="css/StyleSheet.css" rel="stylesheet" />
 
 </head>
 <body ng-app="DesignAwardApp">
-    <div class="login-page">
-        <div class="form">
-            <form class="login-form">
-                <h3>WATG Awards</h3>
-                <input type="password" placeholder="PIN" />
-                <button>login</button>
-                <p class="message">Forget PIN? <a href="#">Click Here</a></p>
-            </form>
-        </div>
-    </div>
+    <div ui-view></div>
 </body>
 
 

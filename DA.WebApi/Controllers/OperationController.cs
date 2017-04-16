@@ -6,6 +6,7 @@ using System.Net.Http;
 using System.Web.Http;
 using DA.Common.Response;
 using DA.Contract;
+using System.Web.Http.Cors;
 
 namespace DA.WebApi.Controllers
 {
@@ -14,6 +15,7 @@ namespace DA.WebApi.Controllers
     {
         [Route("GetCategories")]
         [HttpGet]
+        [EnableCors(origins: "*", headers: "*", methods: "*")]
         public HttpResponseMessage GetCategories()
         {
             try

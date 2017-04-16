@@ -19,7 +19,7 @@ namespace DA.Contract
                 List<Category> catgoriesList = context.Categories.ToList();
                 Mapper.Initialize(c =>
                 {
-                    c.CreateMap<List<Category>, List<CategoryResponse>>();
+                    c.CreateMap<Category, CategoryResponse>();
                 });
                 categoryResponse = Mapper.Map<List<Category>, List<CategoryResponse>>
                     (catgoriesList);
