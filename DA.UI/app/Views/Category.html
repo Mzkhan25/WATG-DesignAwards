@@ -1,5 +1,8 @@
 ﻿<h1>Category page</h1>
 
 <ul>
-<li  ng-repeat="category in category.categoryList">{{category.Category1}}</li>
+<li  ng-repeat="cat in category.categoryList">
+    <img ng-src="data:image/JPEG;base64,{{cat.Image}}">
+    {{cat.Category1}}
+</li>
 </ul>

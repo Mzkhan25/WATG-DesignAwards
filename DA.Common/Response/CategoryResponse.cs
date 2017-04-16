@@ -10,5 +10,6 @@ namespace DA.Common.Response
     {
         public int  CategoryId { get; set; }
         public string Category1 { get; set; }
+        public byte[] Image { get; set; }
     }
 }

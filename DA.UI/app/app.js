@@ -1,5 +1,11 @@
 ﻿
-    var app = angular.module('DesignAwardApp', ['ui.router']);
+var app = angular.module('DesignAwardApp', ['ui.router']);
+
+    app.config(['$compileProvider',
+      function ($compileProvider) {
+          $compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|ftp|mailto|file):/);
+      }
+    ]);
 
     app.config(function ($stateProvider, $urlRouterProvider) {
         $urlRouterProvider
