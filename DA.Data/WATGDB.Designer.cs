@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'E:\Sample Side Project\Desgin Awards\Source Code\WATG-DesignAwards\DA.Data\WATGDB.edmx'. 
+﻿// T4 code generation is enabled for model 'C:\Users\ahmed.khateeb\Source\Repos\WATG-DesignAwards\DA.Data\WATGDB.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.
