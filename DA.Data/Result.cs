@@ -18,6 +18,10 @@ namespace DA.Data
         public int Category { get; set; }
         public int UserId { get; set; }
         public int ProjectId { get; set; }
+        public Nullable<int> CreatedBy { get; set; }
+        public Nullable<System.DateTime> CreatedOn { get; set; }
+        public Nullable<int> UpdatedBy { get; set; }
+        public Nullable<System.DateTime> UpdatedOn { get; set; }
     
         public virtual Category Category1 { get; set; }
         public virtual Project Project { get; set; }
