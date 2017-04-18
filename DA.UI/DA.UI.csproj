@@ -101,14 +101,71 @@
     <Content Include="app\services\AppServices.js" />
     <Content Include="app\unauthorizedView.html" />
     <Content Include="app\Views\Category.html" />
+    <Content Include="app\Views\cat_landscape.html" />
+    <Content Include="app\Views\index.html" />
+    <Content Include="app\Views\intro.html" />
     <Content Include="app\Views\Login.html" />
     <Content Include="app\Views\Projects.html" />
-    <Content Include="css\StyleSheet.css" />
+    <Content Include="css\entries\landscape_1.jpg" />
+    <Content Include="css\entries\landscape_2.jpg" />
+    <Content Include="css\entries\landscape_3.jpg" />
+    <Content Include="css\entries\landscape_4.jpg" />
+    <Content Include="css\images\cityscape.svg" />
+    <Content Include="css\images\hotel.svg" />
+    <Content Include="css\images\house.svg" />
+    <Content Include="css\images\landing_bg.jpg" />
+    <Content Include="css\images\leaf.svg" />
+    <Content Include="css\images\logo-landing.svg" />
+    <Content Include="css\images\logo-small.svg" />
+    <Content Include="css\images\paper-plane.svg" />
+    <Content Include="css\images\parallax1.jpg" />
+    <Content Include="css\images\parallax2.jpg" />
+    <Content Include="css\images\parallax3.jpg" />
+    <Content Include="css\images\parallax4.jpg" />
+    <Content Include="css\images\parallax5.jpg" />
+    <Content Include="css\images\parallax6.jpg" />
+    <Content Include="css\images\parallax7.jpg" />
+    <Content Include="css\images\parallax8.jpg" />
+    <Content Include="css\images\parallax9.jpg" />
+    <Content Include="css\images\puzzle.svg" />
+    <Content Include="css\images\s_delivery.svg" />
+    <Content Include="css\images\s_interiors.svg" />
+    <Content Include="css\images\s_is.svg" />
+    <Content Include="css\images\s_landscape.svg" />
+    <Content Include="css\images\s_residential.svg" />
+    <Content Include="css\images\s_resort.svg" />
+    <Content Include="css\images\s_urban.svg" />
+    <Content Include="css\images\table.svg" />
+    <Content Include="css\images\watg-grey.svg" />
+    <Content Include="css\images\watg-white.svg" />
+    <Content Include="css\materialize.css" />
+    <Content Include="css\materialize.min.css" />
+    <Content Include="css\styles.css" />
     <Content Include="Index.html" />
     <Content Include="packages.config" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="css\fonts\roboto\Roboto-Bold.eot" />
+    <Content Include="css\fonts\roboto\Roboto-Bold.ttf" />
+    <Content Include="css\fonts\roboto\Roboto-Bold.woff" />
+    <Content Include="css\fonts\roboto\Roboto-Bold.woff2" />
+    <Content Include="css\fonts\roboto\Roboto-Light.eot" />
+    <Content Include="css\fonts\roboto\Roboto-Light.ttf" />
+    <Content Include="css\fonts\roboto\Roboto-Light.woff" />
+    <Content Include="css\fonts\roboto\Roboto-Light.woff2" />
+    <Content Include="css\fonts\roboto\Roboto-Medium.eot" />
+    <Content Include="css\fonts\roboto\Roboto-Medium.ttf" />
+    <Content Include="css\fonts\roboto\Roboto-Medium.woff" />
+    <Content Include="css\fonts\roboto\Roboto-Medium.woff2" />
+    <Content Include="css\fonts\roboto\Roboto-Regular.eot" />
+    <Content Include="css\fonts\roboto\Roboto-Regular.ttf" />
+    <Content Include="css\fonts\roboto\Roboto-Regular.woff" />
+    <Content Include="css\fonts\roboto\Roboto-Regular.woff2" />
+    <Content Include="css\fonts\roboto\Roboto-Thin.eot" />
+    <Content Include="css\fonts\roboto\Roboto-Thin.ttf" />
+    <Content Include="css\fonts\roboto\Roboto-Thin.woff" />
+    <Content Include="css\fonts\roboto\Roboto-Thin.woff2" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -120,6 +177,8 @@
     <Content Include="Scripts\angular-ui-router.js" />
     <Content Include="Scripts\angular.js" />
     <Content Include="Scripts\angular.min.js" />
+    <Content Include="Scripts\materialize.js" />
+    <Content Include="Scripts\materialize.min.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>

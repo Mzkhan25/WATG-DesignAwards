@@ -1,4 +1,4 @@
-﻿<div class="login-page">
+﻿<!--<div class="login-page">
     <div class="form">
         <form name="loginForm" class="login-form">
             <h3>WATG Awards</h3>
@@ -9,4 +9,19 @@
 
         </form>
     </div>
-</div>
+</div>-->
+
+<main class="login-card">
+    <div class="card grey lighten-4">
+        <div class="card-content center-align">
+            <span class="card-title">Enter Your PIN</span>
+            <div class="input-field">
+                <input id="password" type="password" class="validate center-align" ng-model="login.userPin" required placeholder="PIN" ng-click="login.invalidPINFlag = false"  style="font-size: 1.5em">
+                <label ng-if="login.invalidPINFlag" for="password" data-error="login.invalidUserMsg"></label>
+                
+            </div>
+            <!--<a class="waves-effect waves-light btn watg-blue" href="intro.html">Log In</a></li>-->
+            <button class="waves-effect waves-light btn watg-blue" ng-disabled="loginForm.$invalid" type="submit" ng-click="UserLogin()">Login</button>
+        </div>
+    </div>
+</main>

@@ -1,8 +1,9 @@
-﻿<!DOCTYPE html>
+﻿
+
+<!--<!DOCTYPE html>
 
 <html class="no-js">
 <head>
-    <!-- Meta-Information -->
     <title>WATG</title>
     <link rel="shortcut icon" href="images/favicon.ico" />
     <meta charset="utf-8">
@@ -10,7 +11,6 @@
     <meta name="description" content="WATG">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- Vendor: Angular Libraries-->
 
 
     <script src="Scripts/angular.js"></script>
@@ -38,4 +38,49 @@
         $('form').animate({ height: "toggle", opacity: "toggle" }, "slow");
     });
 
-</script>
+</script>-->
+
+
+
+<!DOCTYPE html>
+<html id="fullheight">
+
+<head>
+    <!--Import Google Icon Font-->
+    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="../css/materialize.min.css" media="screen,projection" />
+    <link href="css/styles.css" rel="stylesheet" type="text/css">
+    
+
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!--Import jQuery before materialize.js-->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript" src="Scripts/materialize.min.js"></script>
+    
+    <script src="Scripts/angular.js"></script>
+    <script src="Scripts/angular.min.js"></script>
+    <script src="Scripts/angular-ui-router.js"></script>
+    <script src="app/app.js"></script>
+    <script src="app/Controllers/LoginController.js"></script>
+    <script src="app/Controllers/CategoryController.js"></script>
+    <script src="app/Controllers/ProjectController.js"></script>
+    <script src="app/services/AppServices.js"></script>
+</head>
+
+<body id="landing" ng-app="DesignAwardApp">
+    <header class="valign-wrapper" style="height: 50%">
+        <img class="logo-landing" src="css/images/logo-landing.svg">
+    </header>
+
+    <div ui-view></div>
+    
+
+    <footer style="height: 50%">
+        <img class="watg-landing" src="css/images/watg-white.svg">
+    </footer>
+</body>
+
+</html>
