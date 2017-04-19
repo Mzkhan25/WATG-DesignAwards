@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -16,7 +15,5 @@ namespace DA.Common.Response
         public string PDFPath { get; set; }
         public int Year { get; set; }
         public byte[] DisplayImage { get; set; }
-
-        public ByteArrayContent PDFFile { get; set; }
     }
 }

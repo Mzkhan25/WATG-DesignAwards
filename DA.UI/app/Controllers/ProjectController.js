@@ -4,6 +4,7 @@ app.controller('ProjectController', function ($scope, $location, $state, $http, 
     var vm = this;
     vm.categoryId = $stateParams.categoryId;
     vm.projectList = [];
+    debugger;
     ProjectService.getProjectById(vm.categoryId)
             .success(function (response) {
                 vm.projectList = response;
@@ -12,7 +13,4 @@ app.controller('ProjectController', function ($scope, $location, $state, $http, 
                 console.log("Error occured: " + error);
             });
 
-    vm.getProject = function (projectId) {
-        ProjectService.getProject(projectId);
-    }
 });
