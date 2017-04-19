@@ -1,9 +1,73 @@
-﻿<h1>Category page</h1>
+﻿<!--<h1>Category page</h1>
 
 <ul>
     <li ng-repeat="cat in category.categoryList" ng-click='category.loadProjects(cat.CategoryId)'> 
         <img ng-src="data:image/JPEG;base64,{{cat.Image}}" height="100" width="100">
        {{cat.Category1}}
     </li>
-</ul>
+</ul>-->
 
+<div class="parallax-container darken valign-wrapper">
+    <div class="parallax"><img src="css/images/parallax5.jpg"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col s6 m3 offset-s3 offset-m1 pull-m1">
+                <img class="responsive-img" src="css/images/logo-landing.svg">
+            </div>
+            <div class="col s12 m8">
+                <span class="white-text" style="font-weight: 300; font-size: 1.2em">
+                    The Design Awards are meant to identify and recognize our very best design in several categories, as a way of sharing the best projects that have been completed (built or designed) over the last 2 years as well as "raising the bar" on our expectations for what is considered creative and innovative.
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="section white">
+    <div class="row container flow-text grey-text text-darken-1">
+        <h3 class="header">
+            Categories</h2>
+            <p>Click on the categories below to view the candidates. Voting will open on April ## and close on April ##. Be sure to vote for your favorite entries while voting is open.</p>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <!--<div class="col s6 m3 center-align">
+                <a href="cat_landscape.html"><img class="service-icons" src="images/s_landscape.svg"></a>
+            </div>-->
+            <div ng-repeat="cat in category.categoryList" ng-click='category.loadProjects(cat.CategoryId)' class="col s6 m3 offset-s3 offset-m1 pull-m1">
+                <img ng-src="data:image/JPEG;base64,{{cat.Image}}" height="100" width="100">
+            </div>
+        </div>
+    </div>
+
+    <div class="row container">
+        <p class="flow-text">Entries were received by the following Graphics or Marketing person listed below for each office:</p>
+        <div class="col s12 l6 valign-wrapper">
+            <i class="material-icons red-text text-darken-2" style="font-size: 2.5em">person_pin</i><span class="office">London</span><span class="grey-text text-darken-1 poc-pointer">></span><span class="poc">Bradly Hood</span>
+        </div>
+        <div class="col s12 l6 valign-wrapper">
+            <i class="material-icons red-text text-darken-2" style="font-size: 2.5em">person_pin</i><span class="office">Irvine</span><span class="grey-text text-darken-1 poc-pointer">></span><span class="poc">Chris Hernandez</span>
+        </div>
+        <div class="col s12 l6 valign-wrapper">
+            <i class="material-icons red-text text-darken-2" style="font-size: 2.5em">person_pin</i><span class="office">Singapore</span><span class="grey-text text-darken-1 poc-pointer">></span><span class="poc">Krystal Solorzano</span>
+        </div>
+        <div class="col s12 l6 valign-wrapper">
+            <i class="material-icons red-text text-darken-2" style="font-size: 2.5em">person_pin</i><span class="office">Honolulu</span><span class="grey-text text-darken-1 poc-pointer">></span><span class="poc">Caryn Saito</span>
+        </div>
+        <div class="col s12 l6 valign-wrapper">
+            <i class="material-icons red-text text-darken-2" style="font-size: 2.5em">person_pin</i><span class="office">New York</span><span class="grey-text text-darken-1 poc-pointer">></span><span class="poc">Joshua Leveque</span>
+        </div>
+    </div>
+</div>
+<div class="section white">
+    <div class="row container flow-text grey-text text-darken-1 ">
+        <h3 class="header">Awards Selection</h3>
+        <p>A "People's Choice" award will be selected from each category based on votes cast on this site. Simultaneously, "Jury's Choice" awards will be selected by the Design Advisory Council (DAC). The DAC jury will include non-WATG judges.</p>
+        <p>Awards will be announced on the following dates:</p>
+    </div>
+</div>
+<footer>
+    <div class="row container center-align">
+        <img class="watg-footer" src="css/images/watg-grey.svg">
+    </div>
+</footer>
