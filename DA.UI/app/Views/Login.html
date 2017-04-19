@@ -10,16 +10,14 @@
         </form>
     </div>
 </div>-->
-<header class="valign-wrapper" style="height: 50%">
-    <img class="logo-landing" src="css/images/logo-landing.svg">
-</header>
+
 <main class="login-card">
     <div class="card grey lighten-4">
         <div class="card-content center-align">
             <span class="card-title">Enter Your PIN</span>
             <div class="input-field">
                 <input id="password" type="password" class="validate center-align" ng-model="login.userPin" required placeholder="PIN" ng-click="login.invalidPINFlag = false"  style="font-size: 1.5em">
-                <p ng-if="login.invalidPINFlag" for="password" data-error="login.invalidUserMsg"></p>
+                <label ng-if="login.invalidPINFlag" for="password" data-error="login.invalidUserMsg"></label>
                 
             </div>
             <!--<a class="waves-effect waves-light btn watg-blue" href="intro.html">Log In</a></li>-->
@@ -27,6 +25,3 @@
         </div>
     </div>
 </main>
-<footer style="height: 50%">
-    <img class="watg-landing" src="css/images/watg-white.svg">
-</footer>
