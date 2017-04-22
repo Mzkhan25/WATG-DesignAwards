@@ -12,9 +12,11 @@ app.controller('CategoryController', function ($scope, $location, $state, $http,
                  console.log("Error occured: " + error);
              });
 
-    vm.loadProjects = function(categoryId)
+    vm.loadProjects = function(categoryId,categoryName)
     {
-        alert(categoryId);
+        localStorage.setItem('currentCategoryId', categoryId);
+        localStorage.setItem('currentCategoryName', categoryName);
+
         $state.go('Project', { "categoryId": categoryId });
     }
 });

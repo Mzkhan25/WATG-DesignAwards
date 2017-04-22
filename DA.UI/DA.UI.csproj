@@ -102,7 +102,6 @@
     <Content Include="app\unauthorizedView.html" />
     <Content Include="app\Views\Category.html" />
     <Content Include="app\Views\cat_landscape.html" />
-    <Content Include="app\Views\index.html" />
     <Content Include="app\Views\intro.html" />
     <Content Include="app\Views\Login.html" />
     <Content Include="app\Views\Projects.html" />

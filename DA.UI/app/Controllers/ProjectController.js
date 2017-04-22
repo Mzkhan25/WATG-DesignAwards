@@ -4,7 +4,8 @@ app.controller('ProjectController', function ($scope, $location, $state, $http, 
     var vm = this;
     vm.categoryId = $stateParams.categoryId;
     vm.projectList = [];
-    debugger;
+    vm.projectCategory = localStorage.getItem("currentCategoryName");
+
     ProjectService.getProjectById(vm.categoryId)
             .success(function (response) {
                 vm.projectList = response;
