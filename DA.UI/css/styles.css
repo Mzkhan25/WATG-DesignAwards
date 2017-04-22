@@ -188,3 +188,7 @@ nav.top-nav {
 		width: 80%;
 	}
 }
+
+span.lowercase {
+    text-transform: lowercase;
+}
