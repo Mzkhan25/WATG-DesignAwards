@@ -33,7 +33,7 @@
             <!--<div class="col s6 m3 center-align">
                         <a href="cat_landscape.html"><img class="service-icons" src="images/s_landscape.svg"></a>
                     </div>-->
-            <div ng-repeat="cat in category.categoryList" ng-click='category.loadProjects(cat.CategoryId,cat.Category1)' class="col s6 m3 offset-s3 offset-m1 pull-m1">
+            <div ng-repeat="cat in category.categoryList" ng-click='category.loadProjects(cat.Id,cat.CategoryName)' class="col s6 m3 offset-s3 offset-m1 pull-m1">
                 <img ng-src="data:image/JPEG;base64,{{cat.Image}}" height="100" width="100">
 
             </div>

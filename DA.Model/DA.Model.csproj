@@ -9,12 +9,12 @@
     <ProductVersion>
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{01ED4097-B250-4368-8421-071B10462AEA}</ProjectGuid>
+    <ProjectGuid>{5DA36AB0-4245-4231-9830-A05CE0464A83}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>DA.Data</RootNamespace>
-    <AssemblyName>DA.Data</AssemblyName>
+    <RootNamespace>DA.Model</RootNamespace>
+    <AssemblyName>DA.Model</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <UseIISExpress>true</UseIISExpress>
     <IISExpressSSLPort />
@@ -117,26 +117,14 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DesignAwardsContext.cs" />
-    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Category.cs" />
+    <Compile Include="Common\BaseModel.cs" />
+    <Compile Include="Project.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Repository\CategoryRepo.cs" />
-    <Compile Include="Repository\ProjectRepo.cs" />
-    <Compile Include="Repository\ResultRepo.cs" />
-    <Compile Include="Repository\UserRepo.cs" />
-    <Compile Include="Repository\UserRoleRepo.cs" />
+    <Compile Include="Result.cs" />
+    <Compile Include="UserRole.cs" />
+    <Compile Include="User.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\DA.Contracts\DA.Contracts.csproj">
-      <Project>{7193532a-9b8d-45c8-9dd1-32213a09feeb}</Project>
-      <Name>DA.Contracts</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\DA.Model\DA.Model.csproj">
-      <Project>{5DA36AB0-4245-4231-9830-A05CE0464A83}</Project>
-      <Name>DA.Model</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
@@ -153,9 +141,9 @@
         <WebProjectProperties>
           <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>21345</DevelopmentServerPort>
+          <DevelopmentServerPort>25732</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:21345/</IISUrl>
+          <IISUrl>http://localhost:25732/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

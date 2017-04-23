@@ -25,8 +25,7 @@ app.factory('ProjectService', ['$http', '$rootScope', function ($http, $rootScop
     var ProjectService = {};
 
     ProjectService.getProjectById = function (categoryId) {
-        debugger;
-        var urlBase = $rootScope.baseUrl.concat('/api/v1/operation/GetProjectByCategory?categoryId='+categoryId);
+        var urlBase = $rootScope.baseUrl.concat('/api/v1/project/GetProjectByCategory?categoryId='+categoryId);
         return $http.get(urlBase);
     };
     return ProjectService;
