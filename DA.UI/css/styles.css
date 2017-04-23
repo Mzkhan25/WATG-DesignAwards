@@ -192,3 +192,8 @@ nav.top-nav {
 span.lowercase {
     text-transform: lowercase;
 }
+
+span.errormsg {
+   padding-top:5px;
+   color:red;
+}
