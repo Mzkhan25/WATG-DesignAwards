@@ -197,3 +197,7 @@ span.errormsg {
    padding-top:5px;
    color:red;
 }
+
+.fullheight{
+    height:100%;
+}
