@@ -7,6 +7,7 @@ app.controller('CategoryController', function ($scope, $location, $state, $http,
     CategoryService.getCategories()
              .success(function (response) {
                  vm.categoryList = response;
+                 localStorage.setItem('categories', JSON.stringify(vm.categoryList));
                  vm.busyGettingData = false;
                  console.log(response);
              }).

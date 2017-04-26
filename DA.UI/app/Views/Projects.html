@@ -17,14 +17,12 @@
                 <div class="nav-wrapper">
                     <a href="intro.html"><img class="nav-logo" src="css/images/logo-small.svg"></a>
                     <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
-                    <ul class="right hide-on-med-and-down">
-                        <li class="active"><a href="#">Landscape</a></li>
-                        <li><a href="cat_interiors.html">Interiors</a></li>
-                        <li><a href="cat_urban.html">Urban</a></li>
-                        <li><a href="cat_resort.html">Resort</a></li>
-                        <li><a href="cat_residential.html">Residential</a></li>
-                        <li><a href="cat_delivery.html">Design/Delivery</a></li>
-                        <li><a href="cat_is.html">Integrated</a></li>
+                    <ul class="right hide-on-med-and-down" >
+                        <li ng-class="pro.Id == project.categoryId ? 'active' : ''"
+                            ng-repeat="pro in project.categories">
+                                <a href 
+                                   ng-click="project.loadProjects(pro.Id, pro.CategoryName)">{{pro.CategoryName}}</a>
+                        </li>
                     </ul>
                     <ul class="side-nav" id="mobile-demo">
                         <li>
@@ -33,13 +31,9 @@
                                 <a href="intro.html"><img class="side-logo" src="css/images/logo-landing.svg"></a>
                             </div>
                         </li>
-                        <li class="active"><a href="#">Landscape</a></li>
-                        <li><a href="cat_interiors.html">Interiors</a></li>
-                        <li><a href="cat_urban.html">Urban</a></li>
-                        <li><a href="cat_resort.html">Resort</a></li>
-                        <li><a href="cat_residential.html">Residential</a></li>
-                        <li><a href="cat_delivery.html">Design/Delivery</a></li>
-                        <li><a href="cat_is.html">Integrated</a></li>
+                        <!--<li class="active"><a href="#">Landscape</a></li>
+                        <li><a href="cat_interiors.html">Interiors</a></li>-->
+                        <li><a href="cat_urban.html" ng-repeat="pro in project.categories">{{pro.CategoryName}}</a></li>
                     </ul>
                 </div>
             </div>
@@ -51,7 +45,8 @@
             <div class="container">
                 <div class="row">
                     <div class="col s12">
-                        <h1 class="white-text" style="font-weight: 100">{{project.projectCategory}}</h1>
+                        <h1 class="white-text" style="font-weight: 100">{{project.projectCategory
+}}</h1>
                     </div>
                 </div>
             </div>

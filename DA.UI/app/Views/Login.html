@@ -1,21 +1,21 @@
-﻿
-<header class="valign-wrapper" style="height: 50%">
-       <img class="logo-landing" src="css/images/logo-landing.svg">
-</header>
-
-<main class="login-card">
-    <div class="card grey lighten-4">
-        <div class="card-content center-align">
-            <span class="card-title">Enter Your PIN</span>
-            <div class="input-field">
-                <input id="password" type="password" class="validate center-align" ng-model="login.userPin" required ng-click="login.invalidPINFlag = false"  style="font-size: 1.5em">
-                <label for="password" data-error="PIN not recognized">PIN</label>
+﻿<div id="landing">
+    <header class="valign-wrapper" style="height: 50%">
+        <img class="logo-landing" src="css/images/logo-landing.svg">
+    </header>
+    <main class="login-card">
+        <div class="card grey lighten-4">
+            <div class="card-content center-align">
+                <span class="card-title">Enter Your PIN</span>
+                <div class="input-field">
+                    <input id="password" type="password" class="validate center-align" ng-model="login.userPin" required ng-click="login.invalidPINFlag = false" style="font-size: 1.5em">
+                    <label for="password" data-error="PIN not recognized">PIN</label>
+                </div>
+                <button class="waves-effect waves-light btn watg-blue" ng-disabled="loginForm.$invalid" type="submit" ng-click="UserLogin()">Login</button>
+                <p ng-if="login.invalidPINFlag" for="password"><span class="errormsg">{{login.invalidUserMsg}}</span></p>
             </div>
-            <button class="waves-effect waves-light btn watg-blue" ng-disabled="loginForm.$invalid" type="submit" ng-click="UserLogin()">Login</button>
-            <p ng-if="login.invalidPINFlag" for="password"><span class="errormsg">{{login.invalidUserMsg}}</span></p>
         </div>
-    </div>
-</main>
-<footer style="height: 50%">
+    </main>
+    <footer style="height: 50%">
         <img class="watg-landing" src="css/images/watg-white.svg">
-</footer>
+    </footer>
+</div>
