@@ -3,9 +3,11 @@
 app.controller('CategoryController', function ($scope, $location, $state, $http, $window, $rootScope, CategoryService) {
     var vm = this;
     vm.categoryList = [];
+    vm.busyGettingData = true;
     CategoryService.getCategories()
              .success(function (response) {
                  vm.categoryList = response;
+                 vm.busyGettingData = false;
                  console.log(response);
              }).
              error(function (error) {
