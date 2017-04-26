@@ -5,6 +5,8 @@ app.controller('ProjectController', function ($scope, $location, $state, $http, 
     vm.categoryId = $stateParams.categoryId;
     vm.projectList = [];
     vm.projectCategory = localStorage.getItem("currentCategoryName");
+    vm.categories = JSON.parse(localStorage.getItem("categories"));
+    console.log(vm.categories);
     vm.busyGettingData = true;
     ProjectService.getProjectById(vm.categoryId)
             .success(function (response) {
@@ -17,5 +19,13 @@ app.controller('ProjectController', function ($scope, $location, $state, $http, 
             });
     vm.getProject = function (projectId) {
         ProjectService.getProject(projectId);
+        vm.busyGettingData = false;
+    }
+    vm.loadProjects = function (categoryId, categoryName) {
+        localStorage.setItem('currentCategoryId', categoryId);
+        localStorage.setItem('currentCategoryName', categoryName);
+        //vm.busyGettingData = false;
+        $state.go('Project', { "categoryId": categoryId });
+       
     }
 });
