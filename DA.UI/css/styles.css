@@ -197,3 +197,11 @@ span.errormsg {
    padding-top:5px;
    color:red;
 }
+.progressGear {
+    width: 500px;
+    height: 20px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin: -10px 0 0 -250px;
+}
