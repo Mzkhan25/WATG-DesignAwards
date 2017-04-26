@@ -11,7 +11,7 @@ namespace DA.Data
         public DesignAwardsContext()
         {
 #if (DEBUG)
-                   Database.Connection.ConnectionString = @"Data Source=LHRLT-705\MSSQLSERVER2012;Initial Catalog=DesignAwardDB;Integrated Security=True";
+            Database.Connection.ConnectionString = @"Data Source=LHRLT-554\MSSQLSERVER2;Initial Catalog=DesignAwardDB;User ID=admin; Password=abcd@12345";
 #elif (RELEASE)
                    Database.Connection.ConnectionString = @"Data Source=LHRLT-554\MSSQLSERVER2;Initial Catalog=DesignAwardDB;User ID=admin; Password=abcd@12345";
 #elif (AHSAN)
