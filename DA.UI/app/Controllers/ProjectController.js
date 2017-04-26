@@ -9,9 +9,12 @@ app.controller('ProjectController', function ($scope, $location, $state, $http, 
     ProjectService.getProjectById(vm.categoryId)
             .success(function (response) {
                 vm.projectList = response;
+                console.log(response);
             }).
             error(function (error) {
                 console.log("Error occured: " + error);
             });
-
+    vm.getProject = function (projectId) {
+        ProjectService.getProject(projectId);
+    }
 });

@@ -145,26 +145,26 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="css\fonts\roboto\Roboto-Bold.eot" />
-    <Content Include="css\fonts\roboto\Roboto-Bold.ttf" />
-    <Content Include="css\fonts\roboto\Roboto-Bold.woff" />
-    <Content Include="css\fonts\roboto\Roboto-Bold.woff2" />
-    <Content Include="css\fonts\roboto\Roboto-Light.eot" />
-    <Content Include="css\fonts\roboto\Roboto-Light.ttf" />
-    <Content Include="css\fonts\roboto\Roboto-Light.woff" />
-    <Content Include="css\fonts\roboto\Roboto-Light.woff2" />
-    <Content Include="css\fonts\roboto\Roboto-Medium.eot" />
-    <Content Include="css\fonts\roboto\Roboto-Medium.ttf" />
-    <Content Include="css\fonts\roboto\Roboto-Medium.woff" />
-    <Content Include="css\fonts\roboto\Roboto-Medium.woff2" />
-    <Content Include="css\fonts\roboto\Roboto-Regular.eot" />
-    <Content Include="css\fonts\roboto\Roboto-Regular.ttf" />
-    <Content Include="css\fonts\roboto\Roboto-Regular.woff" />
-    <Content Include="css\fonts\roboto\Roboto-Regular.woff2" />
-    <Content Include="css\fonts\roboto\Roboto-Thin.eot" />
-    <Content Include="css\fonts\roboto\Roboto-Thin.ttf" />
-    <Content Include="css\fonts\roboto\Roboto-Thin.woff" />
-    <Content Include="css\fonts\roboto\Roboto-Thin.woff2" />
+    <Content Include="fonts\roboto\Roboto-Bold.eot" />
+    <Content Include="fonts\roboto\Roboto-Bold.ttf" />
+    <Content Include="fonts\roboto\Roboto-Bold.woff" />
+    <Content Include="fonts\roboto\Roboto-Bold.woff2" />
+    <Content Include="fonts\roboto\Roboto-Light.eot" />
+    <Content Include="fonts\roboto\Roboto-Light.ttf" />
+    <Content Include="fonts\roboto\Roboto-Light.woff" />
+    <Content Include="fonts\roboto\Roboto-Light.woff2" />
+    <Content Include="fonts\roboto\Roboto-Medium.eot" />
+    <Content Include="fonts\roboto\Roboto-Medium.ttf" />
+    <Content Include="fonts\roboto\Roboto-Medium.woff" />
+    <Content Include="fonts\roboto\Roboto-Medium.woff2" />
+    <Content Include="fonts\roboto\Roboto-Regular.eot" />
+    <Content Include="fonts\roboto\Roboto-Regular.ttf" />
+    <Content Include="fonts\roboto\Roboto-Regular.woff" />
+    <Content Include="fonts\roboto\Roboto-Regular.woff2" />
+    <Content Include="fonts\roboto\Roboto-Thin.eot" />
+    <Content Include="fonts\roboto\Roboto-Thin.ttf" />
+    <Content Include="fonts\roboto\Roboto-Thin.woff" />
+    <Content Include="fonts\roboto\Roboto-Thin.woff2" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

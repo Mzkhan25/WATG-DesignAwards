@@ -21,12 +21,17 @@ app.factory('CategoryService', ['$http', '$rootScope', function ($http, $rootSco
     return CategoryService;
 }]);
 
-app.factory('ProjectService', ['$http', '$rootScope', function ($http, $rootScope) {
+app.factory('ProjectService', ['$http', '$rootScope', '$window', function ($http, $rootScope, $window) {
     var ProjectService = {};
 
     ProjectService.getProjectById = function (categoryId) {
         var urlBase = $rootScope.baseUrl.concat('/api/v1/project/GetProjectByCategory?categoryId='+categoryId);
         return $http.get(urlBase);
+    };
+    ProjectService.getProject = function (projectId) {
+        var urlBase = $rootScope.baseUrl.concat('/api/v1/project/GetProjectById?projectId=' + projectId);
+        $window.open(urlBase);
+        return;
     };
     return ProjectService;
 }]);
