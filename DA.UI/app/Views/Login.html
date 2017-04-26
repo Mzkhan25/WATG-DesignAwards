@@ -1,11 +1,11 @@
-﻿<div ng-show="login.busyGettingData">
+﻿<div class="progressGear" ng-show="login.busyGettingData">
     <h3>
         Signing in to WATG voting system
         <i class="fa fa-refresh fa-spin"></i>
     </h3>
 </div>
 
-<div class="progressGear" ng-show="!login.busyGettingData" id="landing">
+<div ng-show="!login.busyGettingData" id="landing">
     <header class="valign-wrapper" style="height: 50%">
         <img class="logo-landing" src="css/images/logo-landing.svg">
     </header>

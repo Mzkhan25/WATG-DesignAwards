@@ -33,5 +33,9 @@ app.factory('ProjectService', ['$http', '$rootScope', '$window', function ($http
         $window.open(urlBase);
         return;
     };
+    ProjectService.getProjectById = function (categoryId) {
+        var urlBase = $rootScope.baseUrl.concat('/api/v1/result/VoteProject');
+        return $http.post(urlBase, LoginRequest);
+    };
     return ProjectService;
 }]);
