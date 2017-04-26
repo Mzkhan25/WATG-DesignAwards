@@ -1,4 +1,10 @@
-﻿<div class="parallax-container darken valign-wrapper">
+﻿<h3 ng-show="category.busyGettingData">
+    Loading Categories
+    <i class="fa fa-refresh fa-spin"></i>
+</h3>
+
+<div ng-show="!category.busyGettingData">
+<div class="parallax-container darken valign-wrapper">
     <div class="container">
         <div class="parallax"><img src="css/images/parallax5.jpg"></div>
         <div class="row">
@@ -17,7 +23,7 @@
 <div class="section white">
     <div class="row container flow-text grey-text text-darken-1">
         <h3 class="header">
-            Categories</h2>
+            Categories</h3>
             <p>Click on the categories below to view the candidates. Voting will open on April ## and close on April ##. Be sure to vote for your favorite entries while voting is open.</p>
     </div>
     <div class="container">
@@ -60,3 +66,4 @@
         <p>Awards will be announced on the following dates:</p>
     </div>
 </div>
+    </div>
