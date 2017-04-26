@@ -6,7 +6,7 @@ app.controller('ProjectController', function ($scope, $location, $state, $http, 
     vm.projectList = [];
     vm.voted = "";
     vm.projectCategory = localStorage.getItem("currentCategoryName");
-    vm.user = localStorage.getItem("loggedInUserObj");
+    vm.user = JSON.parse(localStorage.getItem("loggedInUserObj"));
     console.log(vm.user);
     vm.categories = JSON.parse(localStorage.getItem("categories"));
     console.log(vm.categories);
@@ -35,5 +35,6 @@ app.controller('ProjectController', function ($scope, $location, $state, $http, 
             "ProjectId": projectId,
             "CategoryId": categoryId
         }
+        ProjectService.casteVote(voteRequest);
     }
 });

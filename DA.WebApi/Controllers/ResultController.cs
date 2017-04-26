@@ -23,7 +23,7 @@ namespace DA.WebApi.Controllers
         [Route("VoteProject")]
         [HttpPost]
         [EnableCors(origins: "*", headers: "*", methods: "*")]
-        public HttpResponseMessage GetProjectsByCategory(VoteRequest voteRequest)
+        public HttpResponseMessage VoteProject(VoteRequest voteRequest)
         {
             try
             {
