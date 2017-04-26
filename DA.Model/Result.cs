@@ -13,5 +13,7 @@ namespace DA.Model
         [ForeignKey("UserId")]
         public User User { get; set; }
 
+        public int CategoryId { get; set; }
+       
     }
 }
