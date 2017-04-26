@@ -5,7 +5,7 @@ app.controller('LoginController', function ($scope, $location, $state, $http, $w
     vm.userPin = '';
     vm.invalidUserMsg = "Please email helpdesk@watg.com in case you are unable to login to the design awards";
     vm.invalidPINFlag = false;
-
+    vm.busyGettingData = false;
     if (localStorage.getItem('loggedInUserObj'))
     {
         $state.go('Category');
@@ -16,15 +16,18 @@ app.controller('LoginController', function ($scope, $location, $state, $http, $w
         var LoginRequest = {
             "Pin": vm.userPin
         }
+        vm.busyGettingData = true;
         LoginService.checkUser(LoginRequest)
               .success(function (response) {
                   if (response.IsAuthenticated == true) {
                       // go to category page
                       localStorage.setItem('loggedInUserObj', JSON.stringify(response));
+                      vm.busyGettingData = false;
                       $state.go('Category');
                   }
                   else {
                       vm.invalidPINFlag = true;
+                      vm.busyGettingData = false;
                   }
 
               }).

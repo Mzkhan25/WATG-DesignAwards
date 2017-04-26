@@ -205,3 +205,7 @@ span.errormsg {
     left: 50%;
     margin: -10px 0 0 -250px;
 }
+
+.fullheight{
+    height:100%;
+}
