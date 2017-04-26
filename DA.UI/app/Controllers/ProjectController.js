@@ -5,10 +5,11 @@ app.controller('ProjectController', function ($scope, $location, $state, $http, 
     vm.categoryId = $stateParams.categoryId;
     vm.projectList = [];
     vm.projectCategory = localStorage.getItem("currentCategoryName");
-
+    vm.busyGettingData = true;
     ProjectService.getProjectById(vm.categoryId)
             .success(function (response) {
                 vm.projectList = response;
+                vm.busyGettingData = false;
                 console.log(response);
             }).
             error(function (error) {
