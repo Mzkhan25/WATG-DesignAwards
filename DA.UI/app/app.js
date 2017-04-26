@@ -1,5 +1,5 @@
 ﻿
-var app = angular.module('DesignAwardApp', ['ui.router']);
+var app = angular.module('DesignAwardApp', ['ui.router','toastr']);
 
     app.config(['$compileProvider',
       function ($compileProvider) {
@@ -7,6 +7,17 @@ var app = angular.module('DesignAwardApp', ['ui.router']);
       }
     ]);
 
+    app.config(function (toastrConfig) {
+        angular.extend(toastrConfig, {
+            autoDismiss: false,
+            containerId: 'toast-container',
+            maxOpened: 0,
+            newestOnTop: true,
+            preventDuplicates: false,
+            preventOpenDuplicates: false,
+            target: 'body'
+        });
+    });
     app.config(function ($stateProvider, $urlRouterProvider) {
         $urlRouterProvider
                        .otherwise('/login');

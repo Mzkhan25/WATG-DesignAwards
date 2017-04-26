@@ -1,6 +1,6 @@
 ﻿
 
-app.controller('ProjectController', function ($scope, $location, $state, $http, $window, $rootScope,$stateParams, ProjectService) {
+app.controller('ProjectController', function ($scope, $location, $state, $http, $window, $rootScope, $stateParams,toastr, ProjectService) {
     var vm = this;
     vm.categoryId = $stateParams.categoryId;
     vm.projectList = [];
@@ -39,13 +39,14 @@ app.controller('ProjectController', function ($scope, $location, $state, $http, 
         ProjectService.casteVote(voteRequest).success(function (response) {
             if(response)
             {
-                vm.voteStatus = "Vote casted successfully";
+                toastr.success("Vote casted successfully");
             }
             else
             {
-                vm.voteStatus = "You have already voted for this category";
+                toastr.error("You have already voted for this category");
             }
-           
+            $state.go('Category');
+            
         }).error(function (error) {
             console.log("Error occured: " + error);
         });
