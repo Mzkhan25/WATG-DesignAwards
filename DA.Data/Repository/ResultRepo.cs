@@ -24,7 +24,7 @@ namespace DA.Data.Repository
         }
         public bool Save(Result item, string userName)
         {
-            var dbItem = _db.Results.ToList().Where(x => x.ProjectId == item.ProjectId)
+            var dbItem = _db.Results.ToList().Where(x => x.CategoryId == item.CategoryId)
                 .Where(x => x.UserId == item.UserId);
 
             if (dbItem.Count() > 0)

@@ -1,10 +1,11 @@
 ﻿
 
-app.controller('ProjectController', function ($scope, $location, $state, $http, $window, $rootScope, $stateParams, ProjectService) {
+app.controller('ProjectController', function ($scope, $location, $state, $http, $window, $rootScope,$stateParams, ProjectService) {
     var vm = this;
     vm.categoryId = $stateParams.categoryId;
     vm.projectList = [];
     vm.voted = "";
+    vm.voteStatus = "";
     vm.projectCategory = localStorage.getItem("currentCategoryName");
     vm.user = JSON.parse(localStorage.getItem("loggedInUserObj"));
     console.log(vm.user);
@@ -35,6 +36,18 @@ app.controller('ProjectController', function ($scope, $location, $state, $http, 
             "ProjectId": projectId,
             "CategoryId": categoryId
         }
-        ProjectService.casteVote(voteRequest);
+        ProjectService.casteVote(voteRequest).success(function (response) {
+            if(response)
+            {
+                vm.voteStatus = "Vote casted successfully";
+            }
+            else
+            {
+                vm.voteStatus = "You have already voted for this category";
+            }
+           
+        }).error(function (error) {
+            console.log("Error occured: " + error);
+        });
     }
 });
