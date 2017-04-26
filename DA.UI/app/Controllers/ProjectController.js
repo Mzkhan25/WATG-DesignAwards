@@ -4,7 +4,10 @@ app.controller('ProjectController', function ($scope, $location, $state, $http, 
     var vm = this;
     vm.categoryId = $stateParams.categoryId;
     vm.projectList = [];
+    vm.voted = "";
     vm.projectCategory = localStorage.getItem("currentCategoryName");
+    vm.user = localStorage.getItem("loggedInUserObj");
+    console.log(vm.user);
     vm.categories = JSON.parse(localStorage.getItem("categories"));
     console.log(vm.categories);
     vm.busyGettingData = true;
@@ -24,8 +27,13 @@ app.controller('ProjectController', function ($scope, $location, $state, $http, 
     vm.loadProjects = function (categoryId, categoryName) {
         localStorage.setItem('currentCategoryId', categoryId);
         localStorage.setItem('currentCategoryName', categoryName);
-        //vm.busyGettingData = false;
         $state.go('Project', { "categoryId": categoryId });
-       
+    }
+    vm.castedVote = function (projectId, categoryId) {
+        var voteRequest = {
+            "UserId": vm.user.Id,
+            "ProjectId": projectId,
+            "CategoryId": categoryId
+        }
     }
 });
