@@ -10,8 +10,8 @@ namespace DA.Model.Common
     {
         [Key]
         public int Id { get; set; }
-        public DateTime DateAdded { get; set; }
-        public DateTime DateModified { get; set; }
+        public DateTime ? DateAdded { get; set; }
+        public DateTime ? DateModified { get; set; }
         public string AddedBy { get; set; }
         public string ModifiedBy { get; set; }
     }
