@@ -18,7 +18,11 @@ var app = angular.module('DesignAwardApp', ['ui.router','toastr']);
             target: 'body'
         });
     });
-    app.config(function ($stateProvider, $urlRouterProvider) {
+    app.config(function ($stateProvider, $urlRouterProvider, $httpProvider) {
+
+        $httpProvider.defaults.useXDomain = true;
+        delete $httpProvider.defaults.headers.common["X-Requested-With"];
+
         $urlRouterProvider
                        .otherwise('/login');
         $stateProvider
@@ -43,4 +47,5 @@ var app = angular.module('DesignAwardApp', ['ui.router','toastr']);
     });
     app.run(['$rootScope', '$state', '$stateParams', function ($rootScope, $state, $stateParams) {
         $rootScope.baseUrl = 'http://localhost:49674';
+        localStorage.clear();
     }])

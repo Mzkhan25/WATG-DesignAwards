@@ -68,7 +68,7 @@ namespace DA.WebApi.Controllers
 
             using (MemoryStream ms = new MemoryStream())
             {
-                using (FileStream file = new FileStream("C:/Users/ahmed.khateeb/Downloads/" + projectResponse.PDFPath, FileMode.Open, FileAccess.Read))
+                using (FileStream file = new FileStream("C:/Teknita/SampleData" + projectResponse.PDFPath, FileMode.Open, FileAccess.Read))
                 {
                     byte[] bytes = new byte[file.Length];
                     file.Read(bytes, 0, (int)file.Length);

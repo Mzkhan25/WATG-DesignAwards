@@ -6,124 +6,122 @@
         <img ng-src="data:image/JPEG;base64,{{pro.DisplayImage}}">
     </li>
 </ul>-->
-<div>
-    <div class="progressGear" ng-show="project.busyGettingData">
-        <h3>
-            Loading Projects
-            <i class="fa fa-refresh fa-spin"></i>
-        </h3>
-    </div>
+<div class="progressGear" ng-show="project.busyGettingData">
+    <h3>
+        Loading Projects
+        <i class="fa fa-refresh fa-spin"></i>
+    </h3>
+</div>
 
-    <div ng-show="!project.busyGettingData">
-        <header>
-            <nav class="top-nav">
-                <div class="container">
-                    <div class="nav-wrapper">
-                        <a href="intro.html"><img class="nav-logo" src="css/images/logo-small.svg"></a>
-                        <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
-                        <ul class="right hide-on-med-and-down">
-                            <li ng-class="pro.Id == project.categoryId ? 'active' : ''"
-                                ng-repeat="pro in project.categories">
-                                <a href
-                                   ng-click="project.loadProjects(pro.Id, pro.CategoryName)">{{pro.CategoryName}}</a>
-                            </li>
-                        </ul>
-                        <ul class="side-nav" id="mobile-demo">
-                            <li>
-                                <div class="userView">
-                                    <div class="background" style="background-color: #AF2125"></div>
-                                    <a href="intro.html"><img class="side-logo" src="css/images/logo-landing.svg"></a>
-                                </div>
-                            </li>
-
-                            <li ng-class="pro.Id == project.categoryId ? 'active' : ''"
-                                ng-repeat="pro in project.categories">
-                                <a href
-                                   ng-click="project.loadProjects(pro.Id, pro.CategoryName)">{{pro.CategoryName}}</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </nav>
-        </header>
-        <main>
-            <div class="parallax-container darken valign-wrapper" style="height: 200px">
-                <div class="parallax"><img src="/css/images/parallax1.jpg"></div>
-                <div class="container">
-                    <div class="row">
-                        <div class="col s12">
-                            <h1 class="white-text" style="font-weight: 100">{{project.projectCategory}}</h1>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="section white">
-                <div class="row container flow-text grey-text text-darken-1">
-                    <p>The following projects were submitted in the <span class="lowercase">{{project.projectCategory}} </span>category. Please take time to review and vote for your favorite entry.</p>
-                </div>
-            </div>
-            <!--Project List Starts Here-->
+<div ng-show="!project.busyGettingData">
+    <header>
+        <nav class="top-nav">
             <div class="container">
-                <div class="row grey-text text-darken-1">
-                    <div class="row">
-                        <div class="col s12 m6" ng-repeat="pro in project.projectList">
-                            <div class="card">
-                                <div class="card-image">
-                                    <img ng-src="data:image/JPEG;base64,{{pro.DisplayImage}}"
-                                         height="300"
-                                         width="300">
-                                </div>
-                                <div class="card-content">
-                                    <span class="card-title"></span>
-                                    <p>{{pro.ProjectDescription}}</p>
-                                </div>
-                                <div class="card-action">
-                                    <a href class="watg-red-text" ng-click="project.getProject(pro.Id)">View PDF</a>
-                                </div>
+                <div class="nav-wrapper">
+                    <a ui-sref="Category"><img class="nav-logo" src="css/images/logo-small.svg"></a>
+                    <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+                    <ul class="right hide-on-med-and-down">
+                        <li ng-class="pro.Id == project.categoryId ? 'active' : ''"
+                            ng-repeat="pro in project.categories">
+                            <a href
+                               ng-click="project.loadProjects(pro.Id, pro.CategoryName)">{{pro.CategoryName}}</a>
+                        </li>
+                    </ul>
+                    <ul class="side-nav" id="mobile-demo">
+                        <li>
+                            <div class="userView">
+                                <div class="background" style="background-color: #AF2125"></div>
+                                <a ui-sref="Category"><img class="side-logo" src="css/images/logo-landing.svg"></a>
+                            </div>
+                        </li>
+
+                        <li ng-class="pro.Id == project.categoryId ? 'active' : ''"
+                            ng-repeat="pro in project.categories">
+                            <a href
+                               ng-click="project.loadProjects(pro.Id, pro.CategoryName)">{{pro.CategoryName}}</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <div class="parallax-container darken valign-wrapper" style="height: 200px">
+            <div class="parallax"><img src="css/images/parallax1.jpg"></div>
+            <div class="container">
+                <div class="row">
+                    <div class="col s12">
+                        <h1 class="white-text" style="font-weight: 100">{{project.projectCategory}}</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="section white">
+            <div class="row container flow-text grey-text text-darken-1">
+                <p>The following projects were submitted in the <span class="lowercase">{{project.projectCategory}} </span>category. Please take time to review and vote for your favorite entry.</p>
+            </div>
+        </div>
+        <!--Project List Starts Here-->
+        <div class="container">
+            <div class="row grey-text text-darken-1">
+                <div class="row">
+                    <div class="col s12 m6" ng-repeat="pro in project.projectList">
+                        <div class="card">
+                            <div class="card-image">
+                                <img ng-src="data:image/JPEG;base64,{{pro.DisplayImage}}"
+                                     height="300"
+                                     width="300">
+                            </div>
+                            <div class="card-content">
+                                <span class="card-title"></span>
+                                <p>{{pro.ProjectDescription}}</p>
+                            </div>
+                            <div class="card-action">
+                                <a href class="watg-red-text" ng-click="project.getProject(pro.Id)">View PDF</a>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
 
-            <div class="section offwhite">
-                <div class="row container grey-text text-darken-1">
-                    <h3 class="header">
-                        Pick your favorite
-                    </h3>
-                    <p class="flow-text">Please vote for your favorite entry. We only ask that you judge based on substance and not just pretty pictures. Thank you.</p>
-                    <form action="#">
-                        <div ng-repeat="pro in project.projectList">
-                            <p>
-                                <input name="vote" type="radio" 
-                                       value="{{pro.Id}}" id={{pro.Id}} 
-                                       ng-model="project.voted" />
-                                <label for={{pro.Id}}>{{pro.ProjectTitle}}</label>
-                            </p>
-                        </div>
-                        <a class="waves-effect waves-light btn-large watg-blue" 
-                           style="margin: 20px 0;" 
-                           ng-click="project.castedVote(project.voted, project.categoryId)">Vote</a>
-                    </form>
-                </div>
+        <div class="section offwhite">
+            <div class="row container grey-text text-darken-1">
+                <h3 class="header">
+                    Pick your favorite
+                </h3>
+                <p class="flow-text">Please vote for your favorite entry. We only ask that you judge based on substance and not just pretty pictures. Thank you.</p>
+                <form action="#">
+                    <div ng-repeat="pro in project.projectList">
+                        <p>
+                            <input name="vote" type="radio"
+                                   value="{{pro.Id}}" id={{pro.Id}}
+                                   ng-model="project.voted" />
+                            <label for={{pro.Id}}>{{pro.ProjectTitle}}</label>
+                        </p>
+                    </div>
+                    <a class="waves-effect waves-light btn-large watg-blue"
+                       style="margin: 20px 0;"
+                       ng-click="project.castedVote(project.voted, project.categoryId)">Vote</a>
+                </form>
             </div>
+        </div>
 
-        </main>
-        <footer>
-            <div class="row container center-align">
-                <img class="watg-footer" src="css/images/watg-grey.svg">
-            </div>
-        </footer>
-    </div>
-    <script>
-        $(document).ready(function () {
-            $('#sidenav-overlay').hide();
-            $(".button-collapse").sideNav();
-            $('.parallax').parallax();
-
-        });
-    </script>
+    </main>
+    <footer>
+        <div class="row container center-align">
+            <img class="watg-footer" src="css/images/watg-grey.svg">
+        </div>
+    </footer>
 </div>
+<script>
+    $(document).ready(function () {
+        $('#sidenav-overlay').hide();
+        $(".button-collapse").sideNav();
+        $('.parallax').parallax();
+
+    });
+</script>
 
 <!--<a class="modal-trigger waves-effect waves-light btn" href="#modal1">Modal</a>
 
@@ -132,5 +130,5 @@
         <h4>Modal Header</h4>
         <p>A bunch of text</p>
     </div>
-    
-<-->/div>
+
+<-->
