@@ -53,5 +53,5 @@ var app = angular.module('DesignAwardApp', ['ui.router', 'toastr','angular.filte
     });
     app.run(['$rootScope', '$state', '$stateParams', function ($rootScope, $state, $stateParams) {
         $rootScope.baseUrl = 'http://localhost:49674';
-        localStorage.clear();
+        //localStorage.clear();
     }])

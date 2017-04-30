@@ -2,6 +2,13 @@
 
 app.controller('ProjectController', function ($scope, $location, $state, $http, $window, $rootScope, $stateParams,toastr, ProjectService) {
     var vm = this;
+
+    var userData = JSON.parse(localStorage.getItem("loggedInUserObj"));
+
+    if (!userData) {
+        $state.go('login');
+    }
+
     vm.categoryId = $stateParams.categoryId;
     vm.projectList = [];
     vm.voted = "";

@@ -4,6 +4,12 @@ app.controller('CategoryController', function ($scope, $location, $state, $http,
     var vm = this;
     vm.categoryList = [];
     vm.busyGettingData = true;
+    var userData = JSON.parse(localStorage.getItem("loggedInUserObj"));
+
+    if (!userData)
+    {
+        $state.go('login');
+    }
     CategoryService.getCategories()
              .success(function (response) {
                  vm.categoryList = response;
