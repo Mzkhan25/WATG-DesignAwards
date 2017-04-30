@@ -28,4 +28,8 @@ app.controller('CategoryController', function ($scope, $location, $state, $http,
 
         $state.go('Project', { "categoryId": categoryId });
     }
+    vm.logOut = function () {
+        localStorage.clear();
+        $state.go("login");
+    }
 });

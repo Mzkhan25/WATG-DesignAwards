@@ -51,4 +51,8 @@ app.controller('ProjectController', function ($scope, $location, $state, $http, 
             console.log("Error occured: " + error);
         });
     }
+    vm.logOut = function () {
+        localStorage.clear();
+        $state.go("login");
+    }
 });
