@@ -2,28 +2,31 @@
 <!DOCTYPE html>
 <html id="fullheight">
 
-<head>      
-    <!--Import jQuery before materialize.js-->
-    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<head>
     <!--Import Google Icon Font-->
     <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
     <!--Import materialize.css-->
-
     <!--<link type="text/css" rel="stylesheet" href="css/materializtoe.min.css" media="screen,projection" />-->
-    <link type="text/css" rel="stylesheet" href="css/materialize.min.css" media="screen,projection" />
+    <link href="css/materialize.min.css" rel="stylesheet" media="screen,projection" />
     <link href="css/styles.css" rel="stylesheet" type="text/css">
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
     <!--Temp CDN links-->
-    
+
+    <link rel="stylesheet" href="https://unpkg.com/angular-toastr/dist/angular-toastr.css" />
+
+
     <!--Let browser know website is optimized for mobile-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    
+    <!--Import jQuery before materialize.js-->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript" src="Scripts/materialize.min.js"></script>
+
     <script src="Scripts/angular.js"></script>
     <script src="Scripts/angular.min.js"></script>
     <script src="Scripts/angular-ui-router.js"></script>
 
-    
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <script src="https://unpkg.com/angular-toastr/dist/angular-toastr.tpls.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-filter/0.5.16/angular-filter.js"></script>
 
@@ -33,12 +36,10 @@
     <script src="app/Controllers/ProjectController.js"></script>
     <script src="app/Controllers/ResultController.js"></script>
     <script src="app/services/AppServices.js"></script>
-
 </head>
 
 <body class="fullheight" ng-app="DesignAwardApp">
-    <script type="text/javascript" src="/Scripts/materialize.min.js"></script>
-   <div class="fullheight" ui-view></div>
+    <div class="fullheight" ui-view></div>
 </body>
 
 </html>
