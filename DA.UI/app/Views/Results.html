@@ -3,6 +3,6 @@
 <ul ng-repeat="(key, value) in result.resultList | groupBy: 'CategoryName'">
     {{ key }}
     <li ng-repeat="player in value | orderBy: 'player.VoteCount' | reverse : comparator">
-        {{ player.ProjectTitle }} : {{ player.VoteCount }}
+        {{ player.ProjectTitle }} : {{ player.VoteCount }} Votes
     </li>
 </ul>

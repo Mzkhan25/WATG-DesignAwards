@@ -1,9 +1,9 @@
-﻿<div class="progressGear" ng-show="login.busyGettingData">
-    <h3>
-        Signing in to WATG voting system
-        <i class="fa fa-refresh fa-spin"></i>
-    </h3>
+﻿<div id="loader-wrapper" ng-show="login.busyGettingData">
+    <div id="loader"></div>
+    <div class="loader-section section-left"></div>
+    <div class="loader-section section-right"></div>
 </div>
+
 
 <div ng-show="!login.busyGettingData" id="landing">
     <header class="valign-wrapper" style="height: 50%">

@@ -6,11 +6,18 @@
         <img ng-src="data:image/JPEG;base64,{{pro.DisplayImage}}">
     </li>
 </ul>-->
-<div class="progressGear" ng-show="project.busyGettingData">
+<!--<div class="progressGear" ng-show="project.busyGettingData">
     <h3>
         Loading Projects
         <i class="fa fa-refresh fa-spin"></i>
     </h3>
+</div>-->
+
+<div id="loader-wrapper" ng-show="project.busyGettingData">
+    >
+    <div id="loader"></div>
+    <div class="loader-section section-left"></div>
+    <div class="loader-section section-right"></div>
 </div>
 
 <div ng-show="!project.busyGettingData">
