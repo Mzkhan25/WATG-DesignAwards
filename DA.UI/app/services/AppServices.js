@@ -39,3 +39,16 @@ app.factory('ProjectService', ['$http', '$rootScope', '$window', function ($http
     };
     return ProjectService;
 }]);
+
+//ResultService
+
+app.factory('ResultService', ['$http', '$rootScope', '$window', function ($http, $rootScope, $window) {
+    var ResultService = {};
+
+    ResultService.getResults = function () {
+        var urlBase = $rootScope.baseUrl.concat('/api/v1/result/GetResults');
+        return $http.get(urlBase);
+    };
+  
+    return ResultService;
+}]);

@@ -117,6 +117,10 @@
     <Compile Include="Repository\UserRoleRepo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\DA.Common\DA.Common.csproj">
+      <Project>{2024C190-75A7-4445-B680-B78C32F67007}</Project>
+      <Name>DA.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\DA.Contracts\DA.Contracts.csproj">
       <Project>{7193532a-9b8d-45c8-9dd1-32213a09feeb}</Project>
       <Name>DA.Contracts</Name>

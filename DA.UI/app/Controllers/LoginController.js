@@ -19,11 +19,17 @@ app.controller('LoginController', function ($scope, $location, $state, $http, $w
         vm.busyGettingData = true;
         LoginService.checkUser(LoginRequest)
               .success(function (response) {
-                  if (response.IsAuthenticated == true) {
+                  if (response.IsAuthenticated == true && response.RoleId == 2) {
                       // go to category page
                       localStorage.setItem('loggedInUserObj', JSON.stringify(response));
                       vm.busyGettingData = false;
                       $state.go('Category');
+                  }
+                  else if (response.IsAuthenticated == true && response.RoleId == 1) {
+                      // go to category page
+                      localStorage.setItem('loggedInUserObj', JSON.stringify(response));
+                      vm.busyGettingData = false;
+                      $state.go('Result');
                   }
                   else {
                       vm.invalidPINFlag = true;

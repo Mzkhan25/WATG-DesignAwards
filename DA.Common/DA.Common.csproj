@@ -49,6 +49,7 @@
     <Compile Include="Response\CategoryResponse.cs" />
     <Compile Include="Response\LoginResponse.cs" />
     <Compile Include="Response\ProjectResponse.cs" />
+    <Compile Include="Response\ResultResponse.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

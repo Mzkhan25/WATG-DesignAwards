@@ -6,6 +6,7 @@ app.controller('ProjectController', function ($scope, $location, $state, $http, 
     vm.projectList = [];
     vm.voted = "";
     vm.voteStatus = "";
+    vm.voteResponse = false;
     vm.projectCategory = localStorage.getItem("currentCategoryName");
     vm.user = JSON.parse(localStorage.getItem("loggedInUserObj"));
     console.log(vm.user);
@@ -37,15 +38,7 @@ app.controller('ProjectController', function ($scope, $location, $state, $http, 
             "CategoryId": categoryId
         }
         ProjectService.casteVote(voteRequest).success(function (response) {
-            if(response)
-            {
-                toastr.success("Vote casted successfully");
-            }
-            else
-            {
-                toastr.error("You have already voted for this category");
-            }
-            $state.go('Category');
+            vm.voteResponse = true;
             
         }).error(function (error) {
             console.log("Error occured: " + error);

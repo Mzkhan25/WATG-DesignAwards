@@ -90,20 +90,21 @@
                 <h3 class="header">
                     Pick your favorite
                 </h3>
-                <p class="flow-text">Please vote for your favorite entry. We only ask that you judge based on substance and not just pretty pictures. Thank you.</p>
-                <form action="#">
-                    <div ng-repeat="pro in project.projectList">
-                        <p>
-                            <input name="vote" type="radio"
-                                   value="{{pro.Id}}" id={{pro.Id}}
-                                   ng-model="project.voted" />
-                            <label for={{pro.Id}}>{{pro.ProjectTitle}}</label>
-                        </p>
-                    </div>
-                    <a class="waves-effect waves-light btn-large watg-blue"
-                       style="margin: 20px 0;"
-                       ng-click="project.castedVote(project.voted, project.categoryId)">Vote</a>
-                </form>
+                <p ng-if="!project.voteResponse" class="flow-text">Please vote for your favorite entry. We only ask that you judge based on substance and not just pretty pictures. Thank you.</p>
+                <p ng-if="project.voteResponse" class="flow-text">Thank you. We have received your vote. Please click <a href="#/Categories">here</a> to go back to the main page.</p>
+
+                <div ng-repeat="pro in project.projectList">
+                    <p>
+                        <input name="vote" type="radio"
+                               value="{{pro.Id}}" id={{pro.Id}}
+                               ng-model="project.voted" />
+                        <label for={{pro.Id}}>{{pro.ProjectTitle}}</label>
+                    </p>
+                </div>
+                <button ng-disabled="project.voteResponse" class="waves-effect waves-light btn-large watg-blue"
+                   style="margin: 20px 0;"
+                   ng-click="project.castedVote(project.voted, project.categoryId)">Vote</button>
+
             </div>
         </div>
 

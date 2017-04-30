@@ -1,6 +1,8 @@
-﻿using DA.Contracts;
+﻿using DA.Common.Response;
+using DA.Contracts;
 using DA.Contracts.Repository;
 using DA.Model;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace DA.Data.Repository
@@ -13,9 +15,19 @@ namespace DA.Data.Repository
             _db = new DesignAwardsContext();
         }
 
-        public IQueryable<Result> GetAll()
+        public List<ResultResponse> GetAll()
         {
-            return _db.Results;
+            // ----------- To-Do: refactor it to use LINQ
+            using (var ctx = new DesignAwardsContext())
+            {
+
+                var allResults = ctx.Database.SqlQuery<ResultResponse>("Select c.CategoryName,p.ProjectTitle,COUNT(r.UserId) as VoteCount  from [Results] R" +
+                                        " INNER JOIN Projects P ON p.Id = r.ProjectId" +
+                                        " INNER JOIN Categories c on c.Id = p.CategoryId" +
+                                        " GROUP BY P.ProjectTitle, c.CategoryName").ToList();
+                return allResults;
+           }
+            
         }
         
         public Result GetOne(int id)

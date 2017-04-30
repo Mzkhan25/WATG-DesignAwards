@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using DA.Common.Request;
+using DA.Common.Response;
 using DA.Contracts.Repository;
 using DA.Data.Repository;
 using DA.Model;
@@ -39,6 +40,30 @@ namespace DA.WebApi.Controllers
                 bool voteUpdated = _resultRepo.Save(result,"");
 
                 return Request.CreateResponse(HttpStatusCode.OK, voteUpdated);
+            }
+            catch (Exception ex)
+            {
+                return Request.CreateResponse("Some went wrong");
+            }
+        }
+
+        [Route("GetResults")]
+        [HttpGet]
+        [EnableCors(origins: "*", headers: "*", methods: "*")]
+        public HttpResponseMessage GetResults()
+        {
+            try
+            {
+                Result result = new Result();
+
+                //Mapper.Initialize(c =>
+                //{
+                //    c.CreateMap<ResultResponse, Result>();
+                //});
+                //result = Mapper.Map<ResultResponse, Result>
+                //    ();
+                
+                return Request.CreateResponse(HttpStatusCode.OK, _resultRepo.GetAll());
             }
             catch (Exception ex)
             {

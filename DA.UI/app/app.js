@@ -1,5 +1,5 @@
 ﻿
-var app = angular.module('DesignAwardApp', ['ui.router','toastr']);
+var app = angular.module('DesignAwardApp', ['ui.router', 'toastr','angular.filter']);
 
     app.config(['$compileProvider',
       function ($compileProvider) {
@@ -39,10 +39,16 @@ var app = angular.module('DesignAwardApp', ['ui.router','toastr']);
                 controllerAs: "category"
             })
         .state('Project', {
-            url: "/Project/:categoryId",
+            url: "/Category/:categoryId",
             templateUrl: "app/Views/Projects.html",
             controller: "ProjectController",
             controllerAs: "project"
+        })
+        .state('Result', {
+            url: "/Results",
+            templateUrl: "app/Views/Results.html",
+            controller: "ResultController",
+            controllerAs: "result"
         })
     });
     app.run(['$rootScope', '$state', '$stateParams', function ($rootScope, $state, $stateParams) {
