@@ -9,6 +9,11 @@ app.controller('ProjectController', function ($scope, $location, $state, $http, 
         $state.go('login');
     }
 
+    if (userData.RoleId == 1)
+    {
+        $state.go('Result');
+    }
+
     vm.categoryId = $stateParams.categoryId;
     vm.projectList = [];
     vm.voted = "";

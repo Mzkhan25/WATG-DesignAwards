@@ -1,16 +1,10 @@
-<!--<h1>WATG Results</h1>
+<div id="loader-wrapper" ng-show="result.busyGettingData">
+    <div id="loader"></div>
+    <div class="loader-section section-left"></div>
+    <div class="loader-section section-right"></div>
+</div>
 
-<div class="row">
-    <div ng-repeat="(key, value) in result.resultList | groupBy: 'CategoryName'">
-        <div class="col s6">
-            {{ key }}
-        </div>
-        <div class="col s6" ng-repeat="player in value | orderBy: 'player.VoteCount' | reverse : comparator">
-            {{ player.ProjectTitle }} : {{ player.ProjectTitle }} Votes
-        </div>
-    </div>
-</div>-->
-<div id="background-result">
+<div id="background-result" ng-show="!result.busyGettingData">
     <h1 class="center-align white-text">Results</h1>
     <div class="overlay result-signout-icon">
         <i ng-click="result.logOut()" class="fa fa-sign-out fa-5x" aria-hidden="true"></i>

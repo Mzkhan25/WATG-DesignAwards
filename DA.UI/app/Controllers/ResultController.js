@@ -3,6 +3,7 @@
 app.controller('ResultController', function ($scope, $location, $state, $http, $window, $rootScope, ResultService) {
     
     var vm = this;
+    vm.busyGettingData = true;
     var userData = JSON.parse(localStorage.getItem("loggedInUserObj"));
 
     if (!userData) {
@@ -19,6 +20,7 @@ app.controller('ResultController', function ($scope, $location, $state, $http, $
     ResultService.getResults()
              .success(function (response) {
                  vm.resultList = response;
+                 vm.busyGettingData = false;
              }).
              error(function (error) {
                  console.log("Error occured: " + error);

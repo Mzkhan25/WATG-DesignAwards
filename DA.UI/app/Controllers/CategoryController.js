@@ -10,6 +10,9 @@ app.controller('CategoryController', function ($scope, $location, $state, $http,
     {
         $state.go('login');
     }
+    if (userData.RoleId == 1) {
+        $state.go('Result');
+    }
     CategoryService.getCategories()
              .success(function (response) {
                  vm.categoryList = response;
