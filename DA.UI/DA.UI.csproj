@@ -108,6 +108,7 @@
     <Content Include="css\entries\landscape_3.jpg" />
     <Content Include="css\entries\landscape_4.jpg" />
     <Content Include="css\images\cityscape.svg" />
+    <Content Include="css\images\highrb.jpeg" />
     <Content Include="css\images\hotel.svg" />
     <Content Include="css\images\house.svg" />
     <Content Include="css\images\landing_bg.jpg" />

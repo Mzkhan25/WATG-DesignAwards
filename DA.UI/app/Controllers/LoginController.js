@@ -8,7 +8,15 @@ app.controller('LoginController', function ($scope, $location, $state, $http, $w
     vm.busyGettingData = false;
     if (localStorage.getItem('loggedInUserObj'))
     {
-        $state.go('Category');
+        var userInfo = JSON.parse(localStorage.getItem("loggedInUserObj"));
+        if (userInfo.RoleId == 2)
+        {
+            $state.go('Category');
+        }
+        else
+        {
+            $state.go('Result');
+        }
     }
   
     $scope.UserLogin = function () {
