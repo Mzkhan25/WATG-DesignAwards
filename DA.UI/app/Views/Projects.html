@@ -110,7 +110,7 @@
                         <label for={{pro.Id}}>{{pro.ProjectTitle}}</label>
                     </p>
                 </div>
-                <button ng-disabled="project.voteResponse" class="waves-effect waves-light btn-large watg-blue"
+                <button ng-disabled="project.disbleVotBtn" class="waves-effect waves-light btn-large watg-blue"
                    style="margin: 20px 0;"
                    ng-click="project.castedVote(project.voted, project.categoryId)">Vote</button>
 

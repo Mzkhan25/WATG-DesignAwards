@@ -19,6 +19,7 @@ app.controller('ProjectController', function ($scope, $location, $state, $http, 
     vm.voted = "";
     vm.voteStatus = "";
     vm.voteResponse = false;
+    vm.disbleVotBtn = false;
     vm.projectCategory = localStorage.getItem("currentCategoryName");
     vm.user = JSON.parse(localStorage.getItem("loggedInUserObj"));
     console.log(vm.user);
@@ -49,6 +50,7 @@ app.controller('ProjectController', function ($scope, $location, $state, $http, 
             "ProjectId": projectId,
             "CategoryId": categoryId
         }
+        vm.disbleVotBtn = true;
         ProjectService.casteVote(voteRequest).success(function (response) {
             vm.voteResponse = true;
             
