@@ -54,7 +54,7 @@
     <main>
         <div class="parallax-container darken valign-wrapper" style="height: 200px">
             <div class="overlay">
-                <i ng-click="project.logOut()" class="fa fa-sign-out fa-5x" aria-hidden="true"></i>
+                <i ng-click="project.logOut()" title="Logout" class="fa fa-sign-out fa-5x" aria-hidden="true"></i>
             </div>
             <div class="parallax"><img src="css/images/parallax1.jpg"></div>
             <div class="container">
@@ -102,17 +102,19 @@
                 <p ng-if="!project.voteResponse" class="flow-text">Please vote for your favorite entry. We only ask that you judge based on substance and not just pretty pictures. Thank you.</p>
                 <p ng-if="project.voteResponse" class="flow-text">Thank you. We have received your vote. Please click <a href="#/Categories">here</a> to go back to the main page.</p>
 
-                <div ng-repeat="pro in project.projectList">
-                    <p>
-                        <input name="vote" type="radio"
-                               value="{{pro.Id}}" id={{pro.Id}}
-                               ng-model="project.voted" />
-                        <label for={{pro.Id}}>{{pro.ProjectTitle}}</label>
-                    </p>
+                <div ng-if="!project.voteResponse">
+                    <div ng-repeat="pro in project.projectList">
+                        <p>
+                            <input name="vote" type="radio"
+                                   value="{{pro.Id}}" id={{pro.Id}}
+                                   ng-model="project.voted" />
+                            <label for={{pro.Id}}>{{pro.ProjectTitle}}</label>
+                        </p>
+                    </div>
+                    <button ng-disabled="project.disbleVotBtn" class="waves-effect waves-light btn-large watg-blue"
+                       style="margin: 20px 0;"
+                       ng-click="project.castedVote(project.voted, project.categoryId)">Vote</button>
                 </div>
-                <button ng-disabled="project.disbleVotBtn" class="waves-effect waves-light btn-large watg-blue"
-                   style="margin: 20px 0;"
-                   ng-click="project.castedVote(project.voted, project.categoryId)">Vote</button>
 
             </div>
         </div>

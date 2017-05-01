@@ -7,7 +7,7 @@
 <div id="background-result" ng-show="!result.busyGettingData">
     <h1 class="center-align white-text">Results</h1>
     <div class="overlay result-signout-icon">
-        <i ng-click="result.logOut()" class="fa fa-sign-out fa-5x" aria-hidden="true"></i>
+        <i ng-click="result.logOut()" title="Logout" class="fa fa-sign-out fa-5x" aria-hidden="true"></i>
     </div>
     <div ng-repeat="(key, value) in result.resultList | groupBy: 'CategoryName'">
         <ul class="collection">
