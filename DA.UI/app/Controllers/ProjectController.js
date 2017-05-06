@@ -26,6 +26,16 @@ app.controller('ProjectController', function ($scope, $location, $state, $http, 
     vm.categories = JSON.parse(localStorage.getItem("categories"));
     console.log(vm.categories);
     vm.busyGettingData = true;
+    
+    vm.alreadyVoted = function () {
+        ProjectService.alreadyVoted(vm.categoryId, vm.user.Id).success(function (response) {
+            console.log(response);
+
+        }).error(function (error) {
+            console.log("Error occured: " + error);
+        });
+    }
+    vm.alreadyVoted();
     ProjectService.getProjectById(vm.categoryId)
             .success(function (response) {
                 vm.projectList = response;

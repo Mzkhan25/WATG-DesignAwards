@@ -11,6 +11,7 @@ namespace DA.Contracts.Repository
         List<ResultResponse> GetAll();
         Result GetOne(int id);
         bool Save(Result item, string userName);
+        bool AlreadyVotedCheck(int categoryId, int userId);
         bool Delete(Result item, string userName);
     }
 }

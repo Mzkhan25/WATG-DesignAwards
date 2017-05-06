@@ -37,7 +37,12 @@ app.factory('ProjectService', ['$http', '$rootScope', '$window', function ($http
         var urlBase = $rootScope.baseUrl.concat('/api/v1/result/VoteProject');
         return $http.post(urlBase, voteRequest);
     };
+    ProjectService.alreadyVoted = function (categoryId, userId) {
+        var urlBase = $rootScope.baseUrl.concat('/api/v1/result/AlreadyVoted?categoryId=' + categoryId + '&userId=' + userId);
+        return $http.get(urlBase);
+    };
     return ProjectService;
+
 }]);
 
 //ResultService

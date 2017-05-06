@@ -47,6 +47,22 @@ namespace DA.WebApi.Controllers
             }
         }
 
+        [Route("AlreadyVoted")]
+        [HttpGet]
+        [EnableCors(origins: "*", headers: "*", methods: "*")]
+        public HttpResponseMessage AlreadyVotedCheck(int categoryId, int userId)
+        {
+            try
+            {
+                bool voteUpdated = _resultRepo.AlreadyVotedCheck(categoryId, userId);
+                return Request.CreateResponse(HttpStatusCode.OK, voteUpdated);
+            }
+            catch (Exception ex)
+            {
+                return Request.CreateResponse("Some went wrong");
+            }
+        }
+
         [Route("GetResults")]
         [HttpGet]
         [EnableCors(origins: "*", headers: "*", methods: "*")]

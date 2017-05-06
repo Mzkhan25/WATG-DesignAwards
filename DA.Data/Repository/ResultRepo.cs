@@ -50,6 +50,21 @@ namespace DA.Data.Repository
                 return true;
             }
         }
+
+        public bool AlreadyVotedCheck(int categoryId, int userId)
+        {
+            var dbItem = _db.Results.ToList().Where(x => x.CategoryId == categoryId)
+                .Where(x => x.UserId == userId);
+
+            if (dbItem.Count() > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
         public bool Delete(Result item, string userName)
         {
             return true;
