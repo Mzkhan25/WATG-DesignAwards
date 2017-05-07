@@ -96,11 +96,13 @@
     <Content Include="app\Controllers\CategoryController.js" />
     <Content Include="app\Controllers\LoginController.js" />
     <Content Include="app\Controllers\ProjectController.js" />
+    <Content Include="app\Controllers\ProjectDetailController.js" />
     <Content Include="app\Controllers\ResultController.js" />
     <Content Include="app\services\AppServices.js" />
     <Content Include="app\unauthorizedView.html" />
     <Content Include="app\Views\Category.html" />
     <Content Include="app\Views\Login.html" />
+    <Content Include="app\Views\ProjectDetail.html" />
     <Content Include="app\Views\Projects.html" />
     <Content Include="app\Views\Results.html" />
     <Content Include="css\entries\landscape_1.jpg" />

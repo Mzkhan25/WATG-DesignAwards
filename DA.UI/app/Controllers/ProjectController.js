@@ -45,10 +45,6 @@ app.controller('ProjectController', function ($scope, $location, $state, $http, 
             error(function (error) {
                 console.log("Error occured: " + error);
             });
-    vm.getProject = function (projectId) {
-        ProjectService.getProject(projectId);
-        vm.busyGettingData = false;
-    }
     vm.loadProjects = function (categoryId, categoryName) {
         localStorage.setItem('currentCategoryId', categoryId);
         localStorage.setItem('currentCategoryName', categoryName);
@@ -67,6 +63,11 @@ app.controller('ProjectController', function ($scope, $location, $state, $http, 
         }).error(function (error) {
             console.log("Error occured: " + error);
         });
+    }
+
+    vm.selectedProject = function (id) {
+        localStorage.setItem('projectList', JSON.stringify(vm.projectList));
+        $state.go("ProjectDetail", { "projectId": id });
     }
     vm.logOut = function () {
         localStorage.clear();

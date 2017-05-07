@@ -50,6 +50,12 @@ var app = angular.module('DesignAwardApp', ['ui.router', 'toastr','angular.filte
             controller: "ResultController",
             controllerAs: "result"
         })
+        .state('ProjectDetail', {
+            url: "/ProjectDetail/:projectId",
+            templateUrl: "app/Views/ProjectDetail.html",
+            controller: "ProjectDetailController",
+            controllerAs: "projectDetail"
+        })
     });
     app.run(['$rootScope', '$state', '$stateParams', function ($rootScope, $state, $stateParams) {
         $rootScope.baseUrl = 'http://localhost:49674';
