@@ -21,10 +21,11 @@ namespace DA.Data.Repository
             using (var ctx = new DesignAwardsContext())
             {
 
-                var allResults = ctx.Database.SqlQuery<ResultResponse>("Select c.CategoryName,p.ProjectTitle,COUNT(r.UserId) as VoteCount  from [Results] R" +
-                                        " INNER JOIN Projects P ON p.Id = r.ProjectId" +
-                                        " INNER JOIN Categories c on c.Id = p.CategoryId" +
-                                        " GROUP BY P.ProjectTitle, c.CategoryName").ToList();
+                var allResults = ctx.Database.SqlQuery<ResultResponse>("Select c.CategoryName,p.ProjectTitle,COUNT(r.UserId) as VoteCount " +
+                                                                        "from Projects P " +
+                                                                        "Left JOIN[Results] as R ON p.Id = r.ProjectId " +
+                                                                        "Left JOIN Categories c on c.Id = p.CategoryId " +
+                                                                        "GROUP BY P.ProjectTitle, c.CategoryName").ToList();
                 return allResults;
            }
             

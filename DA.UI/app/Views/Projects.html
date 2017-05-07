@@ -99,10 +99,10 @@
                 <h3 class="header">
                     Pick your favorite
                 </h3>
-                <p ng-if="!project.voteResponse" class="flow-text">Please vote for your favorite entry. We only ask that you judge based on substance and not just pretty pictures. Thank you.</p>
+                <p ng-if="!project.voteResponse && !project.hasAlreadyVoted" class="flow-text">Please vote for your favorite entry. We only ask that you judge based on substance and not just pretty pictures. Thank you.</p>
                 <p ng-if="project.voteResponse" class="flow-text">Thank you. We have received your vote. Please click <a href="#/Categories">here</a> to go back to the main page.</p>
-
-                <div ng-if="!project.voteResponse">
+                <p ng-if="project.hasAlreadyVoted" class="flow-text">You have already voted for this category. Please click <a href="#/Categories">here</a> to go back to the main page.</p>
+                <div ng-if="!project.voteResponse && !project.hasAlreadyVoted">
                     <div ng-repeat="pro in project.projectList">
                         <p>
                             <input name="vote" type="radio"
@@ -115,7 +115,6 @@
                        style="margin: 20px 0;"
                        ng-click="project.castedVote(project.voted, project.categoryId)">Vote</button>
                 </div>
-
             </div>
         </div>
 

@@ -29,7 +29,7 @@ app.controller('ProjectController', function ($scope, $location, $state, $http, 
     
     vm.alreadyVoted = function () {
         ProjectService.alreadyVoted(vm.categoryId, vm.user.Id).success(function (response) {
-            console.log(response);
+            vm.hasAlreadyVoted = response;
 
         }).error(function (error) {
             console.log("Error occured: " + error);
