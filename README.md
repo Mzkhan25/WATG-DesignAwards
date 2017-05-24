@@ -1,1 +1,2 @@
-# WATG-DesignAwards
+# WATG-DesignAwardsPortal
+WATG - Design Awards Portal

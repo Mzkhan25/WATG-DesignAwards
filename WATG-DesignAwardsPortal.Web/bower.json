@@ -1,0 +1,32 @@
+{
+  "authors": [
+    "Tolga <tolga.k@outlook.com>"
+  ],
+  "dependencies": {
+    "bootstrap": "*",
+    "fontawesome": "*",
+    "angular-bootstrap": "*",
+    "jquery": "*",
+    "angular-ui-select": "*",
+    "angular-route": "*",
+    "angular": "*",
+    "angular-ui-router": "*",
+    "angular-animate": "*",
+    "angular-filter": "*",
+    "materialize": "*",
+    "ng-file-upload": "*"
+  },
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "license": "ISC",
+  "name": "watg-designawards",
+  "resolutions": {
+    "angular": "1.5.8"
+  },
+  "version": "1.0.0"
+}

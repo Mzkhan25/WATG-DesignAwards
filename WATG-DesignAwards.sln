@@ -1,0 +1,52 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26430.6
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data", "Data", "{EA76CCC7-E4C4-48AB-AFFF-32B885C03C6C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WATG-DesignAwardsPortal.Model", "WATG-DesignAwardsPortal.Model\WATG-DesignAwardsPortal.Model.csproj", "{3DB5CA04-C6D6-4054-9DB7-F6A23C439081}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WATG-DesignAwardsPortal.Contracts", "WATG-DesignAwardsPortal.Contracts\WATG-DesignAwardsPortal.Contracts.csproj", "{460EA1A2-6191-48A7-A161-84ED1C3A73BE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WATG-DesignAwardsPortal.Data", "WATG-DesignAwardsPortal.Data\WATG-DesignAwardsPortal.Data.csproj", "{6A391E9E-94FC-484B-8A48-D0E95A3678D8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WATG-DesignAwardsPortal.Web", "WATG-DesignAwardsPortal.Web\WATG-DesignAwardsPortal.Web.csproj", "{2DC39D86-8546-4678-9530-7663A84F4E4D}"
+	ProjectSection(ProjectDependencies) = postProject
+		{3DB5CA04-C6D6-4054-9DB7-F6A23C439081} = {3DB5CA04-C6D6-4054-9DB7-F6A23C439081}
+		{6A391E9E-94FC-484B-8A48-D0E95A3678D8} = {6A391E9E-94FC-484B-8A48-D0E95A3678D8}
+		{460EA1A2-6191-48A7-A161-84ED1C3A73BE} = {460EA1A2-6191-48A7-A161-84ED1C3A73BE}
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3DB5CA04-C6D6-4054-9DB7-F6A23C439081}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3DB5CA04-C6D6-4054-9DB7-F6A23C439081}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3DB5CA04-C6D6-4054-9DB7-F6A23C439081}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3DB5CA04-C6D6-4054-9DB7-F6A23C439081}.Release|Any CPU.Build.0 = Release|Any CPU
+		{460EA1A2-6191-48A7-A161-84ED1C3A73BE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{460EA1A2-6191-48A7-A161-84ED1C3A73BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{460EA1A2-6191-48A7-A161-84ED1C3A73BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{460EA1A2-6191-48A7-A161-84ED1C3A73BE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6A391E9E-94FC-484B-8A48-D0E95A3678D8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6A391E9E-94FC-484B-8A48-D0E95A3678D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6A391E9E-94FC-484B-8A48-D0E95A3678D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6A391E9E-94FC-484B-8A48-D0E95A3678D8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2DC39D86-8546-4678-9530-7663A84F4E4D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2DC39D86-8546-4678-9530-7663A84F4E4D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2DC39D86-8546-4678-9530-7663A84F4E4D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2DC39D86-8546-4678-9530-7663A84F4E4D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{3DB5CA04-C6D6-4054-9DB7-F6A23C439081} = {EA76CCC7-E4C4-48AB-AFFF-32B885C03C6C}
+		{460EA1A2-6191-48A7-A161-84ED1C3A73BE} = {EA76CCC7-E4C4-48AB-AFFF-32B885C03C6C}
+		{6A391E9E-94FC-484B-8A48-D0E95A3678D8} = {EA76CCC7-E4C4-48AB-AFFF-32B885C03C6C}
+	EndGlobalSection
+EndGlobal
