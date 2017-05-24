@@ -17,8 +17,8 @@ namespace WATG_DesignAwardsPortal.Web.Server.Controllers
             bool result = true;
             try
             {
-               // string[] folderpaths = {  "/watgdesignawards/Attachments/" };
-                string[] folderpaths = { "/Attachments/" };
+               string[] folderpaths = {  "/watgdesignawards/Attachments/" };
+               // string[] folderpaths = { "/Attachments/" };
                 foreach (string folderpath in folderpaths)
                 {
                     string folderPhysicalPath = Server.MapPath(folderpath);
