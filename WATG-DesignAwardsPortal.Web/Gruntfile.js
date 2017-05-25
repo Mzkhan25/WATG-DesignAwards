@@ -1,4 +1,4 @@
-﻿module.exports = function (grunt) {
+﻿module.exports = function(grunt) {
     grunt.initConfig({
         pkg: grunt.file.readJSON("package.json"),
         protractor: {
@@ -72,9 +72,6 @@
                     "bower_components/ng-file-upload/ng-file-upload-shim.js",
                     "bower_components/ng-file-upload/FileAPI.min.js",
                     "bower_components/ng-file-upload/ng-file-upload-all.min.js"
-                    
-                    
-                 
                 ],
                 dest: "public/js/vendor.js"
             },
@@ -149,7 +146,6 @@
                         "bower_components/footable/css/footable.core.min.css",
                         "bower_components/watg-angular-autocomplete/dist/css/watg-angular-autocomplete.min.css",
                         "bower_components/materialize/dist/css/materialize.min.css"
-
                     ]
                 }
             }
@@ -162,31 +158,32 @@
         },
         copy: {
             main: {
-                files: [{
-                    expand: true,
-                    src: [
-                        "bower_components/fontawesome/fonts/*",
-                        "bower_components/bootstrap/fonts/*",
-                        "bower_components/materialize/dist/fonts/roboto/*"
-                    ],
-                    dest: "public/fonts/",
-                    filter: "isFile",
-                    flatten: true
-                },
-                {
-                    expand: true,
-                    src: ["bower_components/footable/css/fonts/*"],
-                    dest: "public/css/fonts/",
-                    filter: "isFile",
-                    flatten: true
-                },
-                {
-                    expand: true,
-                    src: ["server/content/images/*", "bower_components/jquery-ui/themes/base/images/*"],
-                    dest: "public/css/images/",
-                    filter: "isFile",
-                    flatten: true
-                }
+                files: [
+                    {
+                        expand: true,
+                        src: [
+                            "bower_components/fontawesome/fonts/*",
+                            "bower_components/bootstrap/fonts/*",
+                            "bower_components/materialize/dist/fonts/roboto/*"
+                        ],
+                        dest: "public/fonts/",
+                        filter: "isFile",
+                        flatten: true
+                    },
+                    {
+                        expand: true,
+                        src: ["bower_components/footable/css/fonts/*"],
+                        dest: "public/css/fonts/",
+                        filter: "isFile",
+                        flatten: true
+                    },
+                    {
+                        expand: true,
+                        src: ["server/content/images/*", "bower_components/jquery-ui/themes/base/images/*"],
+                        dest: "public/css/images/",
+                        filter: "isFile",
+                        flatten: true
+                    }
                 ]
             }
         }
@@ -201,18 +198,22 @@
     grunt.loadNpmTasks("grunt-contrib-uglify");
     grunt.loadNpmTasks("grunt-contrib-watch");
     grunt.loadNpmTasks("grunt-contrib-less");
-    grunt.registerTask("dev", [
-        "ngconstant:dev", "jshint", "concat", "uglify", "concat_css:dev", "less", "cssmin", "copy", "watch:dev"
-    ]);
-    grunt.registerTask("tolga", [
-        "ngconstant:tolga", "jshint", "concat:app", "concat:vendor", "uglify", "concat_css:dev", "less", "cssmin",
-        "copy", "watch:dev"
-    ]);
-    grunt.registerTask("stage", [
-        "ngconstant:stage", "jshint", "concat", "uglify", "concat_css:stage", "less", "cssmin", "copy"
-    ]);
-    grunt.registerTask("prod", [
-        "ngconstant:prod", "jshint", "concat", "uglify", "concat_css:prod", "less", "cssmin", "copy"
-    ]);
+    grunt.registerTask("dev",
+        [
+            "ngconstant:dev", "jshint", "concat", "uglify", "concat_css:dev", "less", "cssmin", "copy", "watch:dev"
+        ]);
+    grunt.registerTask("tolga",
+        [
+            "ngconstant:tolga", "jshint", "concat:app", "concat:vendor", "uglify", "concat_css:dev", "less", "cssmin",
+            "copy", "watch:dev"
+        ]);
+    grunt.registerTask("stage",
+        [
+            "ngconstant:stage", "jshint", "concat", "uglify", "concat_css:stage", "less", "cssmin", "copy"
+        ]);
+    grunt.registerTask("prod",
+        [
+            "ngconstant:prod", "jshint", "concat", "uglify", "concat_css:prod", "less", "cssmin", "copy"
+        ]);
     grunt.registerTask("test", ["jshint", "protractor"]);
 };

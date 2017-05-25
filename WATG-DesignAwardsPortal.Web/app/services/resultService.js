@@ -1,40 +1,38 @@
-﻿(function () {
+﻿(function() {
     "use strict";
     angular
         .module("watgDesignAwards")
         .factory("resultService", ["$http", "$rootScope", resultService]);
-    function resultService($http,  $rootScope) {
+    function resultService($http, $rootScope) {
         return {
-
-            getAll: function () {
+            getAll: function() {
                 return $http({
                         method: "GET",
                         url: "Result/GetAll"
                     })
-                    .then(function (response) {
+                    .then(function(response) {
                         return response.data;
                     });
             },
-            getOne: function (id) {
+            getOne: function(id) {
                 return $http({
                         method: "GET",
                         url: "Result/GetOne?id=" + id
                     })
-                    .then(function (response) {
+                    .then(function(response) {
                         return response.data;
                     });
             },
-            checkUserVote: function (categoryId,userId) {
+            checkUserVote: function(categoryId, userId) {
                 return $http({
                         method: "GET",
-                        url: "Result/CheckUserVote?categoryId=" + categoryId +"&userId=" + userId
+                        url: "Result/CheckUserVote?categoryId=" + categoryId + "&userId=" + userId
                     })
-                    .then(function (response) {
+                    .then(function(response) {
                         return response.data;
                     });
             },
-            save: function (result) {
-                
+            save: function(result) {
                 return $http({
                         method: "POST",
                         data: {
@@ -42,7 +40,7 @@
                         },
                         url: "Result/Save/"
                     })
-                    .then(function (response) {
+                    .then(function(response) {
                         return response.data;
                     });
             }

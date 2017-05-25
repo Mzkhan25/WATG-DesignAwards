@@ -19,7 +19,7 @@
             categoryService) {
             $scope.categoryList = [];
             $scope.busyGettingData = true;
-            $rootScope.arrayBufferToBase64 = function (buffer) {
+            $rootScope.arrayBufferToBase64 = function(buffer) {
                 var binary = "";
                 var bytes = new Uint8Array(buffer);
                 var len = bytes.byteLength;
@@ -34,13 +34,12 @@
             function getAll() {
                 $scope.busyGettingData = true;
                 categoryService.getAll()
-                    .then(function (results) {
+                    .then(function(results) {
                         for (var i = 0; i < results.length; i++) {
                             results[i].Image = $rootScope.arrayBufferToBase64(results[i].Image);
                         }
                         $scope.records = results;
                         $rootScope.categories = results;
-                        
                         $scope.busyGettingData = false;
                     });
             }

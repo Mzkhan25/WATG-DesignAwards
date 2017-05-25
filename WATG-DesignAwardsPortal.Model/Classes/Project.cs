@@ -1,5 +1,4 @@
 ﻿#region
-using System.ComponentModel.DataAnnotations.Schema;
 using WATG_DesignAwardsPortal.Model.Common;
 #endregion
 

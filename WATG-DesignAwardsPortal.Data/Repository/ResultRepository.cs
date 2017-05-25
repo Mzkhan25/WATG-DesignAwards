@@ -1,11 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
+﻿#region
+using System;
 using System.Data.Entity;
 using System.Linq;
-using System.Web;
 using WATG_DesignAwardsPortal.Contracts;
 using WATG_DesignAwardsPortal.Contracts.IRepository;
 using WATG_DesignAwardsPortal.Model.Classes;
+#endregion
 
 namespace WATG_DesignAwardsPortal.Data.Repository
 {
@@ -26,7 +26,7 @@ namespace WATG_DesignAwardsPortal.Data.Repository
         }
         public bool Save(Result item, string userName)
         {
-            bool result = true;
+            var result = true;
             try
             {
                 var dbItem = new Result();
@@ -48,7 +48,6 @@ namespace WATG_DesignAwardsPortal.Data.Repository
                 dbItem.ProjectId = item.ProjectId;
                 dbItem.CategoryId = item.CategoryId;
                 dbItem.UserId = item.UserId;
-
                 dbItem.IsDeleted = false;
                 if (isNew)
                 {

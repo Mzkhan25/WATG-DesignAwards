@@ -1,14 +1,14 @@
-﻿<div id="loader-wrapper" ng-show="login.busyGettingData">
+﻿<div id="loader-wrapper" ng-show="busyGettingData">
     <div id="loader"></div>
     <div class="loader-section section-left"></div>
     <div class="loader-section section-right"></div>
 </div>
 
 
-<div ng-show="!login.busyGettingData" id="landing">
+<div ng-show="!busyGettingData" id="landing">
     <header class="center-align" style="max-height: 50%">
 
-        <img src="../../watgdesignawards/css/images/logo-landing.svg" height="150"/>
+        <img src="https://watgdevops.blob.core.windows.net/watgdesignawards/logo-landing.svg" height="150"/>
     </header>
 
     <main class="login-card">
@@ -20,12 +20,14 @@
                     <label for="password" data-error="PIN not recognized">PIN</label>
                 </div>
                 <button class="waves-effect waves-light btn watg-blue" ng-disabled="loginForm.$invalid" type="submit" ng-click="login()">Login</button>
-                <p ng-if="invalidPINFlag" for="password"><span class="errormsg">{{invalidUserMsg}}</span></p>
+                <p ng-if="invalidPINFlag" for="password">
+                    <span class="errormsg">{{invalidUserMsg}}</span>
+                </p>
             </div>
         </div>
     </main>
     <footer style="height: 50%">
 
-        <img  class="watg-landing" src="../../watgdesignawards/css/images/watg-white.svg" />          
+        <img class="watg-landing" src="https://watgdevops.blob.core.windows.net/watgdesignawards/watg-white.svg"/>
     </footer>
 </div>

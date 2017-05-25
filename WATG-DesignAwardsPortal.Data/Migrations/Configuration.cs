@@ -1,23 +1,19 @@
+#region
+using System.Data.Entity.Migrations;
 using WATG_DesignAwardsPortal.Model.Classes;
 using WATG_DesignAwardsPortal.Model.Common;
+#endregion
 
 namespace WATG_DesignAwardsPortal.Data.Migrations
 {
-    using System;
-    using System.Data.Entity;
-    using System.Data.Entity.Migrations;
-    using System.Linq;
-
-    internal sealed class Configuration : DbMigrationsConfiguration<WATG_DesignAwardsPortal.Data.DesignAwardsContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<DesignAwardsContext>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = true;
             AutomaticMigrationDataLossAllowed = true;
-
         }
-
-        protected override void Seed(WATG_DesignAwardsPortal.Data.DesignAwardsContext context)
+        protected override void Seed(DesignAwardsContext context)
         {
             //  This method will be called after migrating to the latest version.
 
@@ -32,20 +28,20 @@ namespace WATG_DesignAwardsPortal.Data.Migrations
             //    );
             //
             context.Users.AddOrUpdate(
-                p=> p.Email,
+                p => p.Email,
                 new User
                 {
-                    Email="mbajwa@watg.com",
+                    Email = "mbajwa@watg.com",
                     Password = "devops",
-                    Role=ApplicationRoles.Admin
-                }, 
+                    Role = ApplicationRoles.Admin
+                },
                 new User
                 {
                     Email = "mbajwa@watg.com",
                     Password = "abc123",
                     Role = ApplicationRoles.User
                 }
-                );
+            );
         }
     }
 }

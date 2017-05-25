@@ -1,5 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿#region
+using System;
 using System.Data.Entity;
 using System.IO;
 using System.Linq;
@@ -7,6 +7,7 @@ using System.Web;
 using WATG_DesignAwardsPortal.Contracts;
 using WATG_DesignAwardsPortal.Contracts.IRepository;
 using WATG_DesignAwardsPortal.Model.Classes;
+#endregion
 
 namespace WATG_DesignAwardsPortal.Data.Repository
 {
@@ -15,7 +16,7 @@ namespace WATG_DesignAwardsPortal.Data.Repository
         private readonly IDesignAwardsContext _db;
         public CategoryRepository()
         {
-            _db= new DesignAwardsContext();
+            _db = new DesignAwardsContext();
         }
         public CategoryRepository(DesignAwardsContext db)
         {
@@ -27,7 +28,7 @@ namespace WATG_DesignAwardsPortal.Data.Repository
         }
         public bool Save(HttpPostedFileBase httpPostedFileBases, string name, string userName)
         {
-            bool result = true;
+            var result = true;
             try
             {
                 var dbItem = new Category();
@@ -58,7 +59,7 @@ namespace WATG_DesignAwardsPortal.Data.Repository
                 }
                 _db.SaveChanges();
             }
-            catch (Exception )
+            catch (Exception)
             {
                 result = false;
             }
@@ -66,7 +67,7 @@ namespace WATG_DesignAwardsPortal.Data.Repository
         }
         public bool Delete(int id, string userName)
         {
-            bool result = true;
+            var result = true;
             try
             {
                 var dbitem = _db.Categories.Find(id);
@@ -79,7 +80,6 @@ namespace WATG_DesignAwardsPortal.Data.Repository
                     _db.Entry(dbitem).State = EntityState.Modified;
                 }
                 _db.SaveChanges();
-              
             }
             catch (Exception exception)
             {

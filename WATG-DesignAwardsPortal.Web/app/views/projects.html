@@ -11,16 +11,18 @@
                 <div class="nav-wrapper">
                     <a ui-sref="Category">
 
-                        <img class="nav-logo" src="../../watgdesignawards/css/images/logo-small.svg" />
+                        <img class="nav-logo" src="https://watgdevops.blob.core.windows.net/watgdesignawards/logo-small.svg"/>
                     </a>
-                    <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+                    <a href="#" data-activates="mobile-demo" class="button-collapse">
+                        <i class="material-icons">menu</i>
+                    </a>
                     <ul class="right hide-on-med-and-down">
                         <li ng-class="pro.Id == categoryId ? 'active' : ''"
                             ng-repeat="pro in categories">
                             <a href
                                ng-click="loadProjects(pro.Id)">{{pro.CategoryName}}</a>
-                        </li>         
-                        <a id="logout" title="Add New Project"
+                        </li>
+                        <a id="logout" title="Sign Out"
                            class="btn btn-primary btn-xs" data-title="Sign Out"
                            ng-click="logOut()">
                             Sign Out
@@ -30,7 +32,9 @@
                         <li>
                             <div class="userView">
                                 <div class="background" style="background-color: #AF2125"></div>
-                                <a ui-sref="Category"><img class="side-logo" src="../../watgdesignawards/css/images/logo-landing.svg"></a>
+                                <a ui-sref="Category">
+                                    <img class="side-logo" src="https://watgdevops.blob.core.windows.net/watgdesignawards/logo-landing.svg">
+                                </a>
                             </div>
                         </li>
 
@@ -38,8 +42,8 @@
                             ng-repeat="pro in categories">
                             <a href
                                ng-click="loadProjects(pro.Id)">{{pro.CategoryName}}</a>
-                        </li>       
-                        <a id="logout" title="Add New Project"
+                        </li>
+                        <a id="logout" title="Sign Out"
                            class="btn btn-primary btn-xs" data-title="Sign Out"
                            ng-click="logOut()">
                             Sign Out
@@ -50,20 +54,27 @@
         </nav>
     </header>
     <main>
-        <div class="parallax-container darken valign-wrapper" style="height: 200px">
-          
-            <div class="parallax"><img src="../../watgdesignawards/css/images/parallax1.jpg"></div>
+        <div class="parallax-container darken valign-wrapper">
+
+            <div class="parallax">
+                <img ng-src="data:image/JPEG;base64,{{DisplayImage}}" style="background-color: white; display: block !important; transform: translate3d(-50%, 609px, 0px);">
+            </div>
             <div class="container">
                 <div class="row">
-                    <div class="col s12">
-                        <h1 class="white-text" style="font-weight: 100">{{projectCategory}}</h1>
+                    <div class="col s6 m3 offset-s3 offset-m1 pull-m1" style="color: white; font-size: 32px">
+                        {{projectCategory}}
                     </div>
+
                 </div>
             </div>
         </div>
+
+
         <div class="section white">
             <div class="row container flow-text grey-text text-darken-1">
-                <p>The following projects were submitted in the <span class="lowercase">{{projectCategory}} </span>category. Please take time to review and vote for your favorite entry.</p>
+                <p>
+                    The following projects were submitted in the <span class="lowercase">{{projectCategory}} </span>category. Please take time to review and vote for your favorite entry.
+                </p>
             </div>
         </div>
         <!--Project List Starts Here-->
@@ -93,9 +104,13 @@
                     Pick your favorite
                 </h3>
                 <p ng-if="!voteResponse && !hasAlreadyVoted" class="flow-text">Please vote for your favorite entry. We only ask that you judge based on substance and not just pretty pictures. Thank you.</p>
-                <p ng-if="voteResponse" class="flow-text">Thank you. We have received your vote. Please click <a ng-href="#/category">here</a> to go back to the main page.</p>
-                <p ng-if="hasAlreadyVoted" class="flow-text">You have already voted for this category. Please click <a ng-href="#/category">here</a> to go back to the main page.</p>
-                <div ng-if="!voteResponse && !hasAlreadyVoted">  
+                <p ng-if="voteResponse" class="flow-text">
+                    Thank you. We have received your vote. Please click <a ng-href="#/category">here</a> to go back to the main page.
+                </p>
+                <p ng-if="hasAlreadyVoted" class="flow-text">
+                    You have already voted for this category. Please click <a ng-href="#/category">here</a> to go back to the main page.
+                </p>
+                <div ng-if="!voteResponse && !hasAlreadyVoted">
                     <div>
                         <select ng-options="r.Id as r.Title  for r in projectList"
                                 class="form-control input-sm"
@@ -109,17 +124,15 @@
         </div>
 
     </main>
-    <footer>
-        <div class="row container center-align">
-            <img class="watg-footer" src="../../watgdesignawards/css/images/watg-grey.svg">
-        </div>
+    <footer style="height: 50%">
+
+        <img class="watg-landing" src="https://watgdevops.blob.core.windows.net/watgdesignawards/watg-white.svg"/>
     </footer>
 </div>
 <script>
-    $(document).ready(function () {
+    $(document).ready(function() {
         $('#sidenav-overlay').hide();
         $(".button-collapse").sideNav();
         $('.parallax').parallax();
-
     });
 </script>
