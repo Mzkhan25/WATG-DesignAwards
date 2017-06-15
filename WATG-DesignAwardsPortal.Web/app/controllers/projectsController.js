@@ -4,8 +4,7 @@
         .module("watgDesignAwards")
         .controller("projectsController",
             [
-                "$scope", "$rootScope", "$routeParams", "$location", "$filter", "$timeout", "$window", "projectService",
-                "resultService", "categoryService",
+                "$scope", "$rootScope", "$routeParams", "$location", "$filter", "$timeout", "$window", "projectService","resultService",
                 projectsController
             ]);
     function
@@ -17,8 +16,7 @@
             $timeout,
             $window,
             projectService,
-            resultService,
-            categoryService) {
+            resultService) {
             $scope.categoryId = $routeParams.categoryId;
             $scope.projectList = [];
             $scope.voted = "";
@@ -26,9 +24,10 @@
             $scope.voteResponse = false;
             $scope.disbleVotBtn = false;
             $scope.busyGettingData = true;
-            var getProjectByCategory = function() {
+
+            var getProjectByCategory = function () {
                 projectService.getByCategory($scope.categoryId)
-                    .then(function(results) {
+                    .then(function (results) {
                         for (var i = 0; i < results.length; i++) {
                             results[i].DisplayImage = $rootScope.arrayBufferToBase64(results[i].DisplayImage);
                         }
@@ -36,26 +35,15 @@
                         $scope.busyGettingData = false;
                     });
             };
-            var getCategoryInformation = function() {
-                categoryService.getOne($scope.categoryId)
-                    .then(function(results) {
-                        results[0].DisplayImage = $rootScope.arrayBufferToBase64(results[0].Image);
-                        $scope.projectCategory = results[0].CategoryName;
-                        $scope.DisplayImage = results[0].DisplayImage;
+            var voteAlreadyCasted = function() {
+                resultService.checkUserVote($scope.categoryId, $rootScope.user.Id)
+                    .then(function (result) {
+                        $scope.hasAlreadyVoted = result;
                         getProjectByCategory();
                     });
             };
-            var voteAlreadyCasted = function() {
-                resultService.checkUserVote($scope.categoryId, $rootScope.user.Id)
-                    .then(function(result) {
-                        $scope.hasAlreadyVoted = result;
-                        getCategoryInformation();
-                    });
-            };
-            $scope.loadProjects = function(categoryId) {
-                $scope.busyGettingData = true;
-                $scope.categoryId = categoryId;
-                voteAlreadyCasted();
+            $scope.loadProjects = function (categoryId) {
+                
                 $location.path("/projects/" + categoryId);
             };
             $scope.saveVote = function(projectId, categoryId) {
@@ -74,6 +62,7 @@
                 $location.path("/projectDetail/" + id);
             };
             $rootScope.validate();
+            
             voteAlreadyCasted();
         }
 }());

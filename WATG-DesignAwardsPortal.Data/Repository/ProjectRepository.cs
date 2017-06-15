@@ -1,5 +1,5 @@
-﻿#region
-using System;
+﻿using System;
+using System.Collections.Generic;
 using System.Data.Entity;
 using System.IO;
 using System.Linq;
@@ -7,7 +7,6 @@ using System.Web;
 using WATG_DesignAwardsPortal.Contracts;
 using WATG_DesignAwardsPortal.Contracts.IRepository;
 using WATG_DesignAwardsPortal.Model.Classes;
-#endregion
 
 namespace WATG_DesignAwardsPortal.Data.Repository
 {
@@ -28,7 +27,7 @@ namespace WATG_DesignAwardsPortal.Data.Repository
         }
         public bool Save(Project project, HttpPostedFileBase image, HttpPostedFileBase document, string userName)
         {
-            var result = true;
+            bool result = true;
             try
             {
                 var dbItem = new Project();
@@ -55,6 +54,7 @@ namespace WATG_DesignAwardsPortal.Data.Repository
                 dbItem.CategoryId = project.CategoryId;
                 dbItem.Office = project.Office;
                 dbItem.Description = project.Description;
+
                 dbItem.IsDeleted = false;
                 if (isNew)
                 {

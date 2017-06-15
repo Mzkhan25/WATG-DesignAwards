@@ -18,9 +18,10 @@
             projectService) {
             $scope.busyGettingData = true;
             $scope.projectId = $routeParams.projectId;
-            var getProjectById = function() {
+            var getProjectById = function () {
+                
                 projectService.getById($scope.projectId)
-                    .then(function(result) {
+                    .then(function (result) {
                         result[0].DisplayImage = $rootScope.arrayBufferToBase64(result[0].DisplayImage);
                         $scope.project = result[0];
                         $scope.busyGettingData = false;

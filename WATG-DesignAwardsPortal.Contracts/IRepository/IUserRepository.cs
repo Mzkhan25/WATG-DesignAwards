@@ -1,7 +1,5 @@
-﻿#region
-using System.Linq;
+﻿using System.Linq;
 using WATG_DesignAwardsPortal.Model.Classes;
-#endregion
 
 namespace WATG_DesignAwardsPortal.Contracts.IRepository
 {

@@ -1,76 +1,65 @@
-﻿<div id="loader-wrapper" ng-show="busyGettingData">
-    <div id="loader"></div>
-    <div class="loader-section section-left"></div>
-    <div class="loader-section section-right"></div>
-</div>
-<div id="background-result">
+﻿<div id="background-result">
     <header>
-        <nav class="top-nav">
+        <nav class="top-nav">             
             <a ui-sref="Category" class="left-align">
 
-                <img class="nav-logo" src="https://watgdevops.blob.core.windows.net/watgdesignawards/logo-small.svg"/>
+                <img class="nav-logo" src="../../css/images/logo-small.svg" />
             </a>
             <div class="container">
                 <div class="nav-wrapper">
-
-                    <a href="#" data-activates="mobile-demo" class="button-collapse">
-                        <i class="material-icons">menu</i>
+                 
+                    <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+                 
+                    <a id="addCategory" title="Add New Category"
+                       class="btn btn-primary btn-xs" data-title="Add New Category"
+                       ng-href="#/addCategory">
+                        Add New Category
                     </a>
-                    <div class="hide-on-med-and-down">
-                        <a id="addCategory" title="Add New Category"
-                           class="btn btn-primary btn-xs" data-title="Add New Category"
-                           ng-href="#/addCategory">
-                            Add New Category
-                        </a>
-
-
-                        <a id="addProject" title="Add New Project"
-                           class="btn btn-primary btn-xs" data-title="Add New Project"
-                           ng-href="#/addProject">
-                            Add New Project
-                        </a>
-                        <a id="addUser" title="Add New Project"
-                           class="btn btn-primary btn-xs" data-title="Add New User"
-                           ng-href="#/addUser">
-                            Add New User
-                        </a>
-                        <a id="results" title="Add New Project"
-                           class="btn btn-primary btn-xs" data-title="results"
-                           ng-href="#/results">
-                            Results
-                        </a>
-                        <a id="logout" title="Sign Out"
-                           class="btn btn-primary btn-xs" data-title="Sign Out"
-                           ng-click="logOut()">
-                            Sign Out
-                        </a>
-
-                    </div>
+                        
+                        
+                    <a id="addProject" title="Add New Project"
+                       class="btn btn-primary btn-xs" data-title="Add New Project"
+                       ng-href="#/addProject">
+                        Add New Project
+                    </a>
+                    <a id="addUser" title="Add New Project"
+                       class="btn btn-primary btn-xs" data-title="Add New User"
+                       ng-href="#/addUser">
+                        Add New User
+                    </a>
+                    <a id="results" title="Add New Project"
+                       class="btn btn-primary btn-xs" data-title="results"
+                       ng-href="#/results">
+                        Results
+                    </a>
+                    <a id="logout" title="Sign Out"
+                       class="btn btn-primary btn-xs" data-title="Sign Out"
+                       ng-click="logOut()">
+                        Sign Out
+                    </a>
                     <ul class="side-nav" id="mobile-demo">
                         <li>
                             <div class="userView">
                                 <div class="background" style="background-color: #AF2125"></div>
-                                <a ui-sref="Category">
-                                    <img class="left-align" src="https://watgdevops.blob.core.windows.net/watgdesignawards/logo-landing.svg">
-                                </a>
+                                <a ui-sref="Category"><img class="left-align" src="../../css/images/logo-landing.svg"></a>
                             </div>
                         </li>
 
-                        <a id="addCategory" title="Add New Category"
+                        <a id="addCategory" title="Add New Category" 
                            class="btn btn-primary btn-xs" data-title="Add New Category"
                            ng-href="#/addCategory">
                             Add New Category
-                        </a>
-                        <a id="addProject" title="Add New Project"
+                        </a>        
+                        <a id="addProject" title="Add New Project" 
                            class="btn btn-primary btn-xs" data-title="Add New Project"
                            ng-href="#/addProject">
                             Add New Project
-                        </a>
+                        </a>   
                         <a id="addUser" title="Add New Project"
                            class="btn btn-xs" data-title="Add New User"
                            ng-href="#/addUser">
                             Add New User
-                        </a>
+                        </a>          
 
                         <a id="results" title="Add New Project"
                            class="btn btn-primary btn-xs" data-title="results"
@@ -81,7 +70,7 @@
                            class="btn btn-primary btn-xs" data-title="Sign Out"
                            ng-click="logOut()">
                             Sign Out
-                        </a>
+                        </a> 
                     </ul>
                 </div>
             </div>
@@ -92,7 +81,7 @@
             <div class="col-md-4">
                 <h4>First Name</h4>
                 <input type="text" ng-model="User.FirstName"
-                       name="FirstName" class="form-control" style="color: white"
+                       name="FirstName" class="form-control"    style="color:white"
                        required ng-maxlength="50"
                        ng-minlength="1"/>
             </div>
@@ -100,7 +89,7 @@
             <div class="col-md-4">
                 <h4>Last Name</h4>
                 <input type="text" ng-model="User.LastName"
-                       name="LastName" class="form-control" style="color: white"
+                       name="LastName" class="form-control"         style="color:white"
                        required ng-maxlength="50"
                        ng-minlength="1"/>
             </div>
@@ -110,21 +99,21 @@
         <div class="row">
             <div class="col-md-4">
                 <h4>Email</h4>
-                <input type="text" ng-model="User.Email" style="color: white"
+                <input type="text" ng-model="User.Email"          style="color:white"
                        name="Email" class="form-control"
                        required ng-maxlength="50"
                        ng-minlength="3"/>
             </div>
             <div class="col-md-4">
                 <h4>Password</h4>
-                <input type="text" ng-model="User.Password" style="color: white"
+                <input type="text" ng-model="User.Password"          style="color:white"
                        name="Email" class="form-control"
                        required ng-maxlength="50"
                        ng-minlength="3"/>
             </div>
+           
 
-
-        </div>
+        </div>                      
         <br/>
         <div class="row">
             <div class="col-md-4">
@@ -151,9 +140,9 @@
                 </button>
             </div>
         </div>
-    </form>
+    </form>   
     <footer style="height: 50%">
 
-        <img class="watg-landing" src="https://watgdevops.blob.core.windows.net/watgdesignawards/watg-white.svg"/>
+        <img  class="watg-landing" src="../../css/images/watg-white.svg" />          
     </footer>
 </div>

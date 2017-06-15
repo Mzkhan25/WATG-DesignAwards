@@ -1,10 +1,11 @@
-﻿#region
-using System;
+﻿using System;
+using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Security.AccessControl;
 using System.Security.Principal;
+using System.Web;
 using System.Web.Mvc;
-#endregion
 
 namespace WATG_DesignAwardsPortal.Web.Server.Controllers
 {
@@ -13,20 +14,21 @@ namespace WATG_DesignAwardsPortal.Web.Server.Controllers
         // GET: Util
         public bool MakeNecessarryFolders()
         {
-            var result = true;
+            bool result = true;
             try
             {
-                string[] folderpaths = {"/watgdesignawards/Attachments/"};
-                // string[] folderpaths = { "/Attachments/" };
-                foreach (var folderpath in folderpaths)
+               // string[] folderpaths = {  "/watgdesignawards/Attachments/" };
+                string[] folderpaths = { "/Attachments/" };
+                foreach (string folderpath in folderpaths)
                 {
-                    var folderPhysicalPath = Server.MapPath(folderpath);
-                    var exists = Directory.Exists(folderPhysicalPath);
+                    string folderPhysicalPath = Server.MapPath(folderpath);
+                    bool exists = System.IO.Directory.Exists(folderPhysicalPath);
+
                     if (!exists)
                     {
-                        var di = Directory.CreateDirectory(folderPhysicalPath);
-                        var dInfo = new DirectoryInfo(folderPhysicalPath);
-                        var dSecurity = dInfo.GetAccessControl();
+                        DirectoryInfo di = System.IO.Directory.CreateDirectory(folderPhysicalPath);
+                        DirectoryInfo dInfo = new DirectoryInfo(folderPhysicalPath);
+                        DirectorySecurity dSecurity = dInfo.GetAccessControl();
                         dSecurity.AddAccessRule(
                             new FileSystemAccessRule(new SecurityIdentifier(WellKnownSidType.WorldSid, null),
                                 FileSystemRights.FullControl,

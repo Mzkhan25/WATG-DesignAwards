@@ -1,4 +1,4 @@
-﻿(function() {
+﻿(function () {
     "use strict";
     angular
         .module("watgDesignAwards")
@@ -17,10 +17,11 @@
             $timeout,
             $window,
             categoryService) {
+         
             function getAll() {
                 $scope.busyGettingData = true;
                 categoryService.getAll()
-                    .then(function(results) {
+                    .then(function (results) {
                         for (var i = 0; i < results.length; i++) {
                             results[i].Image = $rootScope.arrayBufferToBase64(results[i].Image);
                         }
@@ -28,26 +29,25 @@
                         $scope.busyGettingData = false;
                     });
             }
-            $scope.uploadPic = function(file) {
+            $scope.uploadPic = function (file) {
                 if ($scope.categoryImage && $scope.categoryName)
                     categoryService.save(file, $scope.categoryName);
             };
-            $rootScope.categoryUploaded = function() {
+            $rootScope.categoryUploaded = function () {
                 getAll();
             };
-            $scope.modalClicked = function(shortCurrencyName, imageBlob) {
+            $scope.modalClicked = function (shortCurrencyName, imageBlob) {
                 $scope.shortCurrencyName = shortCurrencyName;
                 $scope.imageBlob = imageBlob;
             };
-            $scope.delete = function(id) {
+            $scope.delete = function (id) {
                 categoryService.delete(id)
-                    .then(function(result) {
-                        $scope.categoryImage = "";
-                        $scope.categoryName = "";
+                    .then(function (result) {
                         getAll();
                     });
             };
             $rootScope.validate();
             getAll();
+
         }
 }());

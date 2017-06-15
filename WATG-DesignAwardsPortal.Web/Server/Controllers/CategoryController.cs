@@ -1,10 +1,11 @@
-﻿#region
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using WATG_DesignAwardsPortal.Contracts.IRepository;
 using WATG_DesignAwardsPortal.Data.Repository;
-#endregion
+using WATG_DesignAwardsPortal.Model.Classes;
 
 namespace WATG_DesignAwardsPortal.Web.Server.Controllers
 {
@@ -25,12 +26,12 @@ namespace WATG_DesignAwardsPortal.Web.Server.Controllers
         }
         public ActionResult GetOne(int id)
         {
-            var result = _category.GetAll().Where(p => p.Id == id).ToList();
+            var result = _category.GetAll().ToList();
             return Json(result, JsonRequestBehavior.AllowGet);
         }
         public ActionResult Save(HttpPostedFileBase file, string name)
         {
-            var result = _category.Save(file, name, "");
+          var result = _category.Save(file, name, "");
             return Json(result, JsonRequestBehavior.AllowGet);
         }
         public ActionResult Delete(int id)
@@ -38,5 +39,6 @@ namespace WATG_DesignAwardsPortal.Web.Server.Controllers
             var result = _category.Delete(id, "");
             return Json(result, JsonRequestBehavior.AllowGet);
         }
+
     }
 }

@@ -1,37 +1,37 @@
-﻿(function() {
+﻿(function () {
     "use strict";
     angular
         .module("watgDesignAwards")
-        .factory("categoryService", ["$http", "Upload", "$rootScope", categoryService]);
-    function categoryService($http, Upload, $rootScope) {
+        .factory("categoryService", ["$http", "Upload","$rootScope", categoryService]);
+    function categoryService($http, Upload,$rootScope) {
         return {
-            getAll: function() {
+            getAll: function () {
                 return $http({
-                        method: "GET",
-                        url: "Category/GetAll"
+                    method: "GET",
+                    url:"Category/GetAll"
                     })
-                    .then(function(response) {
+                    .then(function (response) {
                         return response.data;
                     });
             },
-            getOne: function(id) {
+            getOne: function (id) {
                 return $http({
                         method: "GET",
-                        url: "Category/GetOne?id=" + id
+                        url: "Category/GetOne?id="+id
                     })
-                    .then(function(response) {
+                    .then(function (response) {
                         return response.data;
                     });
             },
-            save: function(file, name) {
+            save: function (file, name) {
                 Upload.upload({
                     url: "Category/Save",
                     data: { name: name, file: file }
-                }).then(function(resp) {
-                    $rootScope.categoryUploaded();
-                });
+                }).then(function (resp) {
+                        $rootScope.categoryUploaded();
+                    });
             },
-            delete: function(id) {
+            delete: function (id) {
                 return $http({
                         method: "POST",
                         data: {
@@ -39,7 +39,7 @@
                         },
                         url: "Category/Delete?id=" + id
                     })
-                    .then(function(response) {
+                    .then(function (response) {
                         return response.data;
                     });
             }

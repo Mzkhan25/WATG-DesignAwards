@@ -1,6 +1,5 @@
-﻿#region
+﻿using System.Web;
 using System.Web.Mvc;
-#endregion
 
 namespace WATG_DesignAwardsPortal.Web
 {

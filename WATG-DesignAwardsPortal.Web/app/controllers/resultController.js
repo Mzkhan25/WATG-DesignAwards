@@ -18,7 +18,7 @@
             resultService) {
             var getResults = function() {
                 resultService.getAll()
-                    .then(function(result) {
+                    .then(function (result) {
                         $scope.resultList = result;
                         $scope.busyGettingData = false;
                     });

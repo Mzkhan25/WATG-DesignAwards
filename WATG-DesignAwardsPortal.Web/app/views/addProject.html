@@ -5,72 +5,66 @@
 </div>
 <div id="background-result">
     <header>
-        <nav class="top-nav">
+        <nav class="top-nav">             
             <a ui-sref="Category" class="left-align">
 
-                <img class="nav-logo" src="https://watgdevops.blob.core.windows.net/watgdesignawards/logo-small.svg"/>
+                <img class="nav-logo" src="../../css/images/logo-small.svg" />
             </a>
             <div class="container">
                 <div class="nav-wrapper">
-
-                    <a href="#" data-activates="mobile-demo" class="button-collapse">
-                        <i class="material-icons">menu</i>
+                 
+                    <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+                 
+                    <a id="addCategory" title="Add New Category"
+                       class="btn btn-primary btn-xs" data-title="Add New Category"
+                       ng-href="#/addCategory">
+                        Add New Category
                     </a>
-                    <div class="hide-on-med-and-down">
-                        <a id="addCategory" title="Add New Category"
-                           class="btn btn-primary btn-xs" data-title="Add New Category"
-                           ng-href="#/addCategory">
-                            Add New Category
-                        </a>
-
-
-                        <a id="addProject" title="Add New Project"
-                           class="btn btn-primary btn-xs" data-title="Add New Project"
-                           ng-href="#/addProject">
-                            Add New Project
-                        </a>
-                        <a id="addUser" title="Add New Project"
-                           class="btn btn-primary btn-xs" data-title="Add New User"
-                           ng-href="#/addUser">
-                            Add New User
-                        </a>
-                        <a id="results" title="Add New Project"
-                           class="btn btn-primary btn-xs" data-title="results"
-                           ng-href="#/results">
-                            Results
-                        </a>
-                        <a id="logout" title="Sign Out"
-                           class="btn btn-primary btn-xs" data-title="Sign Out"
-                           ng-click="logOut()">
-                            Sign Out
-                        </a>
-
-                    </div>
+                        
+                        
+                    <a id="addProject" title="Add New Project"
+                       class="btn btn-primary btn-xs" data-title="Add New Project"
+                       ng-href="#/addProject">
+                        Add New Project
+                    </a>
+                    <a id="addUser" title="Add New Project"
+                       class="btn btn-primary btn-xs" data-title="Add New User"
+                       ng-href="#/addUser">
+                        Add New User
+                    </a>
+                    <a id="results" title="Add New Project"
+                       class="btn btn-primary btn-xs" data-title="results"
+                       ng-href="#/results">
+                        Results
+                    </a>
+                    <a id="logout" title="Sign Out"
+                       class="btn btn-primary btn-xs" data-title="Sign Out"
+                       ng-click="logOut()">
+                        Sign Out
+                    </a>
                     <ul class="side-nav" id="mobile-demo">
                         <li>
                             <div class="userView">
                                 <div class="background" style="background-color: #AF2125"></div>
-                                <a ui-sref="Category">
-                                    <img class="left-align" src="https://watgdevops.blob.core.windows.net/watgdesignawards/logo-landing.svg">
-                                </a>
+                                <a ui-sref="Category"><img class="left-align" src="../../css/images/logo-landing.svg"></a>
                             </div>
                         </li>
 
-                        <a id="addCategory" title="Add New Category"
+                        <a id="addCategory" title="Add New Category" 
                            class="btn btn-primary btn-xs" data-title="Add New Category"
                            ng-href="#/addCategory">
                             Add New Category
-                        </a>
-                        <a id="addProject" title="Add New Project"
+                        </a>        
+                        <a id="addProject" title="Add New Project" 
                            class="btn btn-primary btn-xs" data-title="Add New Project"
                            ng-href="#/addProject">
                             Add New Project
-                        </a>
+                        </a>   
                         <a id="addUser" title="Add New Project"
                            class="btn btn-xs" data-title="Add New User"
                            ng-href="#/addUser">
                             Add New User
-                        </a>
+                        </a>          
 
                         <a id="results" title="Add New Project"
                            class="btn btn-primary btn-xs" data-title="results"
@@ -81,20 +75,20 @@
                            class="btn btn-primary btn-xs" data-title="Sign Out"
                            ng-click="logOut()">
                             Sign Out
-                        </a>
+                        </a> 
                     </ul>
                 </div>
             </div>
         </nav>
     </header>
-    <form name="form.input" style="color: white" ng-show="!busyGettingData ">
-        <div class="row" ng-class="{'has-error':form.input.Name.$invalid}">
+    <form name="form.input" style="color:white"  ng-show="!busyGettingData ">
+        <div class="row"  ng-class="{'has-error':form.input.Name.$invalid}">
             <div class="col-md-4">
                 <h4>Project Title</h4>
-                <input type="text" ng-model="Project.Title" style="color: white"
+                <input type="text" ng-model="Project.Title"          style="color:white"
                        name="Name" class="form-control"
                        required ng-maxlength="50"
-                       ng-minlength="1"/>
+                       ng-minlength="1" />
                 <div ng-show="form.input.Name.$error.required"
                      class="text-warning">
                     Name required.
@@ -103,11 +97,11 @@
             <!-- Changes-->
             <div class="col-md-2">
                 <h4>Project Office</h4>
-                <input type="text" ng-model="Project.Office" style="color: white"
+                <input type="text" ng-model="Project.Office"     style="color:white"
                        name="Name" class="form-control"
                        required ng-maxlength="50"
-                       ng-minlength="1"/>
-            </div>
+                       ng-minlength="1" />
+            </div>  
             <div class="col-md-2">
                 <h4>Category </h4>
                 <select ng-options="r.Id as r.CategoryName  for r in categories"
@@ -119,40 +113,39 @@
                 </div>
             </div>
         </div>
-        <br/>
+        <br />
         <div class="row" ng-class="{'has-error':form.input.Description.$invalid}">
             <div class="col-md-4">
                 <h4>Description</h4>
-                <input type="text" ng-model="Project.Description" style="color: white"
+                <input type="text" ng-model="Project.Description"        style="color:white"       
                        name="Description" class="form-control"
                        required ng-maxlength="50"
-                       ng-minlength="3"/>
+                       ng-minlength="3" />
                 <div ng-show="form.input.Description.$error.required"
                      class="text-warning">
                     Description required. At least
                     three characters.
                 </div>
             </div>
-
+       
         </div>
-        <br/>
-        <div class="row">
+        <br /><div class="row" >
             <div class="col-md-4">
-                <h4>Display Image</h4>
+                <h4>Display Image</h4>     
                 <input class="form-control input-sm" type="file" ngf-select ng-model="DisplayImage" name="file"
                        accept="image/*" ngf-max-size="1MB" required
                        ngf-model-invalid="errorFile">
-
+       
             </div>
             <div class="col-md-2">
                 <h4>PDF</h4>
                 <input class="form-control input-sm" type="file" ngf-select ng-model="Pdf" name="file"
-                       accept="pdf/*" ngf-max-size="5MB" required
+                       accept="pdf/*" ngf-max-size="5MB"  required
                        ngf-model-invalid="errorFile">
             </div>
         </div>
-        <br/>
-        <br/>
+        <br />
+        <br />
         <div class="row">
             <div class="col-md-2">
                 <a ng-href="#results"
@@ -170,9 +163,10 @@
                 </button>
             </div>
         </div>
-    </form>
+    </form>  
     <footer style="height: 50%">
 
-        <img class="watg-landing" src="https://watgdevops.blob.core.windows.net/watgdesignawards/watg-white.svg"/>
+        <img  class="watg-landing" src="../../css/images/watg-white.svg" />     
     </footer>
 </div>
+  

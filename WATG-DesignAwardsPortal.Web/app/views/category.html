@@ -1,24 +1,25 @@
-﻿<div id="loader-wrapper" ng-show="busyGettingData">
+﻿
+
+
+<div id="loader-wrapper" ng-show="busyGettingData">
     <div id="loader"></div>
     <div class="loader-section section-left"></div>
     <div class="loader-section section-right"></div>
 </div>
 
-<div ng-show="!busyGettingData">
+<div ng-show="!busyGettingData">                        
     <header>
         <nav class="top-nav">
             <div class="container">
                 <div class="nav-wrapper">
                     <a ui-sref="Category">
 
-                        <img class="nav-logo" src="https://watgdevops.blob.core.windows.net/watgdesignawards/logo-small.svg"/>
+                        <img class="nav-logo" src="../../css/images/logo-small.svg" />
                     </a>
-                    <a href="#" data-activates="mobile-demo" class="button-collapse">
-                        <i class="material-icons">menu</i>
-                    </a>
+                    <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
                     <ul class="right hide-on-med-and-down">
-
-                        <a id="logout" title="Sign Out"
+                        
+                        <a id="logout" title="Add New Project"
                            class="btn btn-primary btn-xs" data-title="Sign Out"
                            ng-click="logOut()">
                             Sign Out
@@ -28,14 +29,12 @@
                         <li>
                             <div class="userView">
                                 <div class="background" style="background-color: #AF2125"></div>
-                                <a ui-sref="Category">
-                                    <img class="side-logo" src="https://watgdevops.blob.core.windows.net/watgdesignawards/logo-landing.svg">
-                                </a>
+                                <a ui-sref="Category"><img class="side-logo" src="../../css/images/logo-landing.svg"></a>
                             </div>
                         </li>
 
-
-                        <a id="logout" title="Sign Out"
+                       
+                        <a id="logout" title="Add New Project"
                            class="btn btn-primary btn-xs" data-title="Sign Out"
                            ng-click="logOut()">
                             Sign Out
@@ -46,17 +45,15 @@
         </nav>
     </header>
     <div class="parallax-container darken valign-wrapper">
-
-        <div class="parallax">
-            <img src="https://watgdevops.blob.core.windows.net/watgdesignawards/parallax5.jpg" style="background-color: white; display: block !important; transform: translate3d(-50%, 609px, 0px);">
-        </div>
+     
+        <div class="parallax"><img src="../../css/images/parallax5.jpg" style="display: block !important;transform: translate3d(-50%, 609px, 0px);background-color: white;"></div>
         <div class="container">
             <div class="row">
                 <div class="col s6 m3 offset-s3 offset-m1 pull-m1">
-                    <img class="responsive-img" src="https://watgdevops.blob.core.windows.net/watgdesignawards/logo-landing.svg">
+                    <img class="responsive-img" src="../../css/images/logo-landing.svg">
                 </div>
                 <div class="col s12 m8">
-                    <span class="white-text" style="font-size: 1.2em; font-weight: 300;">
+                    <span class="white-text" style="font-weight: 300; font-size: 1.2em">
                         The Design Awards are meant to identify and recognize our very best design in several categories, as a way of sharing the best projects that have been completed (built or designed) over the last 2 years as well as "raising the bar" on our expectations for what is considered creative and innovative.
                     </span>
                 </div>
@@ -64,7 +61,7 @@
         </div>
     </div>
 
-
+   
     <div class="section white">
         <div class="row container flow-text grey-text text-darken-1">
             <h3 class="header">
@@ -75,18 +72,16 @@
         <div class="container">
             <div class="row">
                 <!--<div class="col s6 m3 center-align">
-                    <a href="cat_landscape.html">
-                        <img class="service-icons" src="images/s_landscape.svg">
-                    </a>
+                    <a href="cat_landscape.html"><img class="service-icons" src="images/s_landscape.svg"></a>
                 </div>-->
-                <div ng-repeat="category in records">
-                    <div class="col s6 m3 center-align">
+                <div ng-repeat="category in records" >
+                    <div class="col s6 m3 center-align" >  
                         <i ng-click="loadProjects(category.Id)">
-                            <img ng-src="data:image/JPEG;base64,{{category.Image}}" width="100" height="100">
+                            <img ng-src="data:image/JPEG;base64,{{category.Image}}" width="100" height="100">    
                         </i>
-
+                        
                     </div>
-
+                
 
                 </div>
             </div>
@@ -116,9 +111,9 @@
             <p>A "People's Choice" award will be selected from each category based on votes cast on this site. Simultaneously, "Jury's Choice" awards will be selected by the Design Advisory Council (DAC). The DAC jury will include non-WATG judges.</p>
             <p>Awards will be announced on the following dates:</p>
         </div>
-    </div>
+    </div>     
     <footer style="height: 50%">
 
-        <img class="watg-landing" src="https://watgdevops.blob.core.windows.net/watgdesignawards/watg-white.svg"/>
+        <img  class="watg-landing" src="../../css/images/watg-white.svg" />          
     </footer>
 </div>
