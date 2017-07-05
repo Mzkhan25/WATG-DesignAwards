@@ -18,6 +18,22 @@
             $window,
             categoryService,
             projectService) {
+
+            $scope.tinymceModel = 'Initial content';
+
+            $scope.getContent = function () {
+                console.log('Editor content', $scope.tinymceModel);
+            };
+
+            $scope.setContent = function () {
+                $scope.tinymceModel = 'Time ' + (new Date());
+            };
+
+            $scope.tinymceOptions = {
+                plugins: 'link image code',
+                toolbar: 'undo redo  bold italic  alignleft aligncenter alignright  code'
+            };
+
         $scope.busyGettingData = true;
         $scope.categories = [];
         $scope.categoryList = [];
@@ -37,6 +53,10 @@
                 getAllCategories();
             };
             $scope.uploadPic = function () {
+
+                //console.log($scope.Project);
+                $scope.Project.Description = "";
+
                 projectService.save($scope.Project, $scope.DisplayImage, $scope.Pdf);
             };
             $rootScope.validate();

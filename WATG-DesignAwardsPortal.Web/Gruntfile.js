@@ -61,7 +61,9 @@
             },
             vendor: {
                 src: [
-                    "bower_components/angular/angular.js",
+                    //"bower_components/tinymce/tinymce.js",
+                    //"bower_components/angular/angular.js",
+                    //"bower_components/angular-ui-tinymce/src/tinymce.js",
                     "bower_components/jquery/dist/jquery.js",
                     "bower_components/bootstrap/dist/js/bootstrap.min.js",
                     "bower_components/angular-route/angular-route.js",
@@ -80,7 +82,9 @@
             },
             vendorMin: {
                 src: [
-                    "bower_components/angular/angular.min.js",
+                    //"bower_components/tinymce/tinymce.js",
+                    //"bower_components/angular/angular.min.js",
+                    //"bower_components/angular-ui-tinymce/src/tinymce.js",
                     "bower_components/jquery/dist/jquery.min.js",
                     "bower_components/bootstrap/dist/js/bootstrap.min.js",
                     "bower_components/angular-route/angular-route.min.js",

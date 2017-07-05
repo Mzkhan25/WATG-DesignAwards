@@ -114,17 +114,23 @@
             </div>
         </div>
         <br />
-        <div class="row" ng-class="{'has-error':form.input.Description.$invalid}">
+        
+        <!--<textarea ui-tinymce="tinymceOptions" ng-model="tinymceModel"></textarea>-->
+         
+        <!--<textarea ui-tinymce="tinymceOptions" ng-model="tinymceModel">
+        </textarea>-->
+
+        <div class="row" >
             <div class="col-md-4">
                 <h4>Description</h4>
-                <input type="text" ng-model="Project.Description"        style="color:white"       
+
+                <textarea ui-tinymce="tinymceOptions" ng-model="Project.Description"        style="color:white"       
                        name="Description" class="form-control"
-                       required ng-maxlength="50"
-                       ng-minlength="3" />
+                       required ></textarea>
+
                 <div ng-show="form.input.Description.$error.required"
                      class="text-warning">
-                    Description required. At least
-                    three characters.
+                    Description required.
                 </div>
             </div>
        
