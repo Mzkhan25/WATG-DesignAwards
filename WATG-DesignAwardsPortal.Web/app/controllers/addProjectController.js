@@ -30,8 +30,9 @@
             };
 
             $scope.tinymceOptions = {
-                plugins: 'link image code',
-                toolbar: 'undo redo  bold italic  alignleft aligncenter alignright  code'
+                plugins: 'link image code paste',
+                toolbar: 'undo redo  bold italic  alignleft aligncenter alignright code image paste',
+                paste_data_images: true
             };
 
         $scope.busyGettingData = true;
