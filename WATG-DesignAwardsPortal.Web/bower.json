@@ -14,7 +14,8 @@
     "angular-animate": "*",
     "angular-filter": "*",
     "materialize": "*",
-    "ng-file-upload": "*"
+    "ng-file-upload": "*",
+    "angular-ui-tinymce": "^0.0.18"
   },
   "ignore": [
     "**/.*",

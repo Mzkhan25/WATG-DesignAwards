@@ -37,6 +37,7 @@
                     .then(function (results) {
                         for (var i = 0; i < results.length; i++) {
                             results[i].Image = $rootScope.arrayBufferToBase64(results[i].Image);
+
                         }
                         $scope.records = results;
                         $rootScope.categories = results;

@@ -25,8 +25,8 @@
                 $scope.busyGettingData = true;
                 userService.login($scope.userPin)
                     .then(function(result) {
-                        $rootScope.user = result;
-                        console.log($rootScope.user);
+                        localStorage.setItem("userObj",  JSON.stringify(result));
+
                         if (result.Role === 1) {
                             $scope.busyGettingData = false;
                             $location.path("/category");

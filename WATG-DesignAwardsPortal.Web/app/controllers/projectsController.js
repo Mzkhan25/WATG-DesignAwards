@@ -4,7 +4,7 @@
         .module("watgDesignAwards")
         .controller("projectsController",
             [
-                "$scope", "$rootScope", "$routeParams", "$location", "$filter", "$timeout", "$window", "projectService","resultService",
+                "$scope", "$rootScope", "$routeParams", "$location", "$filter", "$timeout", "$window","$sce", "projectService","resultService",
                 projectsController
             ]);
     function
@@ -15,6 +15,7 @@
             $filter,
             $timeout,
             $window,
+            $sce,
             projectService,
             resultService) {
             $scope.categoryId = $routeParams.categoryId;
@@ -30,13 +31,14 @@
                     .then(function (results) {
                         for (var i = 0; i < results.length; i++) {
                             results[i].DisplayImage = $rootScope.arrayBufferToBase64(results[i].DisplayImage);
+                            results[i].Description = $sce.trustAsHtml(results[i].Description);
                         }
                         $scope.projectList = results;
                         $scope.busyGettingData = false;
                     });
             };
-            var voteAlreadyCasted = function() {
-                resultService.checkUserVote($scope.categoryId, $rootScope.user.Id)
+            var voteAlreadyCasted = function () {
+                resultService.checkUserVote($scope.categoryId, JSON.parse(localStorage.getItem("userObj")).Id)
                     .then(function (result) {
                         $scope.hasAlreadyVoted = result;
                         getProjectByCategory();
@@ -48,7 +50,7 @@
             };
             $scope.saveVote = function(projectId, categoryId) {
                 var voteRequest = {
-                    "UserId": $rootScope.user.Id,
+                    "UserId": JSON.parse(localStorage.getItem("userObj")).Id,
                     "ProjectId": projectId,
                     "CategoryId": categoryId
                 };

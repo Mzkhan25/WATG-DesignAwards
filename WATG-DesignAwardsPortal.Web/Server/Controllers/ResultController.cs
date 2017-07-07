@@ -13,6 +13,8 @@ namespace WATG_DesignAwardsPortal.Web.Server.Controllers
     public class ResultController : Controller
     {
         private readonly IResultRepository _result = new ResultRepository();
+        private readonly ICategoryRepository _category = new CategoryRepository();
+        private readonly IProjectRepository _project = new ProjectRepository();
         // GET: Result
         public ActionResult GetAll()
         {
@@ -38,6 +40,10 @@ namespace WATG_DesignAwardsPortal.Web.Server.Controllers
 
         public ActionResult Save(Result result)
         {
+            result.CategoryName = _category.GetAll().Where(p => p.Id == result.CategoryId).ToList()[0].CategoryName;
+
+            result.ProjectName = _project.GetAll().Where(p => p.Id == result.ProjectId).ToList()[0].Title;
+
             var response = _result.Save(result, "");
             return Json(response, JsonRequestBehavior.AllowGet);
 

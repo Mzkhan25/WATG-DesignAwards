@@ -29,6 +29,11 @@ namespace WATG_DesignAwardsPortal.Web.Server.Controllers
             var result = _category.GetAll().ToList();
             return Json(result, JsonRequestBehavior.AllowGet);
         }
+        public ActionResult GetCategoryName(int id)
+        {
+            var result = _category.GetAll().Where(p => p.Id == id);
+            return Json(result, JsonRequestBehavior.AllowGet);
+        }
         public ActionResult Save(HttpPostedFileBase file, string name)
         {
           var result = _category.Save(file, name, "");
