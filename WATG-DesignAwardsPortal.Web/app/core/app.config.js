@@ -56,7 +56,7 @@
         $rootScope.userApplicationRoles = [];
         $rootScope.currentRoute = "/Login";
         
-        $rootScope.adminRoleList = ["results", "addProject", "addUser", "addCategory"];
+        $rootScope.adminRoleList = ["/results", "/addProject", "/addUser", "/addCategory"];
 
         $rootScope.user = localStorage.getItem("userObj");
 
@@ -71,11 +71,18 @@
         };
         $rootScope.validate = function () {
 
-            var absoulteUrl = $location.url();
-            console.log(absoulteUrl);
-
+            var stateUrl = $location.url();
+            console.log(stateUrl);
+            console.log(JSON.parse(localStorage.getItem("userObj")));
             if (!localStorage.getItem("userObj"))
                 $location.path("/login");
+            else if (($rootScope.adminRoleList.indexOf(stateUrl) > -1) && (JSON.parse(localStorage.getItem("userObj")).Role === 0)) {
+                $location.path(stateUrl);
+            }
+            else {
+                $location.path(stateUrl);
+            }
+         
         };
         $rootScope.logOut = function () {
             localStorage.clear();
