@@ -3,7 +3,7 @@
     
     app.config(["$httpProvider", "$routeProvider", "$locationProvider", appConfig]);
     app.run([
-        "$rootScope", "$location", "$interval", "$filter", "appService" , appRun
+        "$rootScope", "$location", "$interval", "$filter", "appService", appRun
     ]);
 
     function appConfig($httpProvider, $routeProvider, $locationProvider) {
@@ -53,10 +53,13 @@
         appService) {
         $rootScope.pageTitle = "WATG| Design Awards";
         $rootScope.form = {};
-        $rootScope.user = {};
         $rootScope.userApplicationRoles = [];
         $rootScope.currentRoute = "/Login";
-        $rootScope.user = "unauthorized";
+        
+        $rootScope.adminRoleList = ["/results", "/addProject", "/addUser", "/addCategory"];
+
+        $rootScope.user = localStorage.getItem("userObj");
+
         $rootScope.arrayBufferToBase64 = function (buffer) {
             var binary = "";
             var bytes = new Uint8Array(buffer);
@@ -67,13 +70,22 @@
             return window.btoa(binary);
         };
         $rootScope.validate = function () {
-            if ($rootScope.user === "unauthorized")
+
+            var stateUrl = $location.url();
+            console.log(stateUrl);
+            console.log(JSON.parse(localStorage.getItem("userObj")));
+            if (!localStorage.getItem("userObj"))
                 $location.path("/login");
-
-
+            else if (($rootScope.adminRoleList.indexOf(stateUrl) > -1) && (JSON.parse(localStorage.getItem("userObj")).Role === 0)) {
+                $location.path(stateUrl);
+            }
+            else {
+                $location.path(stateUrl);
+            }
+         
         };
         $rootScope.logOut = function () {
-            $rootScope.user = "unauthorized";
+            localStorage.clear();
             $location.path("/login");
 
            

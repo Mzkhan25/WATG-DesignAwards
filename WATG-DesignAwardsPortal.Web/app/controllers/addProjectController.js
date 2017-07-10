@@ -4,7 +4,7 @@
         .module("watgDesignAwards")
         .controller("addProjectController",
             [
-                "$scope", "$rootScope", "$routeParams", "$location", "$filter", "$timeout", "$window",
+                "$scope", "$rootScope", "$routeParams", "$location", "$filter", "$timeout", "$window", "$sce",
                 "categoryService","projectService",
                 addProjectController
             ]);
@@ -16,6 +16,7 @@
             $filter,
             $timeout,
             $window,
+            $sce,
             categoryService,
             projectService) {
 
@@ -30,7 +31,7 @@
             };
 
             $scope.tinymceOptions = {
-                plugins: 'link image code paste',
+                    plugins: 'link image code paste media',
                 toolbar: 'undo redo  bold italic  alignleft aligncenter alignright code image paste',
                 paste_data_images: true
             };
@@ -55,9 +56,9 @@
             };
             $scope.uploadPic = function () {
 
-                //console.log($scope.Project);
-                $scope.Project.Description = "";
-
+                console.log($scope.Project);
+                //$scope.Project.Description = String($scope.Project.Description).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+                
                 projectService.save($scope.Project, $scope.DisplayImage, $scope.Pdf);
             };
             $rootScope.validate();

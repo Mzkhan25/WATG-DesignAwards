@@ -4,7 +4,7 @@
         .module("watgDesignAwards")
         .controller("projectDetailController",
             [
-                "$scope", "$rootScope", "$routeParams", "$location", "$filter", "$timeout", "$window", "projectService",
+                "$scope", "$rootScope", "$routeParams", "$location", "$filter", "$timeout", "$window","$sce", "projectService",
                 projectDetailController
             ]);
     function
@@ -15,6 +15,7 @@
             $filter,
             $timeout,
             $window,
+            $sce,
             projectService) {
             $scope.busyGettingData = true;
             $scope.projectId = $routeParams.projectId;
@@ -23,6 +24,7 @@
                 projectService.getById($scope.projectId)
                     .then(function (result) {
                         result[0].DisplayImage = $rootScope.arrayBufferToBase64(result[0].DisplayImage);
+                        result[0].Description = $sce.trustAsHtml(result[0].Description);
                         $scope.project = result[0];
                         $scope.busyGettingData = false;
                     });

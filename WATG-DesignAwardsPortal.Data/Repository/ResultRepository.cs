@@ -48,6 +48,8 @@ namespace WATG_DesignAwardsPortal.Data.Repository
                 dbItem.ProjectId = item.ProjectId;
                 dbItem.CategoryId = item.CategoryId;
                 dbItem.UserId = item.UserId;
+                dbItem.CategoryName = item.CategoryName;
+                dbItem.ProjectName = item.ProjectName;
 
                 dbItem.IsDeleted = false;
                 if (isNew)

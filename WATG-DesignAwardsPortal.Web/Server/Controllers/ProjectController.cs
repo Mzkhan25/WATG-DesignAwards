@@ -46,6 +46,13 @@ namespace WATG_DesignAwardsPortal.Web.Server.Controllers
             };
             return jsonResult;
         }
+
+        public ActionResult GetProjectName(int id)
+        {
+            var result = _project.GetAll().Where(p => p.Id == id);
+            return Json(result, JsonRequestBehavior.AllowGet);
+        }
+        [ValidateInput(false)]
         public ActionResult Save(Project project, HttpPostedFileBase image, HttpPostedFileBase document)
         {
             if (document != null)
