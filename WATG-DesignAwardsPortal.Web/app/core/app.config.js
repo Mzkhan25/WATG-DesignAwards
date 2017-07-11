@@ -69,21 +69,48 @@
             }
             return window.btoa(binary);
         };
-        $rootScope.validate = function () {
 
+        $rootScope.validateAdmin = function () {
             var stateUrl = $location.url();
-            console.log(stateUrl);
-            console.log(JSON.parse(localStorage.getItem("userObj")));
+
             if (!localStorage.getItem("userObj"))
                 $location.path("/login");
-            else if (($rootScope.adminRoleList.indexOf(stateUrl) > -1) && (JSON.parse(localStorage.getItem("userObj")).Role === 0)) {
-                $location.path(stateUrl);
-            }
             else {
-                $location.path(stateUrl);
+                var loggedInTimeStamp = localStorage.getItem("loginTimeStamp");
+                var currentTimeStamp = new Date();
+
+                var timeDiff = $rootScope.calculateDiffInMins(loggedInTimeStamp, currentTimeStamp);
+
+                if ((JSON.parse(localStorage.getItem("userObj")).Role === 0) && (timeDiff < parseInt(localStorage.getItem("sessionTime"))))
+                {
+                    $location.path(stateUrl);
+                }
+                else {
+                    $location.path("/login");
+                }
             }
-         
         };
+
+        $rootScope.validateUser = function () {
+            var stateUrl = $location.url();
+         
+            if (!localStorage.getItem("userObj"))
+                $location.path("/login");
+            else {
+                var loggedInTimeStamp = localStorage.getItem("loginTimeStamp");
+                var currentTimeStamp = new Date();
+
+                var timeDiff = $rootScope.calculateDiffInMins(loggedInTimeStamp,currentTimeStamp);
+
+                if ((JSON.parse(localStorage.getItem("userObj")).Role === 1) && (timeDiff < parseInt(localStorage.getItem("sessionTime")))) {
+                    $location.path(stateUrl);
+                }
+                else {
+                    $location.path("/login");
+                }
+            }
+        };
+
         $rootScope.logOut = function () {
             localStorage.clear();
             $location.path("/login");
@@ -96,6 +123,21 @@
             });
         };
         $rootScope.makeFolders();
-      
+
+        $rootScope.getTime = function () {
+            appService.getSessionTime().then(function (response) {
+                localStorage.setItem("sessionTime", response);
+
+            });
+        };
+        $rootScope.getTime();
+
+        $rootScope.calculateDiffInMins = function (loggedInDate,currentDate) {
+            var diffMis = new Date(currentDate - (new Date(loggedInDate)));
+            
+            return diffMis.getMinutes();
+
+        };
+        
     }
 })();

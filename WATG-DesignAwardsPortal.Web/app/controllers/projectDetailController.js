@@ -4,7 +4,7 @@
         .module("watgDesignAwards")
         .controller("projectDetailController",
             [
-                "$scope", "$rootScope", "$routeParams", "$location", "$filter", "$timeout", "$window","$sce", "projectService",
+                "$scope", "$rootScope", "$routeParams", "$location", "$filter", "$timeout", "$window","$sce", "projectService","categoryService",
                 projectDetailController
             ]);
     function
@@ -16,13 +16,27 @@
             $timeout,
             $window,
             $sce,
-            projectService) {
+            projectService,
+            categoryService) {
             $scope.busyGettingData = true;
             $scope.projectId = $routeParams.projectId;
+            $scope.categoryName = "";
+
+            $scope.$on("$viewContentLoaded", function () {
+                $(".dropdown-button").dropdown();
+                $(".button-collapse").sideNav();
+            });
+
             var getProjectById = function () {
                 
                 projectService.getById($scope.projectId)
                     .then(function (result) {
+
+                        categoryService.getOne(result[0].CategoryId).
+                            then(function (category) {
+                                $scope.categoryName = category[0].CategoryName;
+                            });
+                        
                         result[0].DisplayImage = $rootScope.arrayBufferToBase64(result[0].DisplayImage);
                         result[0].Description = $sce.trustAsHtml(result[0].Description);
                         $scope.project = result[0];
@@ -32,7 +46,7 @@
             $scope.getProject = function() {
                 $window.open($scope.project.PdfPath);
             };
-            $rootScope.validate();
+            $rootScope.validateUser();
             getProjectById();
         }
 }());

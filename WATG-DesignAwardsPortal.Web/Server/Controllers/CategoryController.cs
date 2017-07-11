@@ -26,7 +26,7 @@ namespace WATG_DesignAwardsPortal.Web.Server.Controllers
         }
         public ActionResult GetOne(int id)
         {
-            var result = _category.GetAll().ToList();
+            var result = _category.GetAll().Where(x => x.Id == id).ToList();
             return Json(result, JsonRequestBehavior.AllowGet);
         }
         public ActionResult GetCategoryName(int id)

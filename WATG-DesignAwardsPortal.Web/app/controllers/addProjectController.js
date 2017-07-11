@@ -61,7 +61,7 @@
                 
                 projectService.save($scope.Project, $scope.DisplayImage, $scope.Pdf);
             };
-            $rootScope.validate();
+            $rootScope.validateAdmin();
             getAllCategories();
 
         }

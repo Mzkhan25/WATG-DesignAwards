@@ -41,11 +41,11 @@
                         }
                         $scope.records = results;
                         $rootScope.categories = results;
-                        
+                       
                         $scope.busyGettingData = false;
                     });
             }
-            $rootScope.validate();
+            $rootScope.validateUser();
             getAll();
         }
 }());

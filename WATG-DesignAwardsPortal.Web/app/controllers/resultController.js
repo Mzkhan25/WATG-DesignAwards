@@ -24,7 +24,7 @@
                     });
             };
             $scope.busyGettingData = true;
-            $rootScope.validate();
+            $rootScope.validateAdmin();
             getResults();
         }
 }());

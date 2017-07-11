@@ -30,10 +30,13 @@
 
                         if (result.Role === 1) {
                             $scope.busyGettingData = false;
+                            
+                            localStorage.setItem("loginTimeStamp", new Date());
                             $location.path("/category");
                         }
                         else if (result.Role === 0) {
                             $scope.busyGettingData = false;
+                            localStorage.setItem("loginTimeStamp", new Date());
                             $location.path("/results");
                         }
                         else {

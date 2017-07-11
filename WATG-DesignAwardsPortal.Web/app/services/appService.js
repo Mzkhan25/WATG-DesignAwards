@@ -13,6 +13,15 @@
                     .then(function (response) {
                         return response.data;
                     });
+            },
+            getSessionTime: function () {
+                return $http({
+                    method: "GET",
+                    url: "Util/GetUserSessionTime"
+                })
+                .then(function (response) {
+                    return response.data;
+                });
             }
         };
     }

@@ -23,7 +23,7 @@
                     alert(result);
                 });
         };
-            $rootScope.validate();
+            $rootScope.validateAdmin();
     }
 
 }());

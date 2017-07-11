@@ -46,7 +46,7 @@
                         getAll();
                     });
             };
-            $rootScope.validate();
+            $rootScope.validateAdmin();
             getAll();
 
         }

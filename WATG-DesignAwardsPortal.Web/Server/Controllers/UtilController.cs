@@ -1,10 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Security.AccessControl;
 using System.Security.Principal;
-using System.Web;
+using System.Web.Configuration;
 using System.Web.Mvc;
 
 namespace WATG_DesignAwardsPortal.Web.Server.Controllers
@@ -43,6 +42,13 @@ namespace WATG_DesignAwardsPortal.Web.Server.Controllers
                 result = false;
             }
             return result;
+        }
+
+        public ActionResult GetUserSessionTime()
+        {
+            var result = WebConfigurationManager.AppSettings["UserSessionTimeInMins"];
+
+            return Json(result, JsonRequestBehavior.AllowGet);
         }
     }
 }

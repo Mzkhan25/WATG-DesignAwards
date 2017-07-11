@@ -26,6 +26,12 @@
             $scope.disbleVotBtn = false;
             $scope.busyGettingData = true;
 
+            $scope.$on("$viewContentLoaded", function () {
+                
+                $(".dropdown-button").dropdown();
+                $(".button-collapse").sideNav();
+            });
+
             var getProjectByCategory = function () {
                 projectService.getByCategory($scope.categoryId)
                     .then(function (results) {
@@ -63,7 +69,7 @@
             $scope.selectedProject = function(id) {
                 $location.path("/projectDetail/" + id);
             };
-            $rootScope.validate();
+            $rootScope.validateUser();
             
             voteAlreadyCasted();
         }

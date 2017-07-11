@@ -98,8 +98,8 @@
             <tbody>
 
             <tr ng-repeat="r in resultList | orderBy:'CategoryId'">
-                <td>{{r.CategoryName | cut:true:10:' ...' }}</td>
-                <td>{{r.ProjectName}}</td>
+                <td>{{r.CategoryName | cut:true:22:' ...' }}</td>
+                <td>{{r.ProjectName | cut:true:22:' ...'}}</td>
                 <td>{{r.UserId}}</td>
             </tr>
           
