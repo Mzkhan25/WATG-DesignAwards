@@ -6,79 +6,28 @@
 
 <div  id="background-result"  ng-show="!busyGettingData " nv-file-drop="" uploader="uploader">
     <header>
-        <nav class="top-nav">             
-            <a ui-sref="Category" class="left-align">
+        <nav class="top-nav">
+            <div class="nav-wrapper">
+                <a ui-sref="Category" class="left-align">
+                    <img class="nav-logo" src="../../css/images/logo-small.svg" />
+                </a>
+                <a href="#" data-activates="mobile-demo" class="button-collapse"><i>menu</i></a>
+                <ul id="nav-mobile" class="right hide-on-med-and-down">
+                    <li><a id="addCategory" ng-href="#/addCategory">Add New Category</a></li>
+                    <li><a id="addProject" ng-href="#/addProject">Add New Project</a></li>
+                    <li><a id="addUser" ng-href="#/addUser">Add New User</a></li>
+                    <li><a id="results" ng-href="#/results">Results</a></li>
+                    <li><a id="logout" ng-click="logOut()">Sign Out</a> </li>
+                </ul>
 
-                <img class="nav-logo" src="../../css/images/logo-small.svg" />
-            </a>
-            <div class="container">
-                <div class="nav-wrapper">
-                 
-                    <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
-                 
-                    <a id="addCategory" title="Add New Category"
-                       class="btn btn-primary btn-xs" data-title="Add New Category"
-                       ng-href="#/addCategory">
-                        Add New Category
-                    </a>
-                        
-                        
-                    <a id="addProject" title="Add New Project"
-                       class="btn btn-primary btn-xs" data-title="Add New Project"
-                       ng-href="#/addProject">
-                        Add New Project
-                    </a>
-                    <a id="addUser" title="Add New Project"
-                       class="btn btn-primary btn-xs" data-title="Add New User"
-                       ng-href="#/addUser">
-                        Add New User
-                    </a>
-                    <a id="results" title="Add New Project"
-                       class="btn btn-primary btn-xs" data-title="results"
-                       ng-href="#/results">
-                        Results
-                    </a>
-                    <a id="logout" title="Sign Out"
-                       class="btn btn-primary btn-xs" data-title="Sign Out"
-                       ng-click="logOut()">
-                        Sign Out
-                    </a>
-                    <ul class="side-nav" id="mobile-demo">
-                        <li>
-                            <div class="userView">
-                                <div class="background" style="background-color: #AF2125"></div>
-                                <a ui-sref="Category"><img class="left-align" src="../../css/images/logo-landing.svg"></a>
-                            </div>
-                        </li>
+                <ul class="side-nav" id="mobile-demo">
+                    <li><a id="addCategory" ng-href="#/addCategory">Add New Category</a></li>
+                    <li><a id="addProject" ng-href="#/addProject">Add New Project</a></li>
+                    <li><a id="addUser" ng-href="#/addUser">Add New User</a></li>
+                    <li><a id="results" ng-href="#/results">Results</a></li>
+                    <li><a id="logout" ng-click="logOut()">Sign Out</a> </li>
+                </ul>
 
-                        <a id="addCategory" title="Add New Category" 
-                           class="btn btn-primary btn-xs" data-title="Add New Category"
-                           ng-href="#/addCategory">
-                            Add New Category
-                        </a>        
-                        <a id="addProject" title="Add New Project" 
-                           class="btn btn-primary btn-xs" data-title="Add New Project"
-                           ng-href="#/addProject">
-                            Add New Project
-                        </a>   
-                        <a id="addUser" title="Add New Project"
-                           class="btn btn-xs" data-title="Add New User"
-                           ng-href="#/addUser">
-                            Add New User
-                        </a>          
-
-                        <a id="results" title="Add New Project"
-                           class="btn btn-primary btn-xs" data-title="results"
-                           ng-href="#/results">
-                            Results
-                        </a>
-                        <a id="logout" title="Sign Out"
-                           class="btn btn-primary btn-xs" data-title="Sign Out"
-                           ng-click="logOut()">
-                            Sign Out
-                        </a> 
-                    </ul>
-                </div>
             </div>
         </nav>
     </header>
@@ -165,8 +114,13 @@
             </div>
         </div>
     </div>
-    <footer style="height: 50%">
-
-        <img  class="watg-landing" src="../../css/images/watg-white.svg" />    
+    <footer class="page-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col l6 s12">
+                    <h5 class="white-text"><img class="watg-landing-admin" src="../../css/images/watg-white.svg" /></h5>
+                </div>
+            </div>
+        </div>
     </footer>
 </div>

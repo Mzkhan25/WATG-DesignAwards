@@ -5,7 +5,7 @@
 </div>
 <div id="background-result" ondragover="return false">
     <header>
-        <nav class="top-nav">             
+        <!--<nav class="top-nav">             
             <a ui-sref="Category" class="left-align">
 
                 <img class="nav-logo" src="../../css/images/logo-small.svg" />
@@ -79,100 +79,142 @@
                     </ul>
                 </div>
             </div>
+        </nav>-->
+
+        <nav class="top-nav">
+            <div class="nav-wrapper">
+                <a ui-sref="Category" class="left-align">
+                    <img class="nav-logo" src="../../css/images/logo-small.svg" />
+                </a>
+                <a href="#" data-activates="mobile-demo" class="button-collapse"><i>menu</i></a>
+                <ul id="nav-mobile" class="right hide-on-med-and-down">
+                    <li><a id="addCategory"ng-href="#/addCategory">Add New Category</a></li>
+                    <li><a id="addProject" ng-href="#/addProject">Add New Project</a></li>
+                    <li><a id="addUser" ng-href="#/addUser">Add New User</a></li>
+                    <li><a id="results" ng-href="#/results">Results</a></li>
+                    <li><a id="logout" ng-click="logOut()">Sign Out</a> </li>
+                </ul>
+
+                <ul class="side-nav" id="mobile-demo">
+                    <li><a id="addCategory" ng-href="#/addCategory">Add New Category</a></li>
+                    <li><a id="addProject" ng-href="#/addProject">Add New Project</a></li>
+                    <li><a id="addUser" ng-href="#/addUser">Add New User</a></li>
+                    <li><a id="results" ng-href="#/results">Results</a></li>
+                    <li><a id="logout" ng-click="logOut()">Sign Out</a> </li>
+                </ul>
+
+            </div>
         </nav>
     </header>
-    <form name="form.input" style="color:white"  ng-show="!busyGettingData ">
-        <div class="row"  ng-class="{'has-error':form.input.Name.$invalid}">
-            <div class="col-md-4">
-                <h4>Project Title</h4>
-                <input type="text" ng-model="Project.Title"          style="color:white"
-                       name="Name" class="form-control"
-                       required ng-maxlength="50"
-                       ng-minlength="1" />
-                <div ng-show="form.input.Name.$error.required"
-                     class="text-warning">
-                    Name required.
+
+    <div class="row">
+        <form class="col s12" name="form.input" style="color:white" ng-show="!busyGettingData ">
+            <div class="row" ng-class="{'has-error':form.input.Name.$invalid}">
+                <div class="input-field col s4">
+                    <input type="text" ng-model="Project.Title" style="color:white"
+                           name="projectTitle" class="form-control"
+                           required ng-maxlength="50"
+                           ng-minlength="1" />
+                    <label for="projectTitle">Project Title</label>
+                    <div ng-show="form.input.projectTitle.$error.required"
+                         class="text-warning">
+                        Name required.
+                    </div>
+                </div>
+                <!-- Changes-->
+                <div class="input-field col s4">
+                    <input type="text" ng-model="Project.Office" style="color:white"
+                           name="projectOffice" class="form-control"
+                           required ng-maxlength="50"
+                           ng-minlength="1" />
+                    <label for="projectOffice">Project Office</label>
+                </div>
+                <div class="input-field col s4">
+                    <select name="category" ng-options="r.Id as r.CategoryName  for r in categories"
+                            class="form-control"
+                            ng-model="Project.CategoryId"></select>
+                    <label for="category">Category</label>
+
+                    <div ng-show="form.input.CategoryId.$error.required"
+                         class="text-warning">
+                        Category is Required.
+                    </div>
                 </div>
             </div>
-            <!-- Changes-->
-            <div class="col-md-2">
-                <h4>Project Office</h4>
-                <input type="text" ng-model="Project.Office"     style="color:white"
-                       name="Name" class="form-control"
-                       required ng-maxlength="50"
-                       ng-minlength="1" />
-            </div>  
-            <div class="col-md-2">
-                <h4>Category </h4>
-                <select ng-options="r.Id as r.CategoryName  for r in categories"
-                        class="form-control input-sm"
-                        ng-model="Project.CategoryId"></select>
-                <div ng-show="form.input.CategoryId.$error.required"
-                     class="text-warning">
-                    Category is Required.
+            <br />
+
+            <!--<textarea ui-tinymce="tinymceOptions" ng-model="tinymceModel"></textarea>-->
+            <!--<textarea ui-tinymce="tinymceOptions" ng-model="tinymceModel">
+            </textarea>-->
+
+            <div class="row">
+                <div class="col-md-12">
+                    <h4>Description</h4>
+
+                    <textarea ui-tinymce="tinymceOptions" ng-model="Project.Description" style="color:white"
+                              name="Description" class="form-control"
+                              required></textarea>
+
+                    <div ng-show="form.input.Description.$error.required"
+                         class="text-warning">
+                        Description required.
+                    </div>
+                </div>
+
+            </div>
+            <br /><div class="row">
+                <div class="col-md-4">
+                    <h4>Display Image</h4>
+                    <input class="form-control input-sm" type="file" ngf-select ng-model="DisplayImage" name="file"
+                           accept="image/*" ngf-max-size="1MB" required
+                           ngf-model-invalid="errorFile">
+
+                </div>
+                <div class="col-md-2">
+                    <h4>PDF</h4>
+                    <input class="form-control input-sm" type="file" ngf-select ng-model="Pdf" name="file"
+                           accept="pdf/*" ngf-max-size="5MB" required
+                           ngf-model-invalid="errorFile">
                 </div>
             </div>
-        </div>
-        <br />
-        
-        <!--<textarea ui-tinymce="tinymceOptions" ng-model="tinymceModel"></textarea>-->
-         
-        <!--<textarea ui-tinymce="tinymceOptions" ng-model="tinymceModel">
-        </textarea>-->
-
-        <div class="row" >
-            <div class="col-md-4">
-                <h4>Description</h4>
-
-                <textarea ui-tinymce="tinymceOptions" ng-model="Project.Description" style="color:white"       
-                       name="Description" class="form-control"
-                       required ></textarea>
-
-                <div ng-show="form.input.Description.$error.required"
-                     class="text-warning">
-                    Description required.
+            <br />
+            <br />
+            <div class="row">
+                <div class="col s6">
+                    <a ng-href="#results"
+                       class="btn btn-default">
+                        <i class="fa fa-arrow-left"></i> Cancel
+                    </a>
                 </div>
+                <div class="col s6">
+                    <button ng-click="uploadPic()"
+                            class="btn btn-primary pull-right"
+                            ng-disabled="form.input.$invalid || busySaving">
+                        <i class="fa fa-save" ng-hide="busySaving"></i>
+                        <i class="fa fa-refresh fa-spin"
+                           ng-show="busySaving"></i> Save
+                    </button>
+                </div>
+
             </div>
-       
-        </div>
-        <br /><div class="row" >
-            <div class="col-md-4">
-                <h4>Display Image</h4>     
-                <input class="form-control input-sm" type="file" ngf-select ng-model="DisplayImage" name="file"
-                       accept="image/*" ngf-max-size="1MB" required
-                       ngf-model-invalid="errorFile">
-       
-            </div>
-            <div class="col-md-2">
-                <h4>PDF</h4>
-                <input class="form-control input-sm" type="file" ngf-select ng-model="Pdf" name="file"
-                       accept="pdf/*" ngf-max-size="5MB"  required
-                       ngf-model-invalid="errorFile">
-            </div>
-        </div>
-        <br />
-        <br />
+        </form>
+    </div>
         <div class="row">
-            <div class="col-md-2">
-                <a ng-href="#results"
-                   class="btn btn-default">
-                    <i class="fa fa-arrow-left"></i> Cancel
-                </a>
-            </div>
-            <div class="col-md-2">
-                <button ng-click="uploadPic()"
-                        class="btn btn-primary pull-right"
-                        ng-disabled="form.input.$invalid || busySaving">
-                    <i class="fa fa-save" ng-hide="busySaving"></i>
-                    <i class="fa fa-refresh fa-spin"
-                       ng-show="busySaving"></i> Save
-                </button>
+           
+        </div>
+
+        <!--<footer>
+            <img class="watg-landing" src="../../css/images/watg-white.svg" />
+        </footer>-->
+
+    <footer class="page-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col l6 s12">
+                    <h5 class="white-text"><img class="watg-landing-admin" src="../../css/images/watg-white.svg" /></h5>
+                </div>
             </div>
         </div>
-    </form>  
-    <footer style="height: 50%">
-
-        <img  class="watg-landing" src="../../css/images/watg-white.svg" />     
     </footer>
-</div>
+    </div>
   

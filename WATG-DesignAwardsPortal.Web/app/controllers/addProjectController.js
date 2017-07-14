@@ -20,6 +20,11 @@
             categoryService,
             projectService) {
 
+            $scope.$on("$viewContentLoaded", function () {
+                $(".dropdown-button").dropdown();
+                $(".button-collapse").sideNav();
+            });
+
             $scope.tinymceModel = 'Initial content';
 
             $scope.getContent = function () {
@@ -57,9 +62,28 @@
             $scope.uploadPic = function () {
 
                 console.log($scope.Project);
+                $scope.busyGettingData = true;
                 //$scope.Project.Description = String($scope.Project.Description).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
-                
-                projectService.save($scope.Project, $scope.DisplayImage, $scope.Pdf);
+
+                var results = projectService.save($scope.Project, $scope.DisplayImage, $scope.Pdf)
+                    .then(function (results) {
+                        $scope.Project.Title = "";
+                        $scope.Project.Office = "";
+                        $scope.Project.CategoryId = "";
+                        $scope.Project.Description = "";
+                        $scope.DisplayImage = "";
+                        $scope.Pdf = "";
+                        
+                    if(results)
+                        {
+                            Materialize.toast('Project added successfully', 4000);
+                            $scope.busyGettingData = false;
+                        }
+                    else {
+                        Materialize.toast('Project not added', 4000);
+                        $scope.busyGettingData = false;
+                    }
+            });
             };
             $rootScope.validateAdmin();
             getAllCategories();

@@ -17,7 +17,12 @@
             $timeout,
             $window,
             categoryService) {
-         
+
+            $scope.$on("$viewContentLoaded", function () {
+                $(".dropdown-button").dropdown();
+                $(".button-collapse").sideNav();
+            });
+
             function getAll() {
                 $scope.busyGettingData = true;
                 categoryService.getAll()
@@ -30,8 +35,21 @@
                     });
             }
             $scope.uploadPic = function (file) {
+                $scope.busyGettingData = true;
                 if ($scope.categoryImage && $scope.categoryName)
-                    categoryService.save(file, $scope.categoryName);
+                    categoryService.save(file, $scope.categoryName)
+                        .then(function (results) {
+                            $scope.categoryName = "";
+                            $scope.categoryImage = "";
+
+                            if (results){
+                                Materialize.toast('Category added successfully', 4000);
+                            }
+                            else {
+                                Materialize.toast('Category not added', 4000);
+                            }
+                            $scope.busyGettingData = false;
+                        });
             };
             $rootScope.categoryUploaded = function () {
                 getAll();
@@ -41,8 +59,15 @@
                 $scope.imageBlob = imageBlob;
             };
             $scope.delete = function (id) {
+                $scope.busyGettingData = true;
                 categoryService.delete(id)
                     .then(function (result) {
+                        if (results) {
+                            Materialize.toast('Category removed successfully', 4000);
+                        }
+                        else {
+                            Materialize.toast('Error occured', 4000);
+                        }
                         getAll();
                     });
             };

@@ -33,11 +33,11 @@
                     });
             },
             save: function (project,image,document) {
-                Upload.upload({
+               return  Upload.upload({
                     url: "Project/Save",
                     data: { project: project, image: image, document: document}
                 }).then(function (resp) {
-                    $rootScope.projectUploaded();
+                    return resp.data;
                 });
                 
             }

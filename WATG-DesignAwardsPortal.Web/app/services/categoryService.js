@@ -24,11 +24,12 @@
                     });
             },
             save: function (file, name) {
-                Upload.upload({
+               return Upload.upload({
                     url: "Category/Save",
                     data: { name: name, file: file }
                 }).then(function (resp) {
-                        $rootScope.categoryUploaded();
+                    $rootScope.categoryUploaded();
+                    return resp.data;
                     });
             },
             delete: function (id) {

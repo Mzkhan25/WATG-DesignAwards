@@ -16,6 +16,13 @@
             $timeout,
             $window,
             resultService) {
+
+            $scope.$on("$viewContentLoaded", function () {
+                $(".dropdown-button").dropdown();
+                $(".button-collapse").sideNav();
+            });
+
+
             var getResults = function() {
                 resultService.getAll()
                     .then(function (result) {

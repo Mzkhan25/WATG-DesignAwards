@@ -114,8 +114,6 @@
         $rootScope.logOut = function () {
             localStorage.clear();
             $location.path("/login");
-
-           
         };
         $rootScope.makeFolders = function () {
             appService.makeNecessarryFolders().then(function (response) {
