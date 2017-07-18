@@ -11,14 +11,13 @@
                 <div class="nav-wrapper">
                     <a ui-sref="Category">
 
-                        <img class="nav-logo" src="../../css/images/logo-small.svg" />
+                        <img class="nav-logo" src="css/images/logo-small.svg" />
                     </a>
                     <a href="#" data-activates="mobile-demo" class="button-collapse"><i>menu</i></a>
                     <ul class="right hide-on-med-and-down">
                         <li ng-class="pro.Id == categoryId ? 'active' : ''"
                             ng-repeat="pro in categories | limitTo:4">
-                            <a href
-                               ng-click="loadProjects(pro.Id)">{{pro.CategoryName}}</a>
+                            <a ng-click="loadProjects(pro.Id)">{{pro.CategoryName}}</a>
                         </li>
 
                         <!--<div class="dropdown">
@@ -34,7 +33,7 @@
                             <!-- Dropdown Structure -->
                             <ul id='dropdown1' class='dropdown-content'>
                                 <li>
-                                    <a href ng-repeat="pro in categories | limitTo:(4 - categories.length)"
+                                    <a ng-repeat="pro in categories | limitTo:(4 - categories.length)"
                                        ng-click="loadProjects(pro.Id)">{{pro.CategoryName}}</a>
                                 </li>
                             </ul>
@@ -54,7 +53,7 @@
                         <li>
                             <div class="userView">
                                 <div class="background" style="background-color: #AF2125"></div>
-                                <a ui-sref="Category"><img class="side-logo" src="../../css/images/logo-landing.svg"></a>
+                                <a ui-sref="Category"><img class="side-logo" src="css/images/logo-landing.svg"></a>
                             </div>
                         </li>
 
@@ -74,20 +73,21 @@
         </nav>
     </header>
     <main>
+        
         <div class="parallax-container darken valign-wrapper" style="height: 200px">
-          
-            <div class="parallax"><img src="../../css/images/parallax1.jpg"></div>
+            <div class="parallax"><img src="css/images/parallax5.jpg"></div>
             <div class="container">
                 <div class="row">
                     <div class="col s12">
-                        <h1 class="white-text" style="font-weight: 100">{{projectCategory}}</h1>
+                        <h2 class="white-text uppercase" style="font-weight: 100">{{categoryName}}</h2>
                     </div>
                 </div>
             </div>
         </div>
+
         <div class="section white">
             <div class="row container flow-text grey-text text-darken-1">
-                <p>The following projects were submitted in the <span class="lowercase">{{projectCategory}} </span>category. Please take time to review and vote for your favorite entry.</p>
+                <p>The following projects were submitted in the <span class="lowercase">{{categoryName}}</span> category. Please take time to review and vote for your favorite entry.</p>
             </div>
         </div>
         <div class="container">
@@ -142,7 +142,7 @@
     </main>
     <footer>
         <div class="row container center-align">
-            <img class="watg-footer" src="../../css/images/watg-grey.svg">
+            <img class="watg-footer" src="css/images/watg-grey.svg">
         </div>
     </footer>
 </div>

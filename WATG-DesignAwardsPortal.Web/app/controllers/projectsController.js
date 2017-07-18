@@ -4,7 +4,7 @@
         .module("watgDesignAwards")
         .controller("projectsController",
             [
-                "$scope", "$rootScope", "$routeParams", "$location", "$filter", "$timeout", "$window","$sce", "projectService","resultService",
+                "$scope", "$rootScope", "$routeParams", "$location", "$filter", "$timeout", "$window", "$sce", "projectService", "resultService","categoryService",
                 projectsController
             ]);
     function
@@ -17,7 +17,8 @@
             $window,
             $sce,
             projectService,
-            resultService) {
+            resultService,
+            categoryService) {
             $scope.categoryId = $routeParams.categoryId;
             $scope.projectList = [];
             $scope.voted = "";
@@ -25,11 +26,12 @@
             $scope.voteResponse = false;
             $scope.disbleVotBtn = false;
             $scope.busyGettingData = true;
+            $scope.categoryName = "";
 
             $scope.$on("$viewContentLoaded", function () {
-                
                 $(".dropdown-button").dropdown();
                 $(".button-collapse").sideNav();
+                $('.parallax').parallax();
             });
 
             var getProjectByCategory = function () {
@@ -40,6 +42,12 @@
                             results[i].Description = $sce.trustAsHtml(results[i].Description);
                         }
                         $scope.projectList = results;
+
+                        categoryService.getOne($scope.categoryId).
+                            then(function (category) {
+                                $scope.categoryName = category[0].CategoryName;
+                            });
+
                         $scope.busyGettingData = false;
                     });
             };

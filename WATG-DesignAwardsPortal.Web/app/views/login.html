@@ -8,10 +8,11 @@
 <div ng-show="!login.busyGettingData" id="landing">
     <header class="center-align" style="max-height: 50%">
 
-        <img src="../../css/images/logo-landing.svg" height="150"/>
+        <img src="css/images/logo-landing.svg" height="150"/>
     </header>
 
     <main class="login-card">
+        <form>
         <div class="card grey lighten-4">
             <div class="card-content center-align">
                 <span class="card-title">Enter Your PIN</span>
@@ -19,13 +20,14 @@
                     <input id="password" type="password" class="validate center-align" ng-model="userPin" required ng-click="invalidPINFlag = false" style="font-size: 1.5em">
                     <label for="password" data-error="PIN not recognized">PIN</label>
                 </div>
-                <button class="waves-effect waves-light btn watg-blue" ng-disabled="loginForm.$invalid" type="submit" ng-click="login()">Login</button>
+                <input value="Login" class="waves-effect waves-light btn watg-blue"  ng-disabled="loginForm.$invalid" type="submit" ng-click="login()" />
                 <p ng-if="invalidPINFlag" for="password"><span class="errormsg">{{invalidUserMsg}}</span></p>
             </div>
         </div>
+       </form>
     </main>
     <footer style="height: 50%">
 
-        <img  class="watg-landing" src="../../css/images/watg-white.svg" />          
+        <img  class="watg-landing" src="css/images/watg-white.svg" />          
     </footer>
 </div>

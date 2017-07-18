@@ -21,6 +21,12 @@
                 "Please email helpdesk@watg.com in case you are unable to login to the design awards";
             $scope.invalidPINFlag = false;
             $scope.busyGettingData = false;
+
+            $scope.loginEnterKey = function (keyEvent) {
+                if (keyEvent.which === 13)
+                    $scope.login();
+            };
+
             $scope.login = function() {
                 $scope.busyGettingData = true;
                 userService.login($scope.userPin)

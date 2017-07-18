@@ -354,4 +354,7 @@ body {
 main {
     flex: 1 0 auto;
 }
-    
+
+.uppercase {
+    text-transform:uppercase;
+}
