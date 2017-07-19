@@ -1,12 +1,19 @@
 ﻿(function () {
     var app = angular.module("watgDesignAwards");
     
-    app.config(["$httpProvider", "$routeProvider", "$locationProvider", appConfig]);
+    app.config(["$httpProvider", "$routeProvider", "$locationProvider", "$provide", appConfig]);
     app.run([
         "$rootScope", "$location", "$interval", "$filter", "appService", appRun
     ]);
+    
+    function appConfig($httpProvider, $routeProvider, $locationProvider, $provide) {
+        $provide.decorator('$exceptionHandler', function ($delegate) {
 
-    function appConfig($httpProvider, $routeProvider, $locationProvider) {
+            return function (exception, cause) {
+                $delegate(exception, cause);
+                alert('Error occurred! Please contact admin.');
+            };
+        });
         $httpProvider.defaults.useXDomain = true;
         //To resolve 2f issue
         $locationProvider.hashPrefix("");
@@ -72,7 +79,6 @@
 
         $rootScope.validateAdmin = function () {
             var stateUrl = $location.url();
-
             if (!localStorage.getItem("userObj"))
                 $location.path("/login");
             else {
@@ -93,9 +99,10 @@
 
         $rootScope.validateUser = function () {
             var stateUrl = $location.url();
-         
-            if (!localStorage.getItem("userObj"))
+
+            if (!localStorage.getItem("userObj")) {
                 $location.path("/login");
+            }
             else {
                 var loggedInTimeStamp = localStorage.getItem("loginTimeStamp");
                 var currentTimeStamp = new Date();
@@ -112,7 +119,9 @@
         };
 
         $rootScope.logOut = function () {
+            var previousSessionTime = localStorage.getItem("sessionTime");
             localStorage.clear();
+            localStorage.setItem("sessionTime", previousSessionTime);
             $location.path("/login");
         };
         $rootScope.makeFolders = function () {
