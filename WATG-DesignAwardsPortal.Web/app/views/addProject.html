@@ -5,104 +5,30 @@
 </div>
 <div id="background-result" ondragover="return false">
     <header>
-        <!--<nav class="top-nav">             
-            <a ui-sref="Category" class="left-align">
-
-                <img class="nav-logo" src="css/images/logo-small.svg" />
-            </a>
+        <nav class="top-nav">
             <div class="container">
                 <div class="nav-wrapper">
-                 
-                    <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
-                 
-                    <a id="addCategory" title="Add New Category"
-                       class="btn btn-primary btn-xs" data-title="Add New Category"
-                       ng-href="#/addCategory">
-                        Add New Category
+                    <a ui-sref="Category" class="left-align">
+                        <img class="nav-logo" src="css/images/logo-small.svg" />
                     </a>
-                        
-                        
-                    <a id="addProject" title="Add New Project"
-                       class="btn btn-primary btn-xs" data-title="Add New Project"
-                       ng-href="#/addProject">
-                        Add New Project
-                    </a>
-                    <a id="addUser" title="Add New Project"
-                       class="btn btn-primary btn-xs" data-title="Add New User"
-                       ng-href="#/addUser">
-                        Add New User
-                    </a>
-                    <a id="results" title="Add New Project"
-                       class="btn btn-primary btn-xs" data-title="results"
-                       ng-href="#/results">
-                        Results
-                    </a>
-                    <a id="logout" title="Sign Out"
-                       class="btn btn-primary btn-xs" data-title="Sign Out"
-                       ng-click="logOut()">
-                        Sign Out
-                    </a>
-                    <ul class="side-nav" id="mobile-demo">
-                        <li>
-                            <div class="userView">
-                                <div class="background" style="background-color: #AF2125"></div>
-                                <a ui-sref="Category"><img class="left-align" src="css/images/logo-landing.svg"></a>
-                            </div>
-                        </li>
-
-                        <a id="addCategory" title="Add New Category" 
-                           class="btn btn-primary btn-xs" data-title="Add New Category"
-                           ng-href="#/addCategory">
-                            Add New Category
-                        </a>        
-                        <a id="addProject" title="Add New Project" 
-                           class="btn btn-primary btn-xs" data-title="Add New Project"
-                           ng-href="#/addProject">
-                            Add New Project
-                        </a>   
-                        <a id="addUser" title="Add New Project"
-                           class="btn btn-xs" data-title="Add New User"
-                           ng-href="#/addUser">
-                            Add New User
-                        </a>          
-
-                        <a id="results" title="Add New Project"
-                           class="btn btn-primary btn-xs" data-title="results"
-                           ng-href="#/results">
-                            Results
-                        </a>
-                        <a id="logout" title="Sign Out"
-                           class="btn btn-primary btn-xs" data-title="Sign Out"
-                           ng-click="logOut()">
-                            Sign Out
-                        </a> 
+                    <a href="#" data-activates="mobile-demo" class="button-collapse"><i>menu</i></a>
+                    <ul id="nav-mobile" class="right hide-on-med-and-down">
+                        <li><a id="addCategory" ng-href="#/addCategory">Add New Category</a></li>
+                        <li><a id="addProject" ng-href="#/addProject">Add New Project</a></li>
+                        <li><a id="addUser" ng-href="#/addUser">Add New User</a></li>
+                        <li><a id="results" ng-href="#/results">Results</a></li>
+                        <li><a id="logout" ng-click="logOut()">Sign Out</a> </li>
                     </ul>
+
+                    <ul class="side-nav" id="mobile-demo">
+                        <li><a id="addCategory" ng-href="#/addCategory">Add New Category</a></li>
+                        <li><a id="addProject" ng-href="#/addProject">Add New Project</a></li>
+                        <li><a id="addUser" ng-href="#/addUser">Add New User</a></li>
+                        <li><a id="results" ng-href="#/results">Results</a></li>
+                        <li><a id="logout" ng-click="logOut()">Sign Out</a> </li>
+                    </ul>
+
                 </div>
-            </div>
-        </nav>-->
-
-        <nav class="top-nav">
-            <div class="nav-wrapper">
-                <a ui-sref="Category" class="left-align">
-                    <img class="nav-logo" src="css/images/logo-small.svg" />
-                </a>
-                <a href="#" data-activates="mobile-demo" class="button-collapse"><i>menu</i></a>
-                <ul id="nav-mobile" class="right hide-on-med-and-down">
-                    <li><a id="addCategory"ng-href="#/addCategory">Add New Category</a></li>
-                    <li><a id="addProject" ng-href="#/addProject">Add New Project</a></li>
-                    <li><a id="addUser" ng-href="#/addUser">Add New User</a></li>
-                    <li><a id="results" ng-href="#/results">Results</a></li>
-                    <li><a id="logout" ng-click="logOut()">Sign Out</a> </li>
-                </ul>
-
-                <ul class="side-nav" id="mobile-demo">
-                    <li><a id="addCategory" ng-href="#/addCategory">Add New Category</a></li>
-                    <li><a id="addProject" ng-href="#/addProject">Add New Project</a></li>
-                    <li><a id="addUser" ng-href="#/addUser">Add New User</a></li>
-                    <li><a id="results" ng-href="#/results">Results</a></li>
-                    <li><a id="logout" ng-click="logOut()">Sign Out</a> </li>
-                </ul>
-
             </div>
         </nav>
     </header>
