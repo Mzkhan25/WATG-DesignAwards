@@ -145,6 +145,16 @@
             return diffMis.getMinutes();
 
         };
+
+        $rootScope.navigateHome = function () {
+
+            if (JSON.parse(localStorage.getItem("userObj")).Role === 0){
+                $location.path("/results");
+            }
+            else if (JSON.parse(localStorage.getItem("userObj")).Role === 1){
+                $location.path("/category");
+            }
+        };
         
     }
 })();
