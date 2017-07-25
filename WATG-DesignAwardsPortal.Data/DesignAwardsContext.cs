@@ -13,7 +13,7 @@ namespace WATG_DesignAwardsPortal.Data
         public DesignAwardsContext()
         {
 #if (DEBUG)
-            Database.Connection.ConnectionString = @"Data Source=GRIMREAPER;Initial Catalog=DesignAwardDB;Integrated Security=True;Connect Timeout=15;Encrypt=False;TrustServerCertificate=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+            Database.Connection.ConnectionString = @"Data Source=TESTITSTAGE02\SQLEXPRESS;Initial Catalog=DesignAwards;Integrated Security=False;User ID=webapps;Password=elevated;Connect Timeout=15;Encrypt=False;TrustServerCertificate=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
 #endif
         }
         public DbSet<Category> Categories { get; set; }

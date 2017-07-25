@@ -55,12 +55,12 @@
                            ng-minlength="1" />
                     <label for="projectOffice">Project Office</label>
                 </div>
-                <div class="input-field col s4">
+                <div class="col s4">
+                    <label for="category">Category</label>
                     <select name="category" ng-options="r.Id as r.CategoryName  for r in categories"
                             class="form-control"
                             ng-model="Project.CategoryId"></select>
-                    <label for="category">Category</label>
-
+                   
                     <div ng-show="form.input.CategoryId.$error.required"
                          class="text-warning">
                         Category is Required.
@@ -126,8 +126,4 @@
         </form>
     </div>
 </div>
-<footer class="bottom-footer">
-    <div class="row container center-align">
-        <img src="css/images/watg-grey.svg" height="100" width="100">
-    </div>
-</footer>
+

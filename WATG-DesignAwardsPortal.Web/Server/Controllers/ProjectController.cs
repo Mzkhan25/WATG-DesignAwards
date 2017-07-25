@@ -60,7 +60,7 @@ namespace WATG_DesignAwardsPortal.Web.Server.Controllers
                 try
                 {
 
-                    string directoryRelativePath = "/Attachments/";
+                    string directoryRelativePath = "/watgDesignAwards/Attachments/";
                     var fileName = document.FileName.Split('.')[0] + DateTime.UtcNow.Ticks;
                     project.PdfPath = directoryRelativePath + fileName + document.FileName.Substring(document.FileName.LastIndexOf("."));
                     string attachmentPhysicalPath = Server.MapPath(project.PdfPath);
